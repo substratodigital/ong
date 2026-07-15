@@ -35,3 +35,10 @@ dist-ssr/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Codex & Design source files
+/.codex-staging/
+/V2/
+/v2-*.png
+
+

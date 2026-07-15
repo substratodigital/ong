@@ -60,26 +60,32 @@ Manter ao redor da marca uma margem mínima equivalente à largura de um dos nó
 
 | Token | Valor | Papel |
 |---|---:|---|
-| `color-primary` | `#8B6FE8` | reconhecimento, links e ações principais |
-| `color-secondary` | `#F28CB1` | proximidade e calor humano |
-| `color-accent` | `#F5C84C` | energia, destaques e chamadas |
-| `color-mint` | `#48C9B0` | confiança, progresso e indicadores positivos |
+| `color-primary` | `#775CDE` | reconhecimento, links e ações principais |
+| `color-primary-deep` | `#5438BD` | áreas de alto contraste e hover |
+| `color-mint` | `#5BDEA8` | confiança, progresso e indicadores positivos |
+| `color-yellow` | `#DED05B` | energia, destaques e chamadas |
+| `color-coral` | `#DE6F5B` | proximidade e calor humano |
+| `color-blue` | `#54A2D3` | conhecimento e apoio visual |
 | `color-bg` | `#FAFAFD` | fundo principal |
 | `color-surface` | `#FFFFFF` | cartões e superfícies |
 | `color-text` | `#1F2330` | texto e contraste |
 
-Roxo e carvão sustentam a comunicação institucional. Rosa, amarelo e menta devem aparecer em blocos menores, ilustrações e estados de interação.
+Roxo e carvão sustentam a comunicação institucional. Menta, amarelo, coral e azul aparecem como cores análogas e triádicas em blocos menores, ilustrações e estados de interação.
 
 ## Tipografia
 
-- **Títulos e marca:** Müller ExtraBold, com Montserrat ExtraBold como fallback.
-- **Texto e interface:** Montserrat 400–700.
-- Müller é comercial e só deve ser publicada após inclusão dos arquivos licenciados.
+- **Títulos e chamadas:** Müller ExtraBold. Enquanto os arquivos licenciados não estiverem disponíveis, Manrope 700–800 mantém contraste visual em relação à Montserrat.
+- **Texto e interface:** Montserrat 400–700, nunca abaixo de `16px` em parágrafos.
+- **Hero:** máximo de `82px`, com quebra editorial controlada.
+- **H2:** `36–62px`, conforme a largura da tela.
+- **H3:** `24–30px`.
+- **Body:** `16–18px`, entrelinha `1.58–1.72` e largura de leitura controlada.
+- Müller é comercial e deve substituir o fallback assim que os arquivos licenciados forem adicionados em `public/fonts/`.
 
 ## Forma e interface
 
-- cartão: `20px`;
-- botão: `14px`;
+- cartão: `24px`;
+- botão: `15px`;
 - formas orgânicas podem variar, mas nunca prejudicar leitura ou clique;
 - sombras são suaves e coloridas, sem aparência de vidro pesado;
 - animações devem reforçar conexão, percurso e descoberta;

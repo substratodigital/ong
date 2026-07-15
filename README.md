@@ -19,14 +19,14 @@ A pasta `dist` pode ser publicada diretamente na Vercel. O projeto também é de
 
 ## Identidade
 
-- Marca: coração-rede multicolorido + wordmark Müller/Montserrat.
+- Marca: versões vetoriais oficiais da Fundação, com aplicações roxa e branca.
 - Proporção: “Fundação” aparece com aproximadamente 20% do corpo de “Net do Bem”.
-- Paleta principal: `#8B6FE8`, `#F28CB1`, `#F5C84C`, `#FAFAFD`, `#FFFFFF`, `#1F2330`.
+- Paleta principal: `#775CDE`, `#5BDEA8`, `#DED05B`, `#DE6F5B`, `#54A2D3`, `#FAFAFD` e `#202434`.
 - Linguagem visual: tecnologia humana, massinha, formas orgânicas e rede em movimento.
 
 ## Fonte Müller
 
-Müller é uma fonte comercial. Adicione os arquivos licenciados em `public/fonts/` conforme o README dessa pasta. Até lá, Montserrat mantém a hierarquia e as métricas de forma segura.
+Müller é uma fonte comercial. Adicione os arquivos licenciados em `public/fonts/` conforme o README dessa pasta. Até lá, Manrope mantém a personalidade dos títulos e Montserrat preserva a legibilidade do corpo.
 
 ## Conteúdo pendente antes de publicar
 
