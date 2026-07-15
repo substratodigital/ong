@@ -40,5 +40,7 @@ dist-ssr/
 /.codex-staging/
 /V2/
 /v2-*.png
+/fine-*.png
+
 
 

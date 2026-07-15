@@ -3,13 +3,15 @@ import * as Accordion from '@radix-ui/react-accordion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
-  ArrowDown,
   ArrowRight,
   ChevronDown,
+  Eye,
   FileCheck2,
   HandHeart,
+  HeartHandshake,
   Menu,
   ShieldCheck,
+  Target,
   X,
 } from 'lucide-react'
 
@@ -113,9 +115,13 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (!window.location.hash) return
-    const target = document.querySelector(window.location.hash)
-    requestAnimationFrame(() => target?.scrollIntoView())
+    const selector = window.location.hash
+    if (!selector) return
+    const timer = window.setTimeout(() => {
+      ScrollTrigger.refresh()
+      document.querySelector(selector)?.scrollIntoView({ block: 'start' })
+    }, 450)
+    return () => window.clearTimeout(timer)
   }, [])
 
   useEffect(() => {
@@ -165,14 +171,48 @@ function App() {
             })
           })
 
-          gsap.to('.hero__media-layer', {
-            yPercent: desktop ? 10 : 5,
-            scale: desktop ? 1.08 : 1.03,
-            ease: 'none',
-            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+          const heroTransition = gsap.timeline({
+            scrollTrigger: {
+              trigger: '.hero',
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 0.8,
+              invalidateOnRefresh: true,
+            },
           })
+          heroTransition
+            .to('.hero__media-layer', { yPercent: desktop ? 11 : 5, scale: desktop ? 1.12 : 1.04, ease: 'none' }, 0)
+            .to('.hero__copy', { yPercent: desktop ? -16 : -6, autoAlpha: desktop ? 0.08 : 0.35, ease: 'none' }, 0)
+            .to('.hero__transition-curtain', { scaleY: 1, ease: 'none' }, desktop ? 0.42 : 0.66)
 
-          gsap.to('.ticker__track', { xPercent: -50, duration: 28, ease: 'none', repeat: -1 })
+          const valueCards = gsap.utils.toArray<HTMLElement>('.value-card')
+          if (valueCards.length) {
+            gsap.set(valueCards, { autoAlpha: 0, y: 74, rotation: 4, scale: 0.96, pointerEvents: 'none' })
+            gsap.set(valueCards[0], { autoAlpha: 1, y: 0, rotation: 0, scale: 1, pointerEvents: 'auto' })
+
+            const valuesTimeline = gsap.timeline({
+              scrollTrigger: {
+                trigger: '.values__deck-shell',
+                start: 'center center',
+                end: () => `+=${(valueCards.length - 1) * (desktop ? 420 : 330)}`,
+                scrub: 0.55,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+              },
+            })
+
+            valueCards.slice(1).forEach((card, index) => {
+              valuesTimeline
+                .to(valueCards[index], { autoAlpha: 0, y: -70, rotation: -4, scale: 0.96, pointerEvents: 'none', duration: 0.42 })
+                .fromTo(
+                  card,
+                  { autoAlpha: 0, y: 70, rotation: 4, scale: 0.96, pointerEvents: 'none' },
+                  { autoAlpha: 1, y: 0, rotation: 0, scale: 1, pointerEvents: 'auto', duration: 0.54, ease: 'power2.out' },
+                  '>',
+                )
+            })
+          }
 
           if (desktop) {
             gsap.to('.site-header__inner', {
@@ -245,7 +285,7 @@ function App() {
             <div className="nav__mobile-footer">Sorocaba — SP <span>•</span> Fundação Net do Bem</div>
           </nav>
           <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen}>
-            {menuOpen ? <X /> : <Menu />}
+            {menuOpen ? <X size={31} strokeWidth={2.8} /> : <Menu size={31} strokeWidth={2.8} />}
           </button>
         </div>
       </header>
@@ -267,7 +307,7 @@ function App() {
                 <a className="button button--primary" href="#como-atuamos">Conheça nosso trabalho <ArrowRight size={20} /></a>
                 <a className="button button--secondary" href="#ajude">Apoie a Fundação <HandHeart size={20} /></a>
               </div>
-              <p className="hero__note"><ShieldCheck size={21} /> Não atendemos diretamente: fortalecemos quem já cuida.</p>
+              <p className="hero__note"><ShieldCheck size={21} /><span>Não atendemos diretamente: <span className="hero__note-break">fortalecemos quem já cuida.</span></span></p>
             </div>
 
             <div className="hero__media-shell" aria-label="Coração em rede conectando pessoas e organizações">
@@ -282,17 +322,9 @@ function App() {
               <span className="hero__sticker hero__sticker--top">conexão</span>
               <span className="hero__sticker hero__sticker--bottom"><img src="/v2/brand/icon-purple.svg" alt="" /> cuidado em rede</span>
             </div>
+            <div className="hero__transition-curtain" aria-hidden="true" />
           </div>
-          <a className="hero__scroll" href="#quem-somos"><ArrowDown size={20} /> Role para descobrir</a>
         </section>
-
-        <div className="ticker" aria-hidden="true">
-          <div className="ticker__track">
-            {[...Array(2)].flatMap((_, group) => ['escutar', 'fortalecer', 'conectar', 'transformar'].map((word) => (
-              <span key={`${group}-${word}`}>{word}<img src="/v2/brand/icon-purple.svg" alt="" /></span>
-            )))}
-          </div>
-        </div>
 
         <section className="story section" id="quem-somos">
           <div className="container story__grid">
@@ -305,6 +337,10 @@ function App() {
                 <p>Por isso, a Fundação não atende diretamente crianças e adolescentes: assessora e fortalece as organizações responsáveis pelo acolhimento por meio de pesquisa, capacitação, consultoria, advocacy e mobilização de recursos.</p>
               </div>
             </div>
+            <figure className="story__founder" data-image-reveal>
+              <div className="story__founder-frame"><img src="/v2/images/founder-ong-netdobem.webp" alt="Retrato estilizado em massinha do fundador da Fundação Net do Bem" /></div>
+              <figcaption><strong>Um legado que nasce do cuidado.</strong><span>Fundador da Fundação Net do Bem</span></figcaption>
+            </figure>
           </div>
         </section>
 
@@ -316,19 +352,19 @@ function App() {
             </div>
             <div className="purpose__grid">
               <article className="purpose-card purpose-card--objective interactive-card" data-reveal>
-                <span>Objetivo</span>
-                <h3>Fortalecer quem já atua diretamente na proteção da infância.</h3>
-                <p>Apoiar entidades que auxiliam crianças e adolescentes em situação de vulnerabilidade social, promovendo e defendendo seus direitos fundamentais em conformidade com o ECA.</p>
+                <div className="purpose-card__label"><Target /><span>Objetivo</span></div>
+                <h3>Fortalecer organizações que protegem a infância.</h3>
+                <p>Apoiar entidades que acolhem crianças e adolescentes em situação de vulnerabilidade, ampliando a garantia dos direitos previstos no ECA.</p>
               </article>
               <article className="purpose-card purpose-card--mission interactive-card" data-reveal>
-                <span>Missão</span>
-                <h3>Mobilizar e apoiar.</h3>
-                <p>Mobilizar e apoiar na gestão de recursos, parcerias e sociedade, de forma transparente e eficiente, para fortalecer instituições que promovem a proteção, o desenvolvimento e a inclusão de crianças em situação de vulnerabilidade, contribuindo para a construção de oportunidades e de um futuro mais digno.</p>
+                <div className="purpose-card__label"><HeartHandshake /><span>Missão</span></div>
+                <h3>Transformar cuidado em capacidade institucional.</h3>
+                <p>Conectar recursos, conhecimento, parceiros e sociedade para que instituições atuem com gestão transparente, proteção e inclusão, criando oportunidades e um futuro mais digno.</p>
               </article>
               <article className="purpose-card purpose-card--vision interactive-card" data-reveal>
-                <span>Visão</span>
-                <h3>Ser referência em gestão transparente.</h3>
-                <p>Ser uma referência na captação e gestão transparente de recursos para causas voltadas à infância, ampliando o impacto social por meio do fortalecimento de organizações comprometidas com seu bem-estar e desenvolvimento, para que toda criança tenha acesso à proteção, acolhimento, educação, saúde e oportunidades para alcançar seu pleno potencial.</p>
+                <div className="purpose-card__label"><Eye /><span>Visão</span></div>
+                <h3>Uma rede de referência, proteção e oportunidades.</h3>
+                <p>Consolidar uma atuação reconhecida pela captação e gestão responsável de recursos, fortalecendo organizações para que toda criança tenha acesso a acolhimento, educação, saúde e pleno desenvolvimento.</p>
               </article>
             </div>
           </div>
@@ -381,12 +417,15 @@ function App() {
               <div><span className="section-index">05 — Nossos valores</span><h2>Princípios que orientam cada decisão.</h2></div>
               <p>Os valores tornam visível como a Fundação pretende cumprir sua missão, construir confiança e mobilizar recursos com responsabilidade.</p>
             </div>
-            <div className="values__track" role="list">
-              {values.map(([title, text, icon], index) => (
-                <article className="value-card interactive-card" role="listitem" key={title} data-reveal>
-                  <span>0{index + 1}</span><img src={`/v2/icons/${icon}`} alt="" /><h3>{title}</h3><p>{text}</p>
-                </article>
-              ))}
+            <div className="values__deck-shell">
+              <div className="values__deck" role="list" aria-label="Nove valores da Fundação Net do Bem">
+                {values.map(([title, text, icon], index) => (
+                  <article className="value-card interactive-card" role="listitem" key={title} style={{ '--card-index': index } as CSSProperties}>
+                    <span>0{index + 1} — 09</span><img src={`/v2/icons/${icon}`} alt="" /><h3>{title}</h3><p>{text}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="values__deck-hint" aria-hidden="true"><span>Um princípio por vez</span><span>Role para avançar</span></div>
             </div>
             <div className="integrity-note" data-reveal>
               <img src="/v2/icons/governanca.webp" alt="" />
