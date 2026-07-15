@@ -3,6 +3,7 @@ import * as Accordion from '@radix-ui/react-accordion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
+  ArrowLeft,
   ArrowRight,
   ChevronDown,
   Eye,
@@ -106,6 +107,10 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [loadVideo, setLoadVideo] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
+  const [activeValue, setActiveValue] = useState(0)
+  const valueCardsRef = useRef<Array<HTMLElement | null>>([])
+  const valueTransitionRef = useRef<gsap.core.Timeline | null>(null)
+  const valueIsAnimating = useRef(false)
 
   useEffect(() => {
     const enableVideo = () => setLoadVideo(true)
@@ -185,35 +190,6 @@ function App() {
             .to('.hero__copy', { yPercent: desktop ? -16 : -6, autoAlpha: desktop ? 0.08 : 0.35, ease: 'none' }, 0)
             .to('.hero__transition-curtain', { scaleY: 1, ease: 'none' }, desktop ? 0.42 : 0.66)
 
-          const valueCards = gsap.utils.toArray<HTMLElement>('.value-card')
-          if (valueCards.length) {
-            gsap.set(valueCards, { autoAlpha: 0, y: 74, rotation: 4, scale: 0.96, pointerEvents: 'none' })
-            gsap.set(valueCards[0], { autoAlpha: 1, y: 0, rotation: 0, scale: 1, pointerEvents: 'auto' })
-
-            const valuesTimeline = gsap.timeline({
-              scrollTrigger: {
-                trigger: '.values__deck-shell',
-                start: 'center center',
-                end: () => `+=${(valueCards.length - 1) * (desktop ? 420 : 330)}`,
-                scrub: 0.55,
-                pin: true,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-              },
-            })
-
-            valueCards.slice(1).forEach((card, index) => {
-              valuesTimeline
-                .to(valueCards[index], { autoAlpha: 0, y: -70, rotation: -4, scale: 0.96, pointerEvents: 'none', duration: 0.42 })
-                .fromTo(
-                  card,
-                  { autoAlpha: 0, y: 70, rotation: 4, scale: 0.96, pointerEvents: 'none' },
-                  { autoAlpha: 1, y: 0, rotation: 0, scale: 1, pointerEvents: 'auto', duration: 0.54, ease: 'power2.out' },
-                  '>',
-                )
-            })
-          }
-
           if (desktop) {
             gsap.to('.site-header__inner', {
               minHeight: 66,
@@ -266,6 +242,36 @@ function App() {
     }, app)
     return () => context.revert()
   }, [])
+
+  useEffect(() => () => { valueTransitionRef.current?.kill() }, [])
+
+  const changeValue = (direction: -1 | 1) => {
+    if (valueIsAnimating.current) return
+    const nextIndex = (activeValue + direction + values.length) % values.length
+    const currentCard = valueCardsRef.current[activeValue]
+    const nextCard = valueCardsRef.current[nextIndex]
+
+    if (!currentCard || !nextCard || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setActiveValue(nextIndex)
+      return
+    }
+
+    valueIsAnimating.current = true
+    valueTransitionRef.current?.kill()
+    gsap.set(currentCard, { autoAlpha: 1, x: 0, y: 0, rotation: 0, scale: 1 })
+    gsap.set(nextCard, { autoAlpha: 0, x: direction * 68, y: 18, rotation: direction * 4, scale: 0.96 })
+    setActiveValue(nextIndex)
+
+    valueTransitionRef.current = gsap.timeline({
+      defaults: { overwrite: 'auto' },
+      onComplete: () => {
+        gsap.set([currentCard, nextCard], { clearProps: 'all' })
+        valueIsAnimating.current = false
+      },
+    })
+      .to(currentCard, { autoAlpha: 0, x: direction * -62, rotation: direction * -4, scale: 0.96, duration: 0.3, ease: 'power2.in' })
+      .to(nextCard, { autoAlpha: 1, x: 0, y: 0, rotation: 0, scale: 1, duration: 0.46, ease: 'power3.out' }, '>-0.02')
+  }
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -418,14 +424,26 @@ function App() {
               <p>Os valores tornam visível como a Fundação pretende cumprir sua missão, construir confiança e mobilizar recursos com responsabilidade.</p>
             </div>
             <div className="values__deck-shell">
-              <div className="values__deck" role="list" aria-label="Nove valores da Fundação Net do Bem">
+              <div className="values__deck" role="group" aria-label="Nove valores da Fundação Net do Bem" aria-live="polite">
                 {values.map(([title, text, icon], index) => (
-                  <article className="value-card interactive-card" role="listitem" key={title} style={{ '--card-index': index } as CSSProperties}>
+                  <article
+                    className={`value-card interactive-card ${activeValue === index ? 'is-active' : ''}`}
+                    key={title}
+                    ref={(element) => { valueCardsRef.current[index] = element }}
+                    aria-hidden={activeValue !== index}
+                    aria-label={`${index + 1} de ${values.length}: ${title}`}
+                  >
                     <span>0{index + 1} — 09</span><img src={`/v2/icons/${icon}`} alt="" /><h3>{title}</h3><p>{text}</p>
                   </article>
                 ))}
               </div>
-              <div className="values__deck-hint" aria-hidden="true"><span>Um princípio por vez</span><span>Role para avançar</span></div>
+              <div className="values__controls">
+                <span aria-live="polite">{String(activeValue + 1).padStart(2, '0')} / 09</span>
+                <div>
+                  <button type="button" onClick={() => changeValue(-1)} aria-label="Valor anterior"><ArrowLeft /></button>
+                  <button type="button" onClick={() => changeValue(1)} aria-label="Próximo valor"><ArrowRight /></button>
+                </div>
+              </div>
             </div>
             <div className="integrity-note" data-reveal>
               <img src="/v2/icons/governanca.webp" alt="" />
