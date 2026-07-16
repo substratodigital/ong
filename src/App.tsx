@@ -191,21 +191,21 @@ function App() {
             })
           })
 
-          const heroTransition = gsap.timeline({
-            scrollTrigger: {
-              trigger: '.hero',
-              start: 'top top',
-              end: 'bottom top',
-              scrub: 0.8,
-              invalidateOnRefresh: true,
-            },
-          })
-          heroTransition
-            .to('.hero__media-layer', { yPercent: desktop ? 11 : 5, scale: desktop ? 1.12 : 1.04, ease: 'none' }, 0)
-            .to('.hero__copy', { yPercent: desktop ? -16 : -6, autoAlpha: desktop ? 0.08 : 0.35, ease: 'none' }, 0)
-            .to('.hero__transition-curtain', { scaleY: 1, ease: 'none' }, desktop ? 0.42 : 0.66)
-
           if (desktop) {
+            const heroTransition = gsap.timeline({
+              scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 0.8,
+                invalidateOnRefresh: true,
+              },
+            })
+            heroTransition
+              .to('.hero__media-layer', { yPercent: 11, scale: 1.12, ease: 'none' }, 0)
+              .to('.hero__copy', { yPercent: -16, autoAlpha: 0.08, ease: 'none' }, 0)
+              .to('.hero__transition-curtain', { scaleY: 1, ease: 'none' }, 0.42)
+
             gsap.to('.site-header__inner', {
               minHeight: 66,
               scrollTrigger: { trigger: 'body', start: '80px top', end: '180px top', scrub: 0.4 },
@@ -373,7 +373,7 @@ function App() {
             </div>
             <div className="purpose__layout">
               <figure className="purpose__visual" data-image-reveal>
-                <img src="/illustrations/community-clay.png" alt="Equipe em massinha conectando gestão, conhecimento e cuidado ao redor de uma casa" loading="lazy" />
+                <img src="/v3/images/proposito-institucional.webp" alt="Equipe em massinha conectando gestão, conhecimento e cuidado ao redor de uma casa" loading="lazy" />
                 <figcaption><strong>Cuidado que ganha estrutura.</strong><span>Conhecimento, articulação e gestão trabalhando em rede.</span></figcaption>
               </figure>
               <div className="purpose__grid">
@@ -441,6 +441,11 @@ function App() {
                 <span className="section-index">05 — Nossos valores</span>
                 <h2>Princípios que orientam cada decisão.</h2>
                 <p>Os valores tornam visível como a Fundação pretende cumprir sua missão, construir confiança e mobilizar recursos com responsabilidade.</p>
+                <div className="integrity-note" data-reveal>
+                  <img src="/v2/icons/governanca.webp" alt="" />
+                  <span>Resultado esperado</span>
+                  <p>Uma atuação íntegra: reta, ética, responsável, honrada, virtuosa e exemplar — capaz de servir de referência para toda a rede.</p>
+                </div>
               </div>
               <div className="values__deck-shell">
                 <div className="values__deck" role="group" aria-label="Nove valores da Fundação Net do Bem" aria-live="polite">
@@ -464,11 +469,6 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="integrity-note" data-reveal>
-              <img src="/v2/icons/governanca.webp" alt="" />
-              <span>Resultado esperado</span>
-              <p>Uma atuação íntegra: reta, ética, responsável, honrada, virtuosa e exemplar — capaz de servir de referência para toda a rede.</p>
             </div>
           </div>
         </section>
@@ -505,7 +505,7 @@ function App() {
                   <Accordion.Header>
                     <Accordion.Trigger><span>0{index + 1}</span>{title}<ChevronDown className="accordion__chevron" /></Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content><p>{text}</p><a href="#contato">Documentos em preparação <ArrowRight size={18} /></a></Accordion.Content>
+                  <Accordion.Content className="accordion__content"><p>{text}</p><a href="#contato">Documentos em preparação <ArrowRight size={18} /></a></Accordion.Content>
                 </Accordion.Item>
               ))}
             </Accordion.Root>
