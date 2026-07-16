@@ -21,7 +21,7 @@ A pasta `dist` pode ser publicada diretamente na Vercel. O projeto também é de
 
 - Marca: versões vetoriais oficiais da Fundação, com aplicações roxa e branca.
 - Proporção: “Fundação” aparece com aproximadamente 20% do corpo de “Net do Bem”.
-- Paleta principal: `#775CDE`, `#5BDEA8`, `#DED05B`, `#DE6F5B`, `#54A2D3`, `#FAFAFD` e `#202434`.
+- Paleta principal: `#66AA83`, `#2F6F4C`, `#5BDEA8`, `#DED05B`, `#DE6F5B`, `#54A2D3`, `#FAFAFD` e `#202434`.
 - Linguagem visual: tecnologia humana, massinha, formas orgânicas e rede em movimento.
 
 ## Fonte Müller

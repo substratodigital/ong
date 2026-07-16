@@ -60,8 +60,8 @@ Manter ao redor da marca uma margem mínima equivalente à largura de um dos nó
 
 | Token | Valor | Papel |
 |---|---:|---|
-| `color-primary` | `#775CDE` | reconhecimento, links e ações principais |
-| `color-primary-deep` | `#5438BD` | áreas de alto contraste e hover |
+| `color-primary` | `#66AA83` | reconhecimento, links e ações principais |
+| `color-primary-deep` | `#2F6F4C` | áreas de alto contraste e hover acessível |
 | `color-mint` | `#5BDEA8` | confiança, progresso e indicadores positivos |
 | `color-yellow` | `#DED05B` | energia, destaques e chamadas |
 | `color-coral` | `#DE6F5B` | proximidade e calor humano |
@@ -70,7 +70,7 @@ Manter ao redor da marca uma margem mínima equivalente à largura de um dos nó
 | `color-surface` | `#FFFFFF` | cartões e superfícies |
 | `color-text` | `#1F2330` | texto e contraste |
 
-Roxo e carvão sustentam a comunicação institucional. Menta, amarelo, coral e azul aparecem como cores análogas e triádicas em blocos menores, ilustrações e estados de interação.
+Verde e carvão sustentam a comunicação institucional. O tom principal `#66AA83` identifica a marca; o verde profundo garante contraste em textos, botões e superfícies densas. Menta, amarelo, coral e azul aparecem como cores complementares em blocos menores, ilustrações e estados de interação.
 
 ## Tipografia
 
