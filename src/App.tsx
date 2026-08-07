@@ -18,6 +18,119 @@ import {
 
 gsap.registerPlugin(ScrollTrigger)
 
+interface TeamMember {
+  id: string
+  name: string
+  role: string
+  badge: string
+  caption: string
+  avatar: string
+  bioIntro: string
+  sections: { title?: string; text: string }[]
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    id: 'patricia',
+    name: 'PATRÍCIA NEVES GALHEIGO',
+    role: 'Psicóloga',
+    badge: 'Operação',
+    caption: 'Patrícia — Operação',
+    avatar: '/v4/patricia-operacoes-netdobem.webp',
+    bioIntro:
+      'Psicóloga formada pela Universidade Católica de Petrópolis desde 1998, Patrícia Neves Galheigo reúne uma trajetória de mais de duas décadas dedicada ao desenvolvimento humano, integrando sólida experiência em gestão de pessoas e atuação clínica.',
+    sections: [
+      {
+        title: 'Experiência em Desenvolvimento Humano e Organizacional',
+        text: 'Durante 18 anos exerceu a função de Coordenadora de Recursos Humanos em empresa de grande porte, liderando projetos de Desenvolvimento Humano e Organizacional (DHO), com foco na formação de lideranças, desenvolvimento de equipes, gestão de desempenho, treinamento, clima organizacional, mediação de conflitos e fortalecimento da cultura institucional. Essa vivência consolidou competências na estruturação de processos, desenvolvimento de pessoas e promoção de ambientes organizacionais mais saudáveis e eficientes.',
+      },
+      {
+        title: 'Atuação Clínica',
+        text: 'Há 7 anos atua como psicóloga clínica, realizando atendimento psicoterapêutico a crianças, adolescentes, adultos e idosos. Sua experiência no acompanhamento de crianças e adolescentes motivou sua especialização em Análise do Comportamento Aplicada (ABA), ampliando sua capacidade de contribuir com intervenções fundamentadas em evidências científicas, especialmente nos desafios relacionados ao desenvolvimento infantil, comportamento e aprendizagem.',
+      },
+    ],
+  },
+  {
+    id: 'agda',
+    name: 'Agda Cecília de Pontes Ximenes',
+    role: 'Assistente Social',
+    badge: 'Estratégia',
+    caption: 'Agda — Estratégia',
+    avatar: '/v4/agda-estrategia-net-do-bem.webp',
+    bioIntro:
+      'Assistente Social, com trajetória consolidada nas áreas de Gestão Pública, Proteção Social Especial, Saúde e Terceiro Setor. Atua há mais de uma década no SUAS, com experiência em gestão de equipes, coordenação de serviços de alta complexidade, Casa Lar, CREAS, monitoramento e avaliação de parcerias, elaboração de projetos e capacitação de profissionais e organizações.',
+    sections: [
+      {
+        text: 'Possui Pós-Graduação em Gestão Hospitalar, ampliando sua atuação na interface entre gestão, políticas públicas, saúde e proteção social.',
+      },
+      {
+        text: 'Sua experiência reúne gestão estratégica, liderança de equipes, assessoria técnica, formação profissional e articulação da rede de serviços, com atuação pautada na qualificação das políticas públicas e no fortalecimento das equipes que executam os serviços socioassistenciais.',
+      },
+    ],
+  },
+  {
+    id: 'andre',
+    name: 'André',
+    role: 'Fundador da Fundação Net do Bem',
+    badge: 'Fundador',
+    caption: 'André — Fundador',
+    avatar: '/v4/founder-net-do-bem.webp',
+    bioIntro:
+      'Um legado que nasce do cuidado. Empenhado em fortalecer instituições que cuidam da infância e adolescência em situação de vulnerabilidade social.',
+    sections: [
+      {
+        title: 'Sobre o Fundador',
+        text: 'Idealizou a Fundação Net do Bem com o desejo de deixar um legado vivo e sustentável, devolvendo à sociedade parte do que foi conquistado ao longo da vida e construindo pontes sólidas entre a gestão, o conhecimento e as casas de acolhimento.',
+      },
+    ],
+  },
+]
+
+const purposeCards = [
+  {
+    id: 'objetivo',
+    icon: Target,
+    label: 'Objetivo',
+    title: 'Fortalecer organizações que protegem a infância.',
+    tone: 'objective',
+    text: 'Apoiar entidades que acolhem crianças e adolescentes em situação de vulnerabilidade, ampliando a garantia dos direitos previstos no ECA.',
+  },
+  {
+    id: 'missao',
+    icon: HeartHandshake,
+    label: 'Missão',
+    title: 'Transformar cuidado em capacidade institucional.',
+    tone: 'mission',
+    text: 'Mobilizar e apoiar na gestão de recursos, parcerias e sociedade, de forma transparente e eficiente, para fortalecer instituições que promovem a proteção, o desenvolvimento e a inclusão de crianças em situação de vulnerabilidade, contribuindo para a construção de oportunidades e de um futuro mais digno.',
+  },
+  {
+    id: 'visao',
+    icon: Eye,
+    label: 'Visão',
+    title: 'Uma rede de referência, proteção e oportunidades.',
+    tone: 'vision',
+    text: 'Consolidar uma atuação reconhecida pela captação e gestão responsável de recursos, fortalecendo organizações para que toda criança tenha acesso a acolhimento, educação, saúde e pleno desenvolvimento.',
+  },
+  {
+    id: 'valores',
+    icon: ShieldCheck,
+    label: 'Valores',
+    title: 'Compromisso com a infância',
+    tone: 'values',
+    bullets: [
+      'Priorizar o bem-estar, a proteção e o desenvolvimento integral das crianças.',
+      'Transparência: Garantir clareza e responsabilidade na gestão e destinação dos recursos.',
+      'Ética: Atuar com integridade em todas as relações e decisões.',
+      'Solidariedade: Incentivar a participação da sociedade na promoção de mudanças positivas.',
+      'Respeito e dignidade: Reconhecer e valorizar cada criança como sujeito de direitos.',
+      'Impacto social: Buscar resultados concretos e sustentáveis para as comunidades atendidas.',
+      'Colaboração: Construir parcerias estratégicas com instituições, empresas, governos e cidadãos.',
+      'Inovação: Desenvolver soluções criativas para ampliar a captação de recursos e o alcance dos projetos.',
+      'Governança: Suportar as Casas de Acolhimento para operarem de forma mais efetiva.',
+    ],
+  },
+]
+
 const pillars = [
   {
     number: '01',
@@ -56,18 +169,6 @@ const journey = [
   ['Conectar', 'Parcerias, conhecimento e recursos para sustentar transformações duradouras.'],
 ]
 
-const values = [
-  ['Compromisso com a infância', 'Priorizar o bem-estar, a proteção e o desenvolvimento integral de crianças e adolescentes.', 'uniao.webp'],
-  ['Transparência', 'Garantir clareza e responsabilidade na gestão e na destinação dos recursos.', 'cadeado.webp'],
-  ['Ética', 'Atuar com integridade em todas as relações, decisões e escolhas institucionais.', 'regra.webp'],
-  ['Solidariedade', 'Incentivar a participação da sociedade na promoção de mudanças positivas.', 'parcerias.webp'],
-  ['Respeito e dignidade', 'Reconhecer cada criança e adolescente como sujeito de direitos.', 'uniao.webp'],
-  ['Impacto social', 'Buscar resultados concretos, responsáveis e sustentáveis.', 'crescimento.webp'],
-  ['Colaboração', 'Construir parcerias estratégicas com instituições, empresas, governos e cidadãos.', 'fluxograma.webp'],
-  ['Inovação', 'Desenvolver soluções criativas para ampliar recursos e alcance.', 'casa-decolar.webp'],
-  ['Governança', 'Apoiar casas de acolhimento para operarem de forma mais efetiva.', 'governanca.webp'],
-]
-
 const transparency = [
   ['Institucional', 'Ata de constituição, estatuto social, CNPJ e composição da governança.'],
   ['Planejamento', 'Plano estratégico, plano anual de atividades, metas e indicadores.'],
@@ -78,7 +179,7 @@ const transparency = [
 const footerGroups = [
   {
     title: 'Institucional',
-    links: [['Quem somos', '#quem-somos'], ['História', '#quem-somos'], ['Missão e visão', '#proposito'], ['Valores', '#valores'], ['Governança', '#transparencia']],
+    links: [['Quem somos', '#quem-somos'], ['História', '#quem-somos'], ['Propósito e Valores', '#proposito'], ['Governança', '#transparencia']],
   },
   {
     title: 'Nossa atuação',
@@ -107,10 +208,40 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [loadVideo, setLoadVideo] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
-  const [activeValue, setActiveValue] = useState(0)
-  const valueCardsRef = useRef<Array<HTMLElement | null>>([])
-  const valueTransitionRef = useRef<gsap.core.Timeline | null>(null)
-  const valueIsAnimating = useRef(false)
+
+  // Team Member Carousel & Modal State
+  const [activeTeamIndex, setActiveTeamIndex] = useState(0)
+  const [isTeamHovered, setIsTeamHovered] = useState(false)
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
+
+  // Purpose Expandable Cards State
+  const [expandedPurpose, setExpandedPurpose] = useState<string | null>('objetivo')
+
+  // Auto rotation for Team Members carousel (pauses on hover or modal open)
+  useEffect(() => {
+    if (isTeamHovered || selectedMember !== null) return
+    const interval = setInterval(() => {
+      setActiveTeamIndex((prev) => (prev + 1) % teamMembers.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [isTeamHovered, selectedMember])
+
+  // ESC Key listener to close Modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedMember(null)
+    }
+    if (selectedMember) {
+      window.addEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [selectedMember])
 
   useEffect(() => {
     const enableVideo = () => setLoadVideo(true)
@@ -153,7 +284,7 @@ function App() {
           heroTimeline
             .from('.hero__eyebrow', { autoAlpha: 0, y: 22, duration: 0.65 })
             .from('.hero__title-line', { autoAlpha: 0, yPercent: 85, rotate: 2, stagger: 0.1, duration: 0.85 }, '-=.35')
-            .from('.hero__lead, .hero__actions, .hero__note', { autoAlpha: 0, y: 28, stagger: 0.09, duration: 0.7 }, '-=.45')
+            .from('.hero__lead, .hero__actions', { autoAlpha: 0, y: 28, stagger: 0.09, duration: 0.7 }, '-=.45')
             .from('.hero__media-shell', { autoAlpha: 0, scale: 0.92, rotate: 1.5, duration: 1.1 }, '-=.95')
 
           const supportCta = document.querySelector<HTMLElement>('.hero__support-cta')
@@ -258,37 +389,8 @@ function App() {
     return () => context.revert()
   }, [])
 
-  useEffect(() => () => { valueTransitionRef.current?.kill() }, [])
-
-  const changeValue = (direction: -1 | 1) => {
-    if (valueIsAnimating.current) return
-    const nextIndex = (activeValue + direction + values.length) % values.length
-    const currentCard = valueCardsRef.current[activeValue]
-    const nextCard = valueCardsRef.current[nextIndex]
-
-    if (!currentCard || !nextCard || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setActiveValue(nextIndex)
-      return
-    }
-
-    valueIsAnimating.current = true
-    valueTransitionRef.current?.kill()
-    gsap.set(currentCard, { autoAlpha: 1, x: 0, y: 0, rotation: 0, scale: 1 })
-    gsap.set(nextCard, { autoAlpha: 0, x: direction * 68, y: 18, rotation: direction * 4, scale: 0.96 })
-    setActiveValue(nextIndex)
-
-    valueTransitionRef.current = gsap.timeline({
-      defaults: { overwrite: 'auto' },
-      onComplete: () => {
-        gsap.set([currentCard, nextCard], { clearProps: 'all' })
-        valueIsAnimating.current = false
-      },
-    })
-      .to(currentCard, { autoAlpha: 0, x: direction * -62, rotation: direction * -4, scale: 0.96, duration: 0.3, ease: 'power2.in' })
-      .to(nextCard, { autoAlpha: 1, x: 0, y: 0, rotation: 0, scale: 1, duration: 0.46, ease: 'power3.out' }, '>-0.02')
-  }
-
   const closeMenu = () => setMenuOpen(false)
+  const currentMember = teamMembers[activeTeamIndex]
 
   return (
     <div ref={app}>
@@ -312,6 +414,7 @@ function App() {
       </header>
 
       <main id="conteudo">
+        {/* HERO SECTION */}
         <section className="hero" id="inicio">
           <div className="hero__wash hero__wash--yellow" />
           <div className="hero__wash hero__wash--mint" />
@@ -328,7 +431,6 @@ function App() {
                 <a className="button button--secondary" href="#como-atuamos">Conheça nosso trabalho <ArrowRight size={20} /></a>
                 <a className="button button--primary hero__support-cta" href="#ajude">Apoiar a Fundação <HandHeart size={20} /></a>
               </div>
-              <p className="hero__note"><ShieldCheck size={21} /><span>Não atendemos diretamente: <span className="hero__note-break">fortalecemos quem já cuida.</span></span></p>
             </div>
 
             <div className="hero__media-shell" aria-label="Coração em rede conectando pessoas e organizações">
@@ -347,6 +449,7 @@ function App() {
           </div>
         </section>
 
+        {/* 01 — NOSSA HISTÓRIA & EQUIPE */}
         <section className="story section" id="quem-somos">
           <div className="container story__grid">
             <div className="section-index" data-reveal>01 — Nossa história</div>
@@ -355,16 +458,77 @@ function App() {
               <div className="story__body" data-reveal>
                 <p>A Fundação Net do Bem nasceu em <strong>26 de novembro de 2025</strong>, em Sorocaba, com o desejo de deixar um legado e devolver à sociedade parte do que foi conquistado ao longo da vida.</p>
                 <p>A experiência prática com casas de acolhimento mostrou que muitas organizações realizam um trabalho essencial, mas enfrentam dificuldades de gestão, estrutura, governança, captação e sustentabilidade.</p>
-                <p>Por isso, a Fundação não atende diretamente crianças e adolescentes: assessora e fortalece as organizações responsáveis pelo acolhimento por meio de pesquisa, capacitação, consultoria, advocacy e mobilização de recursos.</p>
+                <p>A Fundação assessora e fortalece as organizações responsáveis pelo acolhimento por meio de pesquisa, capacitação, consultoria, advocacy e mobilização de recursos.</p>
               </div>
             </div>
-            <figure className="story__founder" data-image-reveal>
-              <div className="story__founder-frame"><img src="/v2/images/founder-ong-netdobem.webp" alt="Retrato estilizado em massinha do fundador da Fundação Net do Bem" /></div>
-              <figcaption><strong>Um legado que nasce do cuidado.</strong><span>Fundador da Fundação Net do Bem</span></figcaption>
-            </figure>
+
+            {/* CARROSSEL AUTOMÁTICO DE COLABORADORES */}
+            <div
+              className="team-carousel"
+              data-image-reveal
+              onMouseEnter={() => setIsTeamHovered(true)}
+              onMouseLeave={() => setIsTeamHovered(false)}
+            >
+              <div
+                className="team-carousel__card"
+                onClick={() => setSelectedMember(currentMember)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedMember(currentMember) }}
+                aria-label={`Ver mini currículo de ${currentMember.name}`}
+              >
+                <div className="team-carousel__frame">
+                  <img key={currentMember.id} src={currentMember.avatar} alt={`Avatar de ${currentMember.name}`} className="team-carousel__avatar" />
+                  <span className="team-carousel__badge">{currentMember.badge}</span>
+                </div>
+                <figcaption className="team-carousel__caption">
+                  <div>
+                    <strong>{currentMember.name}</strong>
+                    <span>{currentMember.role}</span>
+                  </div>
+                  <span className="team-carousel__hint">
+                    Ver mini CV <ArrowRight size={14} />
+                  </span>
+                </figcaption>
+              </div>
+
+              {/* NAV CONTROLS & THUMBNAILS */}
+              <div className="team-carousel__nav">
+                <div className="team-carousel__thumbs">
+                  {teamMembers.map((member, idx) => (
+                    <button
+                      key={member.id}
+                      type="button"
+                      className={`team-carousel__thumb ${activeTeamIndex === idx ? 'is-active' : ''}`}
+                      onClick={() => setActiveTeamIndex(idx)}
+                      aria-label={`Selecionar ${member.name}`}
+                    >
+                      <img src={member.avatar} alt="" />
+                    </button>
+                  ))}
+                </div>
+                <div className="team-carousel__arrows">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length)}
+                    aria-label="Colaborador anterior"
+                  >
+                    <ArrowLeft size={16} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTeamIndex((prev) => (prev + 1) % teamMembers.length)}
+                    aria-label="Próximo colaborador"
+                  >
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
+        {/* 02 — PROPÓSITO INSTITUCIONAL (4 CARDS EXPANSIVOS) */}
         <section className="purpose section" id="proposito">
           <div className="container">
             <div className="purpose__heading" data-reveal>
@@ -376,24 +540,67 @@ function App() {
                 <img src="/v3/images/proposito-institucional.webp" alt="Equipe em massinha conectando gestão, conhecimento e cuidado ao redor de uma casa" loading="lazy" />
                 <figcaption><strong>Cuidado que ganha estrutura.</strong><span>Conhecimento, articulação e gestão trabalhando em rede.</span></figcaption>
               </figure>
+              
               <div className="purpose__grid">
-                <article className="purpose-card purpose-card--objective" data-reveal>
-                  <div className="purpose-card__label"><Target /><span>Objetivo</span></div>
-                  <div><h3>Fortalecer organizações que protegem a infância.</h3><p>Apoiar entidades que acolhem crianças e adolescentes em situação de vulnerabilidade, ampliando a garantia dos direitos previstos no ECA.</p></div>
-                </article>
-                <article className="purpose-card purpose-card--mission" data-reveal>
-                  <div className="purpose-card__label"><HeartHandshake /><span>Missão</span></div>
-                  <div><h3>Transformar cuidado em capacidade institucional.</h3><p>Conectar recursos, conhecimento, parceiros e sociedade para que instituições atuem com gestão transparente, proteção e inclusão, criando oportunidades e um futuro mais digno.</p></div>
-                </article>
-                <article className="purpose-card purpose-card--vision" data-reveal>
-                  <div className="purpose-card__label"><Eye /><span>Visão</span></div>
-                  <div><h3>Uma rede de referência, proteção e oportunidades.</h3><p>Consolidar uma atuação reconhecida pela captação e gestão responsável de recursos, fortalecendo organizações para que toda criança tenha acesso a acolhimento, educação, saúde e pleno desenvolvimento.</p></div>
-                </article>
+                {purposeCards.map((card) => {
+                  const Icon = card.icon
+                  const isExpanded = expandedPurpose === card.id
+                  return (
+                    <article
+                      key={card.id}
+                      className={`purpose-card purpose-card--${card.tone} ${isExpanded ? 'is-expanded' : ''}`}
+                      onMouseEnter={() => setExpandedPurpose(card.id)}
+                      onClick={() => setExpandedPurpose(isExpanded ? null : card.id)}
+                      data-reveal
+                    >
+                      <div className="purpose-card__top">
+                        <div className="purpose-card__label">
+                          <Icon />
+                          <span>{card.label}</span>
+                        </div>
+                        <button
+                          type="button"
+                          className="purpose-card__chevron-btn"
+                          aria-label={isExpanded ? 'Recolher card' : 'Expandir card'}
+                          aria-expanded={isExpanded}
+                        >
+                          <ChevronDown className={`purpose-card__chevron ${isExpanded ? 'is-rotated' : ''}`} size={20} />
+                        </button>
+                      </div>
+                      
+                      <div className="purpose-card__body">
+                        <h3>{card.title}</h3>
+                        <div className="purpose-card__expand-content">
+                          {card.text && <p>{card.text}</p>}
+                          {card.bullets && (
+                            <ul className="purpose-card__bullets">
+                              {card.bullets.map((bullet, idx) => {
+                                const parts = bullet.split(': ')
+                                return (
+                                  <li key={idx}>
+                                    {parts.length > 1 ? (
+                                      <>
+                                        <strong>{parts[0]}:</strong> {parts.slice(1).join(': ')}
+                                      </>
+                                    ) : (
+                                      bullet
+                                    )}
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    </article>
+                  )
+                })}
               </div>
             </div>
           </div>
         </section>
 
+        {/* 03 — COMO ATUAMOS */}
         <section className="pillars section" id="como-atuamos">
           <div className="container">
             <div className="section-heading" data-reveal>
@@ -416,6 +623,7 @@ function App() {
           </div>
         </section>
 
+        {/* 04 — A JORNADA */}
         <section className="journey section" id="jornada">
           <div className="container journey__grid">
             <div className="journey__visual" data-image-reveal>
@@ -434,50 +642,12 @@ function App() {
           </div>
         </section>
 
-        <section className="values section" id="valores">
-          <div className="container">
-            <div className="values__layout">
-              <div className="values__intro" data-reveal>
-                <span className="section-index">05 — Nossos valores</span>
-                <h2>Princípios que orientam cada decisão.</h2>
-                <p>Os valores tornam visível como a Fundação pretende cumprir sua missão, construir confiança e mobilizar recursos com responsabilidade.</p>
-                <div className="integrity-note" data-reveal>
-                  <img src="/v2/icons/governanca.webp" alt="" />
-                  <span>Resultado esperado</span>
-                  <p>Uma atuação íntegra: reta, ética, responsável, honrada, virtuosa e exemplar — capaz de servir de referência para toda a rede.</p>
-                </div>
-              </div>
-              <div className="values__deck-shell">
-                <div className="values__deck" role="group" aria-label="Nove valores da Fundação Net do Bem" aria-live="polite">
-                  {values.map(([title, text, icon], index) => (
-                    <article
-                      className={`value-card interactive-card ${activeValue === index ? 'is-active' : ''}`}
-                      key={title}
-                      ref={(element) => { valueCardsRef.current[index] = element }}
-                      aria-hidden={activeValue !== index}
-                      aria-label={`${index + 1} de ${values.length}: ${title}`}
-                    >
-                      <span>0{index + 1} — 09</span><img src={`/v2/icons/${icon}`} alt="" /><h3>{title}</h3><p>{text}</p>
-                    </article>
-                  ))}
-                </div>
-                <div className="values__controls">
-                  <span aria-live="polite">{String(activeValue + 1).padStart(2, '0')} / 09</span>
-                  <div>
-                    <button type="button" onClick={() => changeValue(-1)} aria-label="Valor anterior"><ArrowLeft /></button>
-                    <button type="button" onClick={() => changeValue(1)} aria-label="Próximo valor"><ArrowRight /></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* 05 — IMPACTO EM CONSTRUÇÃO */}
         <section className="impact section" id="impacto">
           <div className="container" data-reveal>
             <div className="impact__card">
               <div className="impact__copy">
-                <span className="section-index section-index--light">06 — Impacto em construção</span>
+                <span className="section-index section-index--light">05 — Impacto em construção</span>
                 <h2>Medir para aprender.<br />Aprender para ampliar.</h2>
                 <p>Nossa primeira base de impacto está sendo construída com indicadores responsáveis — sem promessas vazias e sem confundir alcance direto com benefício indireto.</p>
                 <a className="button button--light" href="#contato">Acompanhe essa jornada <ArrowRight size={20} /></a>
@@ -491,10 +661,11 @@ function App() {
           </div>
         </section>
 
+        {/* 06 — TRANSPARÊNCIA */}
         <section className="transparency section" id="transparencia">
           <div className="container transparency__grid">
             <div className="transparency__copy" data-reveal>
-              <span className="section-index">07 — Transparência</span>
+              <span className="section-index">06 — Transparência</span>
               <h2>Confiança também se constrói com clareza.</h2>
               <p>Governança, integridade e prestação de contas não são anexos do nosso trabalho. São a base dele.</p>
               <div className="seal"><FileCheck2 /><span><strong>Compromisso público</strong>Documentos organizados por ano e categoria.</span></div>
@@ -512,10 +683,11 @@ function App() {
           </div>
         </section>
 
+        {/* 07 — FAÇA PARTE */}
         <section className="help section" id="ajude">
           <div className="container help__card" data-reveal>
             <img className="help__logo" src="/v3/brand/logo-3d.webp" alt="Fundação Net do Bem" />
-            <div><span className="section-index">08 — Faça parte</span><h2>Quem fortalece uma organização transforma muitas histórias.</h2></div>
+            <div><span className="section-index">07 — Faça parte</span><h2>Quem fortalece uma organização transforma muitas histórias.</h2></div>
             <div className="help__actions">
               <a className="button button--primary" href="#contato">Quero ser parceiro <ArrowRight size={20} /></a>
               <a href="#contato">Quero contribuir de outra forma</a>
@@ -524,6 +696,7 @@ function App() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer className="footer" id="contato">
         <div className="container footer__lead">
           <div><BrandLogo inverse /><p>Fortalecendo quem protege a infância, com método, cuidado e transparência.</p></div>
@@ -544,6 +717,42 @@ function App() {
 
         <img className="footer__heart" src="/v3/images/super-footer.webp" alt="Coração em rede da Fundação Net do Bem" />
       </footer>
+
+      {/* POPUP FULLSCREEN RESPONSIVO - MINI CV COLABORADORES */}
+      {selectedMember && (
+        <div className="team-modal" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
+          <div className="team-modal__backdrop" onClick={() => setSelectedMember(null)} />
+          <div className="team-modal__dialog">
+            <button
+              type="button"
+              className="team-modal__close"
+              onClick={() => setSelectedMember(null)}
+              aria-label="Fechar mini currículo"
+            >
+              <X size={26} />
+            </button>
+            <div className="team-modal__header">
+              <div className="team-modal__avatar-shell">
+                <img src={selectedMember.avatar} alt={`Avatar de ${selectedMember.name}`} />
+              </div>
+              <div className="team-modal__header-copy">
+                <span className="team-modal__badge">{selectedMember.badge}</span>
+                <h2 id="team-modal-title">{selectedMember.name}</h2>
+                <p className="team-modal__role">{selectedMember.role}</p>
+              </div>
+            </div>
+            <div className="team-modal__body">
+              <p className="team-modal__intro">{selectedMember.bioIntro}</p>
+              {selectedMember.sections.map((sec, i) => (
+                <div className="team-modal__section" key={i}>
+                  {sec.title && <h3>{sec.title}</h3>}
+                  <p>{sec.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
