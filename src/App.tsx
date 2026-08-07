@@ -21,6 +21,8 @@ gsap.registerPlugin(ScrollTrigger)
 interface TeamMember {
   id: string
   name: string
+  displayName: string
+  cardRole: string
   role: string
   badge: string
   caption: string
@@ -32,7 +34,9 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 'patricia',
-    name: 'PATRÍCIA NEVES GALHEIGO',
+    name: 'Patrícia Neves Galheigo',
+    displayName: 'Patrícia Galheigo',
+    cardRole: 'Operação',
     role: 'Psicóloga',
     badge: 'Operação',
     caption: 'Patrícia — Operação',
@@ -53,6 +57,8 @@ const teamMembers: TeamMember[] = [
   {
     id: 'agda',
     name: 'Agda Cecília de Pontes Ximenes',
+    displayName: 'Agda Ximenes',
+    cardRole: 'Estratégia',
     role: 'Assistente Social',
     badge: 'Estratégia',
     caption: 'Agda — Estratégia',
@@ -70,7 +76,9 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 'andre',
-    name: 'André',
+    name: 'André Facciolli',
+    displayName: 'Andre Facciolli',
+    cardRole: 'Fundador',
     role: 'Fundador da Fundação Net do Bem',
     badge: 'Fundador',
     caption: 'André — Fundador',
@@ -483,11 +491,11 @@ function App() {
                 </div>
                 <figcaption className="team-carousel__caption">
                   <div>
-                    <strong>{currentMember.name}</strong>
-                    <span>{currentMember.role}</span>
+                    <strong>{currentMember.displayName}</strong>
+                    <span>{currentMember.cardRole}</span>
                   </div>
                   <span className="team-carousel__hint">
-                    Ver mini CV <ArrowRight size={14} />
+                    BIO <ArrowRight size={14} />
                   </span>
                 </figcaption>
               </div>
