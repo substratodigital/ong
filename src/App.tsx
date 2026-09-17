@@ -84,11 +84,22 @@ const teamMembers: TeamMember[] = [
     caption: 'André — Fundador',
     avatar: '/v4/founder-net-do-bem.webp',
     bioIntro:
-      'Um legado que nasce do cuidado. Empenhado em fortalecer instituições que cuidam da infância e adolescência em situação de vulnerabilidade social.',
+      'André Facciolli é empresário, empreendedor e fundador da Fundação Net do Bem, iniciativa criada com o propósito de contribuir para a proteção, o desenvolvimento e a construção de novas oportunidades para crianças e adolescentes em situação de vulnerabilidade.',
     sections: [
       {
-        title: 'Sobre o Fundador',
-        text: 'Idealizou a Fundação Net do Bem com o desejo de deixar um legado vivo e sustentável, devolvendo à sociedade parte do que foi conquistado ao longo da vida e construindo pontes sólidas entre a gestão, o conhecimento e as casas de acolhimento.',
+        text: 'Formado em Ciência da Computação e com mestrado em Administração, construiu uma trajetória profissional de mais de 30 anos na área de tecnologia. Em 2003, fundou a Netbr, empresa brasileira especializada em Gestão de Identidades e Acessos, onde atua como CEO. Ao longo dessa jornada, liderou o crescimento da empresa, a formação de equipes especializadas e projetos de tecnologia para algumas das maiores organizações do Brasil.',
+      },
+      {
+        text: 'Com o passar dos anos, o desejo de transformar parte dessa experiência empresarial em impacto social ganhou forma. A Fundação Net do Bem nasce dessa decisão: colocar capacidade de gestão, tecnologia, relacionamento e mobilização de recursos a serviço de uma causa maior.',
+      },
+      {
+        text: 'André acredita que toda criança deve ter a oportunidade de crescer em um ambiente de proteção, afeto, educação e perspectiva de futuro. Por meio da Fundação Net do Bem, busca aproximar empresas, profissionais, organizações sociais e poder público para fortalecer a rede de proteção à infância, especialmente as instituições e pessoas que atuam diretamente com crianças e adolescentes em acolhimento.',
+      },
+      {
+        text: 'Mais do que realizar ações pontuais, sua visão para a Fundação é construir uma organização capaz de gerar impacto de longo prazo, apoiando projetos, capacitando equipes, mobilizando recursos e contribuindo para o aprimoramento das políticas e práticas de proteção à infância.',
+      },
+      {
+        text: 'Para André, fazer o bem também exige organização, compromisso e continuidade. É dessa convicção que nasce a Fundação Net do Bem.',
       },
     ],
   },

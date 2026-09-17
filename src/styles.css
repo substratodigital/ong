@@ -890,6 +890,55 @@ h1, h2, h3 { text-wrap: balance; }
   color: var(--ink-soft);
 }
 
+@media (max-width: 599px) {
+  .team-modal {
+    padding: 12px;
+  }
+  .team-modal__dialog {
+    padding: 24px 18px 28px;
+    max-height: 90vh;
+    border-radius: 24px;
+  }
+  .team-modal__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+  .team-modal__header-copy {
+    align-items: center;
+  }
+  .team-modal__avatar-shell {
+    width: 90px;
+    height: 90px;
+    flex: 0 0 90px;
+  }
+  .team-modal__close {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+  }
+  .team-modal__body {
+    padding-top: 20px;
+    gap: 16px;
+  }
+  .team-modal__intro {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .team-modal__section {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .team-modal__section p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}
+
 @keyframes modal-fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
