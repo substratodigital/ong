@@ -8,3 +8,4 @@ export default function handler(_req: any, res: any) {
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300')
   return res.status(200).json({ siteKey })
 }
+
