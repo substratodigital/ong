@@ -1,20 +1,29 @@
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import * as Accordion from '@radix-ui/react-accordion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
   ArrowLeft,
   ArrowRight,
+  Building2,
   ChevronDown,
+  ClipboardCheck,
+  Coins,
+  Download,
   Eye,
   FileCheck2,
+  FileText,
+  GraduationCap,
   HandHeart,
   HeartHandshake,
+  MapPin,
   Menu,
+  Phone,
   ShieldCheck,
   Target,
   X,
 } from 'lucide-react'
+import { ContactPage } from './components/ContactPage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -152,28 +161,24 @@ const purposeCards = [
 
 const pillars = [
   {
-    number: '01',
     title: 'Pesquisa e conhecimento',
     text: 'Mapeamos a realidade para transformar necessidades em decisões melhores e orientar investimentos responsáveis.',
     icon: '/v2/icons/search.webp',
     tone: 'coral',
   },
   {
-    number: '02',
     title: 'Capacitação e gestão',
     text: 'Desenvolvemos lideranças, processos, planejamento, governança e sustentabilidade institucional.',
     icon: '/v2/icons/book.webp',
     tone: 'purple',
   },
   {
-    number: '03',
     title: 'Aceleração de organizações',
     text: 'Construímos planos de desenvolvimento e acompanhamos sua implantação com metas e indicadores.',
     icon: '/v2/icons/casa-decolar.webp',
     tone: 'yellow',
   },
   {
-    number: '04',
     title: 'Articulação e advocacy',
     text: 'Conectamos organizações, empresas, especialistas, conselhos e poder público em torno da infância.',
     icon: '/v2/icons/parcerias.webp',
@@ -188,35 +193,89 @@ const journey = [
   ['Conectar', 'Parcerias, conhecimento e recursos para sustentar transformações duradouras.'],
 ]
 
-const transparency = [
-  ['Institucional', 'Ata de constituição, estatuto social, CNPJ e composição da governança.'],
-  ['Planejamento', 'Plano estratégico, plano anual de atividades, metas e indicadores.'],
-  ['Financeiro e impacto', 'Demonstrações financeiras, relatórios anuais, projetos apoiados e recursos destinados.'],
-  ['Integridade', 'Código de ética, políticas institucionais, proteção à infância e canal de denúncias.'],
+const impactMetrics = [
+  {
+    label: 'Organizações fortalecidas',
+    icon: Building2,
+  },
+  {
+    label: 'Profissionais capacitados',
+    icon: GraduationCap,
+  },
+  {
+    label: 'Planos de melhoria implantados',
+    icon: ClipboardCheck,
+  },
+  {
+    label: 'Recursos mobilizados',
+    icon: Coins,
+  },
 ]
 
-const footerGroups = [
+interface TransparencyTopic {
+  title: string
+  text: string
+  docs?: { label: string; href: string }[]
+  ctaLabel?: string
+}
+
+const transparencyTopics: TransparencyTopic[] = [
   {
     title: 'Institucional',
-    links: [['Quem somos', '#quem-somos'], ['História', '#quem-somos'], ['Propósito e Valores', '#proposito'], ['Governança', '#transparencia']],
+    text: 'Ata de constituição, estatuto social, CNPJ e composição da governança.',
+    docs: [
+      {
+        label: 'Ata de Constituição (PDF)',
+        href: '/v5/documentos/institucional-ata-constituicao.pdf',
+      },
+      {
+        label: 'Estatuto Social (PDF)',
+        href: '/v5/documentos/institucional-estatuto-social.pdf',
+      },
+      {
+        label: 'Comprovante de CNPJ (PDF)',
+        href: '/v5/documentos/institucional-cartao-cnpj.pdf',
+      },
+    ],
   },
   {
-    title: 'Nossa atuação',
-    links: [['Como atuamos', '#como-atuamos'], ['Programas', '#como-atuamos'], ['Jornada', '#jornada'], ['Impacto', '#impacto'], ['Notícias', '#contato']],
+    title: 'Planejamento',
+    text: 'Plano estratégico, plano anual de atividades, metas e indicadores.',
+    docs: [
+      {
+        label: 'Plano Estratégico Institucional (PDF)',
+        href: '/v5/documentos/planejamento-plano-estrategico.pdf',
+      },
+    ],
   },
   {
-    title: 'Transparência',
-    links: [['Documentos', '#transparencia'], ['Relatórios', '#transparencia'], ['Prestação de contas', '#transparencia'], ['Integridade', '#transparencia'], ['Privacidade e LGPD', '#transparencia']],
-  },
-  {
-    title: 'Participe',
-    links: [['Faça uma doação', '#ajude'], ['Seja parceiro', '#ajude'], ['Voluntariado técnico', '#ajude'], ['Apoie um projeto', '#ajude'], ['Contato', '#contato']],
+    title: 'Integridade',
+    text: 'Código de ética, políticas institucionais, proteção à infância e canal de denúncias.',
+    ctaLabel: 'Canal de integridade e contato',
   },
 ]
 
-function BrandLogo({ inverse = false }: { inverse?: boolean }) {
+const menuSections: [string, string][] = [
+  ['Quem somos', '#quem-somos'],
+  ['Como atuamos', '#como-atuamos'],
+  ['Impacto', '#impacto'],
+  ['Transparência', '#transparencia'],
+  ['Contato', '/contato'],
+]
+
+function isContactPath(pathname: string, hash: string) {
+  return pathname.startsWith('/contato') || pathname.startsWith('/doar') || hash === '#contato-pagina'
+}
+
+function BrandLogo({
+  inverse = false,
+  onClickHome,
+}: {
+  inverse?: boolean
+  onClickHome?: (e: MouseEvent<HTMLAnchorElement>) => void
+}) {
   return (
-    <a className="brand-logo" href="#inicio" aria-label="Fundação Net do Bem — início">
+    <a className="brand-logo" href="#inicio" onClick={onClickHome} aria-label="Fundação Net do Bem — início">
       <img src={inverse ? '/v3/brand/logo-white.svg' : '/v3/brand/logo-green.svg'} alt="Fundação Net do Bem" />
     </a>
   )
@@ -227,6 +286,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [loadVideo, setLoadVideo] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
+  const [currentView, setCurrentView] = useState<'home' | 'contact'>(() =>
+    isContactPath(window.location.pathname, window.location.hash) ? 'contact' : 'home',
+  )
 
   // Team Member Carousel & Modal State
   const [activeTeamIndex, setActiveTeamIndex] = useState(0)
@@ -236,14 +298,54 @@ function App() {
   // Purpose Expandable Cards State
   const [expandedPurpose, setExpandedPurpose] = useState<string | null>('objetivo')
 
+  useEffect(() => {
+    const onPopState = () => {
+      setCurrentView(isContactPath(window.location.pathname, window.location.hash) ? 'contact' : 'home')
+    }
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
+  const openContactPage = (e?: MouseEvent<HTMLElement>) => {
+    if (e) e.preventDefault()
+    setMenuOpen(false)
+    if (window.location.pathname !== '/contato') {
+      window.history.pushState({}, '', '/contato')
+    }
+    setCurrentView('contact')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const navigateToSection = (sectionHash: string, e?: MouseEvent<HTMLElement>) => {
+    if (e) e.preventDefault()
+    setMenuOpen(false)
+    if (currentView !== 'home') {
+      window.history.pushState({}, '', `/${sectionHash}`)
+      setCurrentView('home')
+      setTimeout(() => {
+        ScrollTrigger.refresh()
+        document.querySelector(sectionHash)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 120)
+    } else {
+      window.history.pushState({}, '', sectionHash)
+      document.querySelector(sectionHash)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  const goBackHome = () => {
+    window.history.pushState({}, '', '/')
+    setCurrentView('home')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   // Auto rotation for Team Members carousel (pauses on hover or modal open)
   useEffect(() => {
-    if (isTeamHovered || selectedMember !== null) return
+    if (currentView !== 'home' || isTeamHovered || selectedMember !== null) return
     const interval = setInterval(() => {
       setActiveTeamIndex((prev) => (prev + 1) % teamMembers.length)
     }, 4000)
     return () => clearInterval(interval)
-  }, [isTeamHovered, selectedMember])
+  }, [currentView, isTeamHovered, selectedMember])
 
   // ESC Key listener to close Modal
   useEffect(() => {
@@ -270,14 +372,15 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (currentView !== 'home') return
     const selector = window.location.hash
-    if (!selector) return
+    if (!selector || selector === '#contato-pagina') return
     const timer = window.setTimeout(() => {
       ScrollTrigger.refresh()
       document.querySelector(selector)?.scrollIntoView({ block: 'start' })
     }, 450)
     return () => window.clearTimeout(timer)
-  }, [])
+  }, [currentView])
 
   useEffect(() => {
     document.body.classList.toggle('menu-is-open', menuOpen)
@@ -285,6 +388,8 @@ function App() {
   }, [menuOpen])
 
   useLayoutEffect(() => {
+    if (currentView !== 'home') return
+
     const context = gsap.context(() => {
       const media = gsap.matchMedia()
 
@@ -406,331 +511,533 @@ function App() {
       return () => media.revert()
     }, app)
     return () => context.revert()
-  }, [])
+  }, [currentView])
 
-  const closeMenu = () => setMenuOpen(false)
   const currentMember = teamMembers[activeTeamIndex]
 
   return (
     <div ref={app}>
       <header className={`site-header ${menuOpen ? 'site-header--menu-open' : ''}`}>
         <div className="container site-header__inner">
-          <BrandLogo inverse={menuOpen} />
+          <BrandLogo inverse={menuOpen} onClickHome={(e) => navigateToSection('#inicio', e)} />
           <nav className={`nav ${menuOpen ? 'nav--open' : ''}`} aria-label="Navegação principal">
             <span className="nav__overline">Explore a Fundação</span>
-            <a style={{ '--order': 1 } as CSSProperties} href="#quem-somos" onClick={closeMenu}>Quem somos</a>
-            <a style={{ '--order': 2 } as CSSProperties} href="#como-atuamos" onClick={closeMenu}>Como atuamos</a>
-            <a style={{ '--order': 3 } as CSSProperties} href="#impacto" onClick={closeMenu}>Impacto</a>
-            <a style={{ '--order': 4 } as CSSProperties} href="#transparencia" onClick={closeMenu}>Transparência</a>
-            <a style={{ '--order': 5 } as CSSProperties} href="#contato" onClick={closeMenu}>Contato</a>
-            <a style={{ '--order': 6 } as CSSProperties} className="nav__donate" href="#ajude" onClick={closeMenu}>Quero ajudar <ArrowRight size={18} /></a>
-            <div className="nav__mobile-footer">Sorocaba — SP <span>•</span> Fundação Net do Bem</div>
+            <a style={{ '--order': 1 } as CSSProperties} href="#quem-somos" onClick={(e) => navigateToSection('#quem-somos', e)}>
+              Quem somos
+            </a>
+            <a style={{ '--order': 2 } as CSSProperties} href="#como-atuamos" onClick={(e) => navigateToSection('#como-atuamos', e)}>
+              Como atuamos
+            </a>
+            <a style={{ '--order': 3 } as CSSProperties} href="#impacto" onClick={(e) => navigateToSection('#impacto', e)}>
+              Impacto
+            </a>
+            <a style={{ '--order': 4 } as CSSProperties} href="#transparencia" onClick={(e) => navigateToSection('#transparencia', e)}>
+              Transparência
+            </a>
+            <a style={{ '--order': 5 } as CSSProperties} href="/contato" onClick={openContactPage}>
+              Contato
+            </a>
+            <a style={{ '--order': 6 } as CSSProperties} className="nav__donate" href="/contato" onClick={openContactPage}>
+              Quero ajudar <ArrowRight size={18} />
+            </a>
+            <div className="nav__mobile-footer">
+              Sorocaba — SP <span>•</span> Fundação Net do Bem
+            </div>
           </nav>
-          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen}>
+          <button
+            className="menu-button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={menuOpen}
+          >
             {menuOpen ? <X size={31} strokeWidth={2.8} /> : <Menu size={31} strokeWidth={2.8} />}
           </button>
         </div>
       </header>
 
-      <main id="conteudo">
-        {/* HERO SECTION */}
-        <section className="hero" id="inicio">
-          <div className="hero__wash hero__wash--yellow" />
-          <div className="hero__wash hero__wash--mint" />
-          <div className="container hero__grid">
-            <div className="hero__copy">
-              <div className="hero__eyebrow"><span /> Uma rede de cuidado que transforma</div>
-              <h1>
-                <span className="hero__title-mask"><span className="hero__title-line">Fortalecemos</span></span>
-                <span className="hero__title-mask"><span className="hero__title-line">quem <span className="hero__inline-accent">protege a</span></span></span>
-                <span className="hero__title-mask"><span className="hero__title-line hero__title-line--accent">infância.</span></span>
-              </h1>
-              <p className="hero__lead">Apoiamos casas de acolhimento e organizações sociais para que atuem com mais estrutura, governança, transparência e impacto.</p>
-              <div className="hero__actions">
-                <a className="button button--secondary" href="#como-atuamos">Conheça nosso trabalho <ArrowRight size={20} /></a>
-                <a className="button button--primary hero__support-cta" href="#ajude">Apoiar a Fundação <HandHeart size={20} /></a>
-              </div>
-            </div>
-
-            <div className="hero__media-shell" aria-label="Coração em rede conectando pessoas e organizações">
-              <div className="hero__media-layer">
-                <img className="hero__poster" src="/v2/images/network-heart.png" alt="Pessoas construindo uma rede de cuidado ao redor de um coração" />
-                {loadVideo && (
-                  <video className={videoReady ? 'is-ready' : ''} muted autoPlay loop playsInline preload="metadata" onCanPlay={() => setVideoReady(true)} aria-hidden="true">
-                    <source src="/v2/media/hero.mp4" type="video/mp4" />
-                  </video>
-                )}
-              </div>
-              <span className="hero__sticker hero__sticker--top">conexão</span>
-              <span className="hero__sticker hero__sticker--bottom"><span className="hero__sticker-icon" aria-hidden="true" /> cuidado em rede</span>
-            </div>
-            <div className="hero__transition-curtain" aria-hidden="true" />
-          </div>
-        </section>
-
-        {/* 01 — NOSSA HISTÓRIA & EQUIPE */}
-        <section className="story section" id="quem-somos">
-          <div className="container story__grid">
-            <div className="section-index" data-reveal>01 — Nossa história</div>
-            <div className="story__content">
-              <h2 data-reveal>Um sonho grande que começa fortalecendo quem já faz a diferença.</h2>
-              <div className="story__body" data-reveal>
-                <p>A Fundação Net do Bem nasceu em <strong>26 de novembro de 2025</strong>, em Sorocaba, com o desejo de deixar um legado e devolver à sociedade parte do que foi conquistado ao longo da vida.</p>
-                <p>A experiência prática com casas de acolhimento mostrou que muitas organizações realizam um trabalho essencial, mas enfrentam dificuldades de gestão, estrutura, governança, captação e sustentabilidade.</p>
-                <p>A Fundação assessora e fortalece as organizações responsáveis pelo acolhimento por meio de pesquisa, capacitação, consultoria, advocacy e mobilização de recursos.</p>
-              </div>
-            </div>
-
-            {/* CARROSSEL AUTOMÁTICO DE COLABORADORES */}
-            <div
-              className="team-carousel"
-              data-image-reveal
-              onMouseEnter={() => setIsTeamHovered(true)}
-              onMouseLeave={() => setIsTeamHovered(false)}
-            >
-              <div
-                className="team-carousel__card"
-                onClick={() => setSelectedMember(currentMember)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedMember(currentMember) }}
-                aria-label={`Ver mini currículo de ${currentMember.name}`}
-              >
-                <div className="team-carousel__frame">
-                  <img key={currentMember.id} src={currentMember.avatar} alt={`Avatar de ${currentMember.name}`} className="team-carousel__avatar" />
-                  <span className="team-carousel__badge">{currentMember.badge}</span>
+      {currentView === 'contact' ? (
+        <main id="conteudo">
+          <ContactPage onBackHome={goBackHome} />
+        </main>
+      ) : (
+        <main id="conteudo">
+          {/* HERO SECTION */}
+          <section className="hero" id="inicio">
+            <div className="hero__wash hero__wash--yellow" />
+            <div className="hero__wash hero__wash--mint" />
+            <div className="container hero__grid">
+              <div className="hero__copy">
+                <div className="hero__eyebrow">
+                  <span /> Uma rede de cuidado que transforma
                 </div>
-                <figcaption className="team-carousel__caption">
-                  <div>
-                    <strong>{currentMember.displayName}</strong>
-                    <span>{currentMember.cardRole}</span>
-                  </div>
-                  <span className="team-carousel__hint">
-                    BIO <ArrowRight size={14} />
+                <h1>
+                  <span className="hero__title-mask">
+                    <span className="hero__title-line">Fortalecemos</span>
                   </span>
-                </figcaption>
+                  <span className="hero__title-mask">
+                    <span className="hero__title-line">
+                      quem <span className="hero__inline-accent">protege a</span>
+                    </span>
+                  </span>
+                  <span className="hero__title-mask">
+                    <span className="hero__title-line hero__title-line--accent">infância.</span>
+                  </span>
+                </h1>
+                <p className="hero__lead">
+                  Apoiamos casas de acolhimento e organizações sociais para que atuem com mais estrutura, governança,
+                  transparência e impacto.
+                </p>
+                <div className="hero__actions">
+                  <a className="button button--secondary" href="#como-atuamos" onClick={(e) => navigateToSection('#como-atuamos', e)}>
+                    Conheça nosso trabalho <ArrowRight size={20} />
+                  </a>
+                  <a className="button button--primary hero__support-cta" href="/contato" onClick={openContactPage}>
+                    Apoiar a Fundação <HandHeart size={20} />
+                  </a>
+                </div>
               </div>
 
-              {/* NAV CONTROLS & THUMBNAILS */}
-              <div className="team-carousel__nav">
-                <div className="team-carousel__thumbs">
-                  {teamMembers.map((member, idx) => (
-                    <button
-                      key={member.id}
-                      type="button"
-                      className={`team-carousel__thumb ${activeTeamIndex === idx ? 'is-active' : ''}`}
-                      onClick={() => setActiveTeamIndex(idx)}
-                      aria-label={`Selecionar ${member.name}`}
+              <div className="hero__media-shell" aria-label="Coração em rede conectando pessoas e organizações">
+                <div className="hero__media-layer">
+                  <img
+                    className="hero__poster"
+                    src="/v2/images/network-heart.png"
+                    alt="Pessoas construindo uma rede de cuidado ao redor de um coração"
+                  />
+                  {loadVideo && (
+                    <video
+                      className={videoReady ? 'is-ready' : ''}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      preload="metadata"
+                      onCanPlay={() => setVideoReady(true)}
+                      aria-hidden="true"
                     >
-                      <img src={member.avatar} alt="" />
+                      <source src="/v2/media/hero.mp4" type="video/mp4" />
+                    </video>
+                  )}
+                </div>
+                <span className="hero__sticker hero__sticker--top">conexão</span>
+                <span className="hero__sticker hero__sticker--bottom">
+                  <span className="hero__sticker-icon" aria-hidden="true" /> cuidado em rede
+                </span>
+              </div>
+              <div className="hero__transition-curtain" aria-hidden="true" />
+            </div>
+          </section>
+
+          {/* NOSSA HISTÓRIA & EQUIPE */}
+          <section className="story section" id="quem-somos">
+            <div className="container story__grid">
+              <div className="section-index" data-reveal>
+                Nossa história
+              </div>
+              <div className="story__content">
+                <h2 data-reveal>Um sonho grande que começa fortalecendo quem já faz a diferença.</h2>
+                <div className="story__body" data-reveal>
+                  <p>
+                    A Fundação Net do Bem nasceu em <strong>26 de novembro de 2025</strong>, em Sorocaba, com o desejo
+                    de deixar um legado e devolver à sociedade parte do que foi conquistado ao longo da vida.
+                  </p>
+                  <p>
+                    A experiência prática com casas de acolhimento mostrou que muitas organizações realizam um trabalho
+                    essencial, mas enfrentam dificuldades de gestão, estrutura, governança, captação e
+                    sustentabilidade.
+                  </p>
+                  <p>
+                    A Fundação assessora e fortalece as organizações responsáveis pelo acolhimento por meio de
+                    pesquisa, capacitação, consultoria, advocacy e mobilização de recursos.
+                  </p>
+                </div>
+              </div>
+
+              {/* CARROSSEL AUTOMÁTICO DE COLABORADORES */}
+              <div
+                className="team-carousel"
+                data-image-reveal
+                onMouseEnter={() => setIsTeamHovered(true)}
+                onMouseLeave={() => setIsTeamHovered(false)}
+              >
+                <div
+                  className="team-carousel__card"
+                  onClick={() => setSelectedMember(currentMember)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') setSelectedMember(currentMember)
+                  }}
+                  aria-label={`Ver mini currículo de ${currentMember.name}`}
+                >
+                  <div className="team-carousel__frame">
+                    <img
+                      key={currentMember.id}
+                      src={currentMember.avatar}
+                      alt={`Avatar de ${currentMember.name}`}
+                      className="team-carousel__avatar"
+                    />
+                    <span className="team-carousel__badge">{currentMember.badge}</span>
+                  </div>
+                  <figcaption className="team-carousel__caption">
+                    <div>
+                      <strong>{currentMember.displayName}</strong>
+                      <span>{currentMember.cardRole}</span>
+                    </div>
+                    <span className="team-carousel__hint">
+                      BIO <ArrowRight size={14} />
+                    </span>
+                  </figcaption>
+                </div>
+
+                {/* NAV CONTROLS & THUMBNAILS */}
+                <div className="team-carousel__nav">
+                  <div className="team-carousel__thumbs">
+                    {teamMembers.map((member, idx) => (
+                      <button
+                        key={member.id}
+                        type="button"
+                        className={`team-carousel__thumb ${activeTeamIndex === idx ? 'is-active' : ''}`}
+                        onClick={() => setActiveTeamIndex(idx)}
+                        aria-label={`Selecionar ${member.name}`}
+                      >
+                        <img src={member.avatar} alt="" />
+                      </button>
+                    ))}
+                  </div>
+                  <div className="team-carousel__arrows">
+                    <button
+                      type="button"
+                      onClick={() => setActiveTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length)}
+                      aria-label="Colaborador anterior"
+                    >
+                      <ArrowLeft size={16} />
                     </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTeamIndex((prev) => (prev + 1) % teamMembers.length)}
+                      aria-label="Próximo colaborador"
+                    >
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PROPÓSITO INSTITUCIONAL (4 CARDS EXPANSIVOS) */}
+          <section className="purpose section" id="proposito">
+            <div className="container">
+              <div className="purpose__heading" data-reveal>
+                <span className="section-index">Propósito institucional</span>
+                <h2>
+                  Missão clara.
+                  <br />
+                  Visão compartilhada.
+                  <br />
+                  Impacto sustentável.
+                </h2>
+              </div>
+              <div className="purpose__layout">
+                <figure className="purpose__visual" data-image-reveal>
+                  <img
+                    src="/v3/images/proposito-institucional.webp"
+                    alt="Equipe em massinha conectando gestão, conhecimento e cuidado ao redor de uma casa"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <strong>Cuidado que ganha estrutura.</strong>
+                    <span>Conhecimento, articulação e gestão trabalhando em rede.</span>
+                  </figcaption>
+                </figure>
+
+                <div className="purpose__grid">
+                  {purposeCards.map((card) => {
+                    const Icon = card.icon
+                    const isExpanded = expandedPurpose === card.id
+                    return (
+                      <article
+                        key={card.id}
+                        className={`purpose-card purpose-card--${card.tone} ${isExpanded ? 'is-expanded' : ''}`}
+                        onMouseEnter={() => setExpandedPurpose(card.id)}
+                        onClick={() => setExpandedPurpose(isExpanded ? null : card.id)}
+                        data-reveal
+                      >
+                        <div className="purpose-card__top">
+                          <div className="purpose-card__label">
+                            <Icon />
+                            <span>{card.label}</span>
+                          </div>
+                          <button
+                            type="button"
+                            className="purpose-card__chevron-btn"
+                            aria-label={isExpanded ? 'Recolher card' : 'Expandir card'}
+                            aria-expanded={isExpanded}
+                          >
+                            <ChevronDown className={`purpose-card__chevron ${isExpanded ? 'is-rotated' : ''}`} size={20} />
+                          </button>
+                        </div>
+
+                        <div className="purpose-card__body">
+                          <h3>{card.title}</h3>
+                          <div className="purpose-card__expand-content">
+                            {card.text && <p>{card.text}</p>}
+                            {card.bullets && (
+                              <ul className="purpose-card__bullets">
+                                {card.bullets.map((bullet, idx) => {
+                                  const parts = bullet.split(': ')
+                                  return (
+                                    <li key={idx}>
+                                      {parts.length > 1 ? (
+                                        <>
+                                          <strong>{parts[0]}:</strong> {parts.slice(1).join(': ')}
+                                        </>
+                                      ) : (
+                                        bullet
+                                      )}
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      </article>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* COMO ATUAMOS */}
+          <section className="pillars section" id="como-atuamos">
+            <div className="container">
+              <div className="section-heading" data-reveal>
+                <div>
+                  <span className="section-index">Como atuamos</span>
+                  <h2>Uma rede fica mais forte quando o conhecimento circula.</h2>
+                </div>
+                <p>Transformamos desafios de gestão em caminhos possíveis, respeitando a realidade de cada organização.</p>
+              </div>
+              <div className="pillars__grid">
+                {pillars.map(({ title, text, icon, tone }) => (
+                  <article className={`pillar-card pillar-card--${tone} interactive-card`} key={title} data-reveal>
+                    <div className="card-glow" />
+                    <div className="pillar-card__top pillar-card__top--icon-only">
+                      <img src={icon} alt="" />
+                    </div>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              <figure className="wide-scene" data-image-reveal>
+                <img src="/v2/images/scene-planning.webp" alt="Profissionais em massinha construindo um plano de desenvolvimento" />
+                <figcaption>
+                  <strong>Da estratégia à prática.</strong>
+                  <span>Planejamento construído junto com quem conhece a realidade.</span>
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          {/* A JORNADA */}
+          <section className="journey section" id="jornada">
+            <div className="container journey__grid">
+              <div className="journey__visual" data-image-reveal>
+                <img src="/v2/images/scene-capacity.webp" alt="Capacitação em massinha com profissionais analisando indicadores" />
+                <div className="journey__badge">
+                  <img src="/v2/icons/crescimento.webp" alt="" />
+                  <span>Conhecimento que vira capacidade.</span>
+                </div>
+              </div>
+              <div className="journey__content" data-reveal>
+                <span className="section-index">A jornada</span>
+                <h2>Da escuta à transformação sustentável.</h2>
+                <div className="journey__steps">
+                  {journey.map(([title, text]) => (
+                    <div className="journey__step journey__step--clean" key={title}>
+                      <div>
+                        <h3>{title}</h3>
+                        <p>{text}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
-                <div className="team-carousel__arrows">
-                  <button
-                    type="button"
-                    onClick={() => setActiveTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length)}
-                    aria-label="Colaborador anterior"
-                  >
-                    <ArrowLeft size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTeamIndex((prev) => (prev + 1) % teamMembers.length)}
-                    aria-label="Próximo colaborador"
-                  >
-                    <ArrowRight size={16} />
-                  </button>
+              </div>
+            </div>
+          </section>
+
+          {/* IMPACTO EM CONSTRUÇÃO */}
+          <section className="impact section" id="impacto">
+            <div className="container" data-reveal>
+              <div className="impact__card">
+                <div className="impact__copy">
+                  <span className="section-index section-index--light">Impacto em construção</span>
+                  <h2>
+                    Medir para aprender.
+                    <br />
+                    Aprender para ampliar.
+                  </h2>
+                  <p>
+                    Nossa primeira base de impacto está sendo construída com indicadores responsáveis — sem promessas
+                    vazias e sem confundir alcance direto com benefício indireto.
+                  </p>
+                  <a className="button button--light" href="/contato" onClick={openContactPage}>
+                    Acompanhe essa jornada <ArrowRight size={20} />
+                  </a>
+                </div>
+                <div className="impact__metrics">
+                  {impactMetrics.map(({ label, icon: MetricIcon }) => (
+                    <div className="interactive-card" key={label}>
+                      <div className="impact__metric-icon" aria-hidden="true">
+                        <MetricIcon size={28} strokeWidth={1.6} />
+                      </div>
+                      <span>{label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* 02 — PROPÓSITO INSTITUCIONAL (4 CARDS EXPANSIVOS) */}
-        <section className="purpose section" id="proposito">
-          <div className="container">
-            <div className="purpose__heading" data-reveal>
-              <span className="section-index">02 — Propósito institucional</span>
-              <h2>Missão clara.<br />Visão compartilhada.<br />Impacto sustentável.</h2>
-            </div>
-            <div className="purpose__layout">
-              <figure className="purpose__visual" data-image-reveal>
-                <img src="/v3/images/proposito-institucional.webp" alt="Equipe em massinha conectando gestão, conhecimento e cuidado ao redor de uma casa" loading="lazy" />
-                <figcaption><strong>Cuidado que ganha estrutura.</strong><span>Conhecimento, articulação e gestão trabalhando em rede.</span></figcaption>
-              </figure>
-              
-              <div className="purpose__grid">
-                {purposeCards.map((card) => {
-                  const Icon = card.icon
-                  const isExpanded = expandedPurpose === card.id
-                  return (
-                    <article
-                      key={card.id}
-                      className={`purpose-card purpose-card--${card.tone} ${isExpanded ? 'is-expanded' : ''}`}
-                      onMouseEnter={() => setExpandedPurpose(card.id)}
-                      onClick={() => setExpandedPurpose(isExpanded ? null : card.id)}
-                      data-reveal
-                    >
-                      <div className="purpose-card__top">
-                        <div className="purpose-card__label">
-                          <Icon />
-                          <span>{card.label}</span>
+          {/* TRANSPARÊNCIA */}
+          <section className="transparency section" id="transparencia">
+            <div className="container transparency__grid">
+              <div className="transparency__copy" data-reveal>
+                <span className="section-index">Transparência</span>
+                <h2>Confiança também se constrói com clareza.</h2>
+                <p>Governança, integridade e prestação de contas não são anexos do nosso trabalho. São a base dele.</p>
+                <div className="seal">
+                  <FileCheck2 />
+                  <span>
+                    <strong>Compromisso público</strong>
+                    Documentos oficiais abertos para consulta e download.
+                  </span>
+                </div>
+              </div>
+              <Accordion.Root className="accordion" type="single" collapsible defaultValue="item-0" data-reveal>
+                {transparencyTopics.map((topic, index) => (
+                  <Accordion.Item className="accordion__item" value={`item-${index}`} key={topic.title}>
+                    <Accordion.Header>
+                      <Accordion.Trigger className="accordion__trigger--clean">
+                        {topic.title}
+                        <ChevronDown className="accordion__chevron" />
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="accordion__content accordion__content--clean">
+                      <p>{topic.text}</p>
+                      {topic.docs && topic.docs.length > 0 ? (
+                        <div className="transparency-docs">
+                          {topic.docs.map((doc) => (
+                            <a
+                              key={doc.href}
+                              href={doc.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="transparency-doc-link"
+                            >
+                              <FileText size={17} strokeWidth={1.8} />
+                              <span>{doc.label}</span>
+                              <Download size={16} strokeWidth={2} />
+                            </a>
+                          ))}
                         </div>
-                        <button
-                          type="button"
-                          className="purpose-card__chevron-btn"
-                          aria-label={isExpanded ? 'Recolher card' : 'Expandir card'}
-                          aria-expanded={isExpanded}
-                        >
-                          <ChevronDown className={`purpose-card__chevron ${isExpanded ? 'is-rotated' : ''}`} size={20} />
-                        </button>
-                      </div>
-                      
-                      <div className="purpose-card__body">
-                        <h3>{card.title}</h3>
-                        <div className="purpose-card__expand-content">
-                          {card.text && <p>{card.text}</p>}
-                          {card.bullets && (
-                            <ul className="purpose-card__bullets">
-                              {card.bullets.map((bullet, idx) => {
-                                const parts = bullet.split(': ')
-                                return (
-                                  <li key={idx}>
-                                    {parts.length > 1 ? (
-                                      <>
-                                        <strong>{parts[0]}:</strong> {parts.slice(1).join(': ')}
-                                      </>
-                                    ) : (
-                                      bullet
-                                    )}
-                                  </li>
-                                )
-                              })}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    </article>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 03 — COMO ATUAMOS */}
-        <section className="pillars section" id="como-atuamos">
-          <div className="container">
-            <div className="section-heading" data-reveal>
-              <div><span className="section-index">03 — Como atuamos</span><h2>Uma rede fica mais forte quando o conhecimento circula.</h2></div>
-              <p>Transformamos desafios de gestão em caminhos possíveis, respeitando a realidade de cada organização.</p>
-            </div>
-            <div className="pillars__grid">
-              {pillars.map(({ number, title, text, icon, tone }) => (
-                <article className={`pillar-card pillar-card--${tone} interactive-card`} key={title} data-reveal>
-                  <div className="card-glow" />
-                  <div className="pillar-card__top"><span>{number}</span><img src={icon} alt="" /></div>
-                  <div><h3>{title}</h3><p>{text}</p></div>
-                </article>
-              ))}
-            </div>
-            <figure className="wide-scene" data-image-reveal>
-              <img src="/v2/images/scene-planning.webp" alt="Profissionais em massinha construindo um plano de desenvolvimento" />
-              <figcaption><strong>Da estratégia à prática.</strong><span>Planejamento construído junto com quem conhece a realidade.</span></figcaption>
-            </figure>
-          </div>
-        </section>
-
-        {/* 04 — A JORNADA */}
-        <section className="journey section" id="jornada">
-          <div className="container journey__grid">
-            <div className="journey__visual" data-image-reveal>
-              <img src="/v2/images/scene-capacity.webp" alt="Capacitação em massinha com profissionais analisando indicadores" />
-              <div className="journey__badge"><img src="/v2/icons/crescimento.webp" alt="" /><span>Conhecimento que vira capacidade.</span></div>
-            </div>
-            <div className="journey__content" data-reveal>
-              <span className="section-index">04 — A jornada</span>
-              <h2>Da escuta à transformação sustentável.</h2>
-              <div className="journey__steps">
-                {journey.map(([title, text], index) => (
-                  <div className="journey__step" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></div>
+                      ) : (
+                        <a href="/contato" onClick={openContactPage} className="transparency-cta-link">
+                          {topic.ctaLabel || 'Fale conosco'} <ArrowRight size={18} />
+                        </a>
+                      )}
+                    </Accordion.Content>
+                  </Accordion.Item>
                 ))}
+              </Accordion.Root>
+            </div>
+          </section>
+
+          {/* FAÇA PARTE */}
+          <section className="help section" id="ajude">
+            <div className="container help__card" data-reveal>
+              <img className="help__logo" src="/v3/brand/logo-3d.webp" alt="Fundação Net do Bem" />
+              <div>
+                <span className="section-index">Faça parte</span>
+                <h2>Quem fortalece uma organização transforma muitas histórias.</h2>
+              </div>
+              <div className="help__actions">
+                <a className="button button--primary" href="/contato" onClick={openContactPage}>
+                  Quero ser parceiro <ArrowRight size={20} />
+                </a>
+                <a href="/contato" onClick={openContactPage}>
+                  Quero contribuir de outra forma
+                </a>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
+      )}
 
-        {/* 05 — IMPACTO EM CONSTRUÇÃO */}
-        <section className="impact section" id="impacto">
-          <div className="container" data-reveal>
-            <div className="impact__card">
-              <div className="impact__copy">
-                <span className="section-index section-index--light">05 — Impacto em construção</span>
-                <h2>Medir para aprender.<br />Aprender para ampliar.</h2>
-                <p>Nossa primeira base de impacto está sendo construída com indicadores responsáveis — sem promessas vazias e sem confundir alcance direto com benefício indireto.</p>
-                <a className="button button--light" href="#contato">Acompanhe essa jornada <ArrowRight size={20} /></a>
-              </div>
-              <div className="impact__metrics">
-                {['Organizações fortalecidas', 'Profissionais capacitados', 'Planos de melhoria implantados', 'Recursos mobilizados'].map((metric, index) => (
-                  <div className="interactive-card" key={metric}><strong>0{index + 1}</strong><span>{metric}</span></div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 06 — TRANSPARÊNCIA */}
-        <section className="transparency section" id="transparencia">
-          <div className="container transparency__grid">
-            <div className="transparency__copy" data-reveal>
-              <span className="section-index">06 — Transparência</span>
-              <h2>Confiança também se constrói com clareza.</h2>
-              <p>Governança, integridade e prestação de contas não são anexos do nosso trabalho. São a base dele.</p>
-              <div className="seal"><FileCheck2 /><span><strong>Compromisso público</strong>Documentos organizados por ano e categoria.</span></div>
-            </div>
-            <Accordion.Root className="accordion" type="single" collapsible defaultValue="item-0" data-reveal>
-              {transparency.map(([title, text], index) => (
-                <Accordion.Item className="accordion__item" value={`item-${index}`} key={title}>
-                  <Accordion.Header>
-                    <Accordion.Trigger><span>0{index + 1}</span>{title}<ChevronDown className="accordion__chevron" /></Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="accordion__content"><p>{text}</p><a href="#contato">Documentos em preparação <ArrowRight size={18} /></a></Accordion.Content>
-                </Accordion.Item>
-              ))}
-            </Accordion.Root>
-          </div>
-        </section>
-
-        {/* 07 — FAÇA PARTE */}
-        <section className="help section" id="ajude">
-          <div className="container help__card" data-reveal>
-            <img className="help__logo" src="/v3/brand/logo-3d.webp" alt="Fundação Net do Bem" />
-            <div><span className="section-index">07 — Faça parte</span><h2>Quem fortalece uma organização transforma muitas histórias.</h2></div>
-            <div className="help__actions">
-              <a className="button button--primary" href="#contato">Quero ser parceiro <ArrowRight size={20} /></a>
-              <a href="#contato">Quero contribuir de outra forma</a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* FOOTER */}
+      {/* FOOTER SIMPLIFICADO */}
       <footer className="footer" id="contato">
         <div className="container footer__lead">
-          <div><BrandLogo inverse /><p>Fortalecendo quem protege a infância, com método, cuidado e transparência.</p></div>
-          <div className="footer__contact"><span>Vamos conversar?</span><strong>E-mail institucional em definição</strong><p>Sorocaba — SP</p></div>
+          <div>
+            <BrandLogo inverse onClickHome={(e) => navigateToSection('#inicio', e)} />
+            <p>Fortalecendo quem protege a infância, com método, cuidado e transparência.</p>
+          </div>
+          <div className="footer__contact">
+            <span>Onde estamos e contato</span>
+            <div className="footer__address-block">
+              <p className="footer__address-line">
+                <MapPin size={18} />
+                <span>
+                  Av. Antônio Carlos Comitre, 1074 — Parque Campolim
+                  <br />
+                  Sorocaba — SP • CEP 18047-620
+                </span>
+              </p>
+              <a className="footer__phone-link" href="https://wa.me/5515991877880" target="_blank" rel="noreferrer">
+                <Phone size={18} />
+                <strong>(15) 99187-7880</strong>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="container footer__navigation" aria-label="Navegação do rodapé">
-          {footerGroups.map((group) => (
-            <div key={group.title}><h3>{group.title}</h3>{group.links.map(([label, href]) => <a href={href} key={label}>{label}<ArrowRight size={15} /></a>)}</div>
-          ))}
-        </div>
+        <nav className="container footer__simple-nav" aria-label="Seções do site">
+          <div className="footer__simple-links">
+            {menuSections.map(([label, href]) =>
+              href === '/contato' ? (
+                <a href={href} key={label} onClick={openContactPage}>
+                  {label}
+                </a>
+              ) : (
+                <a href={href} key={label} onClick={(e) => navigateToSection(href, e)}>
+                  {label}
+                </a>
+              ),
+            )}
+          </div>
+          <a className="button button--primary footer__cta-btn" href="/contato" onClick={openContactPage}>
+            Quero ajudar <ArrowRight size={18} />
+          </a>
+        </nav>
 
         <div className="container footer__legal">
-          <span>© 2026 Fundação Net do Bem</span>
-          <div><a href="#transparencia">Privacidade</a><a href="#transparencia">Transparência</a><a href="#transparencia">Proteção à infância</a></div>
+          <span>© 2026 Fundação Net do Bem • CNPJ 69.084.154/0001-05</span>
+          <div>
+            <a href="#transparencia" onClick={(e) => navigateToSection('#transparencia', e)}>
+              Privacidade
+            </a>
+            <a href="#transparencia" onClick={(e) => navigateToSection('#transparencia', e)}>
+              Transparência
+            </a>
+            <a href="#transparencia" onClick={(e) => navigateToSection('#transparencia', e)}>
+              Proteção à infância
+            </a>
+          </div>
           <span>Feito em rede ♥</span>
         </div>
 
