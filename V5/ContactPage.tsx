@@ -113,15 +113,34 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
   const turnstileRef = useRef<HTMLDivElement>(null)
   const widgetIdRef = useRef<string | null>(null)
 
-  const siteKey =
-    (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_TURNSTILE_SITE_KEY ||
-    '1x00000000000000000000AA'
+  const envSiteKey = (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_TURNSTILE_SITE_KEY || ''
+  const [siteKey, setSiteKey] = useState<string>(envSiteKey)
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
+  // Busca a Site Key em tempo de execução via /api/config caso não tenha vindo no build estático
   useEffect(() => {
+    if (siteKey) return
+    let active = true
+    fetch('/api/config')
+      .then((r) => r.json())
+      .then((data) => {
+        if (active) {
+          setSiteKey(data?.siteKey || '1x00000000000000000000AA')
+        }
+      })
+      .catch(() => {
+        if (active) setSiteKey('1x00000000000000000000AA')
+      })
+    return () => {
+      active = false
+    }
+  }, [siteKey])
+
+  useEffect(() => {
+    if (!siteKey) return
     let mounted = true
 
     const renderWidget = () => {
@@ -647,3 +666,4 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
     </div>
   )
 }
+

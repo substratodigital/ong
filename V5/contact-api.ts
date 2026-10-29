@@ -44,8 +44,17 @@ export default async function handler(req: any, res: any) {
     }
 
     // 1. Validar Cloudflare Turnstile se TURNSTILE_SECRET_KEY estiver configurada
-    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
-    if (turnstileSecret) {
+    const turnstileSecret = (process.env.TURNSTILE_SECRET_KEY || '').trim()
+    const configuredSiteKey = (
+      process.env.VITE_TURNSTILE_SITE_KEY ||
+      process.env.TURNSTILE_SITE_KEY ||
+      ''
+    ).trim()
+
+    // Só valida com a secret real se o token não for o dummy token de teste da Cloudflare (XXXX.DUMMY.TOKEN.XXXX)
+    const isDummyTestToken = Boolean(turnstileToken && turnstileToken.includes('DUMMY'))
+
+    if (turnstileSecret && (!isDummyTestToken || configuredSiteKey)) {
       if (!turnstileToken) {
         return res.status(400).json({ error: 'Confirmação de segurança (Cloudflare Turnstile) obrigatória.' })
       }
@@ -58,10 +67,13 @@ export default async function handler(req: any, res: any) {
         method: 'POST',
         body: verifyParams,
       })
-      const cfData = (await cfResponse.json()) as { success: boolean }
+      const cfData = (await cfResponse.json()) as { success: boolean; 'error-codes'?: string[] }
 
       if (!cfData.success) {
-        return res.status(403).json({ error: 'Falha na verificação de segurança anti-bot. Tente novamente.' })
+        console.error('Turnstile verify error:', cfData)
+        return res.status(403).json({
+          error: 'Falha na verificação de segurança anti-bot. Recarregue a página e tente novamente.',
+        })
       }
     }
 
@@ -196,3 +208,4 @@ function escapeHtml(str: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;')
 }
+
