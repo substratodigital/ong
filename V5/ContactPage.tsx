@@ -287,11 +287,11 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
 
           <div className="contact-hero__header">
             <span className="section-index">Fale conosco e faça parte</span>
-            <h1>Cada gesto fortalece uma rede inteira de proteção à infância.</h1>
+            <h1>Cada gesto fortalece uma rede inteira de proteção à&nbsp;infância.</h1>
             <p>
               Seja apoiando financeiramente, construindo uma parceria corporativa ou inscrevendo sua Casa de
               Acolhimento em nossos programas de fortalecimento institucional, sua conexão transforma realidades com
-              método, governança e transparência.
+              método, governança e&nbsp;transparência.
             </p>
           </div>
 
@@ -299,7 +299,7 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
             {/* COLUNA ESQUERDA: FORMULÁRIO DINÂMICO */}
             <div className="contact-form-card">
               <div className="contact-form-card__top">
-                <span className="contact-step-label">1. Como você deseja se conectar?</span>
+                <span className="contact-step-label">1. Como você deseja se&nbsp;conectar?</span>
                 <div className="contact-primary-tabs" role="tablist" aria-label="Tipo de contato">
                   <button
                     type="button"
@@ -315,8 +315,8 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
                       <HandHeart size={22} />
                     </div>
                     <div className="contact-primary-tab__text">
-                      <strong>Para Doações e Parcerias</strong>
-                      <span>Quero apoiar ou investir na causa</span>
+                      <strong>Para Doações e&nbsp;Parcerias</strong>
+                      <span>Quero apoiar ou investir na&nbsp;causa</span>
                     </div>
                   </button>
 
@@ -334,8 +334,8 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
                       <Home size={22} />
                     </div>
                     <div className="contact-primary-tab__text">
-                      <strong>Casas de Acolhimento</strong>
-                      <span>Busco apoio técnico e capacitação</span>
+                      <strong>Casas de&nbsp;Acolhimento</strong>
+                      <span>Busco apoio técnico e&nbsp;capacitação</span>
                     </div>
                   </button>
                 </div>
@@ -344,7 +344,7 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
               {/* SUB-SELETOR PARA DOAÇÕES: PF vs PJ */}
               {category === 'doacao' && (
                 <div className="contact-secondary-selector">
-                  <span className="contact-step-label">2. Selecione o seu perfil de doador</span>
+                  <span className="contact-step-label">2. Selecione o seu perfil de&nbsp;doador</span>
                   <div className="contact-subtabs" role="tablist" aria-label="Perfil de doador">
                     <button
                       type="button"
@@ -377,19 +377,19 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
                   <p>
                     <strong>Pessoa Física:</strong> Sua contribuição fortalece programas de capacitação, gestão e
                     apoio estrutural para casas de acolhimento. Preencha seus dados para conversarmos ou receber
-                    nosso acompanhamento de impacto.
+                    nosso acompanhamento de&nbsp;impacto.
                   </p>
                 )}
                 {category === 'doacao' && donorType === 'pj' && (
                   <p>
                     <strong>Pessoa Jurídica:</strong> Conecte sua empresa a projetos estruturados de ESG, investimento
-                    social privado e fortalecimento da rede de proteção à infância com governança e prestação de contas.
+                    social privado e fortalecimento da rede de proteção à infância com governança e prestação de&nbsp;contas.
                   </p>
                 )}
                 {category === 'acolhimento' && (
                   <p>
                     <strong>Casas de Acolhimento:</strong> Conte-nos sobre sua instituição e principais desafios de
-                    gestão, equipe ou estrutura. Nossa equipe técnica entrará em contato para escuta e diagnóstico.
+                    gestão, equipe ou estrutura. Nossa equipe técnica entrará em contato para escuta e&nbsp;diagnóstico.
                   </p>
                 )}
               </div>
