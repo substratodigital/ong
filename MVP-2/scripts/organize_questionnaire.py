@@ -12,6 +12,7 @@ blocks_meta = [
         "intro": "Identidade, natureza jurídica, fundação, CNPJ, endereço via CEP e dados de contato.",
         "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa.",
         "icon": "building-2",
+        "art": "cards/stage-01.webp",
         "animType": "bounceScale",
         "estimatedMinutes": 3,
         "celebration": {
@@ -26,6 +27,7 @@ blocks_meta = [
         "intro": "Ambientes e mobiliário (painel rápido), acessibilidade, brinquedos por idade e veículos.",
         "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa.",
         "icon": "home",
+        "art": "cards/stage-02.webp",
         "animType": "roofLift",
         "estimatedMinutes": 3,
         "celebration": {
@@ -40,6 +42,7 @@ blocks_meta = [
         "intro": "Capacidade, acolhidos hoje e nos últimos 12 meses por faixa etária, motivos e apadrinhamento.",
         "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária.",
         "icon": "sun",
+        "art": "cards/stage-03.webp",
         "animType": "spinGlow",
         "estimatedMinutes": 3,
         "celebration": {
@@ -54,6 +57,7 @@ blocks_meta = [
         "intro": "Quadro de colaboradores, Coordenação Técnica/Funcional, equipe mínima e desafios de folha.",
         "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação.",
         "icon": "users",
+        "art": "cards/stage-04.webp",
         "animType": "waveUsers",
         "estimatedMinutes": 3,
         "celebration": {
@@ -68,6 +72,7 @@ blocks_meta = [
         "intro": "Práticas de gestão, conselho, balanço, retorno de prestação de contas aos financiadores e portal.",
         "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores.",
         "icon": "shield-check",
+        "art": "cards/stage-05.webp",
         "animType": "shieldPulse",
         "estimatedMinutes": 3,
         "celebration": {
@@ -82,6 +87,7 @@ blocks_meta = [
         "intro": "Fontes de recursos, reserva financeira e dificuldades de custeio (incluindo Vestuário e Higiene).",
         "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição.",
         "icon": "wallet",
+        "art": "cards/stage-06.webp",
         "animType": "coinFlip",
         "estimatedMinutes": 3,
         "celebration": {
@@ -96,6 +102,7 @@ blocks_meta = [
         "intro": "Doações sazonais, Imposto de Renda (PF e PJ), Editais (Públicos e Privados) e burocracia.",
         "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação.",
         "icon": "hand-coins",
+        "art": "cards/stage-07.webp",
         "animType": "bounceScale",
         "estimatedMinutes": 4,
         "celebration": {
@@ -110,6 +117,7 @@ blocks_meta = [
         "intro": "Acompanhamento psicológico, psiquiátrico, médico e relação com a rede de Saúde (SUS/CAPS).",
         "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada.",
         "icon": "heart-pulse",
+        "art": "cards/stage-08.webp",
         "animType": "heartbeat",
         "estimatedMinutes": 2,
         "celebration": {
@@ -124,6 +132,7 @@ blocks_meta = [
         "intro": "Inclusão escolar, aprendizagem, reforço, socialização e relação direta com as escolas.",
         "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar.",
         "icon": "graduation-cap",
+        "art": "cards/stage-09.webp",
         "animType": "capToss",
         "estimatedMinutes": 2,
         "celebration": {
@@ -138,6 +147,7 @@ blocks_meta = [
         "intro": "Reparação de experiências traumáticas (Sim/Não e %), PIA, adoção e preparação para desacolhimento.",
         "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças.",
         "icon": "heart-handshake",
+        "art": "cards/stage-10.webp",
         "animType": "heartbeat",
         "estimatedMinutes": 3,
         "celebration": {
@@ -152,6 +162,7 @@ blocks_meta = [
         "intro": "Articulação desmembrada com Assistência Social (CRAS/CREAS), Conselho Tutelar, MP e Judiciário.",
         "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos.",
         "icon": "network",
+        "art": "cards/stage-11.webp",
         "animType": "spinGlow",
         "estimatedMinutes": 2,
         "celebration": {
@@ -166,6 +177,7 @@ blocks_meta = [
         "intro": "Frequência de visitas/contatos, encaminhamento da família (trabalho, saúde mental, moradia) e reintegração.",
         "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração.",
         "icon": "house",
+        "art": "cards/stage-12.webp",
         "animType": "roofLift",
         "estimatedMinutes": 3,
         "celebration": {
@@ -180,6 +192,7 @@ blocks_meta = [
         "intro": "Situação dos 5 ambientes, veículo, equipamentos, equipe, capacitação, captação e projetos adicionais.",
         "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio.",
         "icon": "sprout",
+        "art": "cards/stage-13.webp",
         "animType": "sproutGrow",
         "estimatedMinutes": 4,
         "introWarning": "Orientação importante: sabemos que as casas possuem muitas demandas, mas pedimos que avalie com rigor e reserve a nota 5 (Urgente) apenas para o que for realmente mais crítico hoje. Detalhe nos campos abertos os itens específicos para enriquecer nosso diagnóstico.",
@@ -195,6 +208,7 @@ blocks_meta = [
         "intro": "Tecnologia na gestão, onde o apoio faz diferença, conquistas, parcerias estratégicas e visão de 5 anos.",
         "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição.",
         "icon": "compass",
+        "art": "cards/stage-14.webp",
         "animType": "spinGlow",
         "estimatedMinutes": 3,
         "celebration": {
@@ -294,23 +308,23 @@ add("q016_brinquedos_faixas", "A casa possui brinquedos e materiais lúdicos em 
     options=["0 a 3 anos", "4 a 7 anos", "8 a 12 anos", "13 a 18 anos (jogos, livros, esportes)"],
     help="Selecione todas as faixas etárias que contam com brinquedos adequados e em bom estado.")
 add("q016_brinquedos_obs", "Observações sobre brinquedos e materiais lúdicos", "textarea", 1, "Ambientes e mobiliário", "Revisão V2",
-    placeholder="Se desejar, descreva em até 300 caracteres o que falta ou precisa ser reposto em brinquedos por idade...",
-    help="Espaço aberto para detalhar necessidades de brinquedos ou lazer (até 300 caracteres).")
+    placeholder="Se desejar, descreva o que falta ou precisa ser reposto em brinquedos por idade...",
+    help="")
 add("q018_veiculo_proprio", "A instituição possui veículo próprio?", "options", 1, "Veículos e segurança no transporte", "Sheet1!B18",
     options=["Sim", "Não"],
-    help="Informe se a unidade dispõe de veículo próprio ou exclusivo para a rotina das crianças.")
+    help="")
 add("q018_veiculo_tipos", "Quais tipos de veículo a instituição possui ou utiliza?", "multi", 1, "Veículos e segurança no transporte", "Revisão V2",
     options=["Van / Kombi", "Carro de passeio", "Caminhonete / Utilitário", "Não possui veículo próprio"],
-    help="Marque todos os tipos de veículos disponíveis na unidade.")
+    help="Selecione todas as opções que se aplicam.")
 add("q018_veiculo_seguranca", "Possui sistema de segurança de veículo para criança (Bebê conforto, cadeirinha e assento de elevação)?", "options", 1, "Veículos e segurança no transporte", "Revisão V2",
     options=["Sim", "Parcial", "Não"],
-    help="Equipamentos obrigatórios para o transporte seguro de bebês e crianças.")
+    help="")
 add("q018_veiculo_obs", "Observações sobre veículos e transporte", "textarea", 1, "Veículos e segurança no transporte", "Revisão V2",
-    placeholder="Descreva em até 300 caracteres a quantidade, estado de conservação ou demandas de transporte da casa...",
-    help="Espaço aberto para observações sobre os veículos (até 300 caracteres).")
+    placeholder="Descreva a quantidade, estado de conservação ou demandas de transporte da casa...",
+    help="")
 add("q030", "A estrutura física atende às necessidades dos acolhidos?", "options", 1, "Ambientes e mobiliário", "Sheet1!B30",
     options=["Sim", "Não", "Parcial"],
-    help="Avaliação geral sobre a adequação do imóvel atual.")
+    help="")
 
 # ==============================================================================
 # BLOCO 2 (Etapa 3): COTIDIANO E ACOLHIMENTO (Números por Faixa Etária + Rotina + Padrinhos)
@@ -319,18 +333,18 @@ add("q022", "A casa tem capacidade autorizada para acolher quantas crianças e a
     unit="vagas", placeholder="Ex.: 20", help="Informe a capacidade total autorizada da unidade.")
 add("q021_faixas", "Quantos acolhimentos estão na casa NO MOMENTO, por faixa etária?", "quintoandar", 2, "O acolhimento em números", "Sheet1!B21",
     options=["0 a 3 anos", "4 a 7 anos", "8 a 12 anos", "13 a 18 anos"],
-    help="Informe quantas crianças/adolescentes vivem na casa hoje em cada faixa etária. O total é somado automaticamente.")
+    help="Informe quantas crianças e adolescentes vivem na casa hoje em cada faixa etária.")
 add("q019_faixas", "Quantos acolhimentos ocorreram nos ÚLTIMOS 12 MESES, por faixa etária?", "quintoandar", 2, "O acolhimento em números", "Sheet1!B19",
     options=["0 a 3 anos", "4 a 7 anos", "8 a 12 anos", "13 a 18 anos"],
     help="Informe a quantidade de novos acolhimentos recebidos nos últimos 12 meses em cada faixa.")
 add("q020_faixas", "Quantos desligamentos (desacolhimentos) ocorreram nos ÚLTIMOS 12 MESES, por faixa etária?", "quintoandar", 2, "O acolhimento em números", "Sheet1!B20",
     options=["0 a 3 anos", "4 a 7 anos", "8 a 12 anos", "13 a 18 anos"],
-    help="Informe quantas saídas/reintegrações/adoções ocorreram nos últimos 12 meses por faixa etária.")
+    help="Informe quantas saídas, reintegrações ou adoções ocorreram nos últimos 12 meses por faixa etária.")
 add("q023", "Tempo (em meses) em média que as crianças ficam acolhidas na casa", "number", 2, "O acolhimento em números", "Sheet1!B23",
     unit="meses", placeholder="Ex.: 14", help="Informe a média estimada em meses de permanência na unidade.")
 add("q024", "Qual é a faixa etária predominante entre os acolhidos?", "options", 2, "Rotina de acolhimento", "Sheet1!B24",
     options=["0 a 3 anos", "4 a 7 anos", "8 a 12 anos", "13 a 18 anos", "Não há faixa predominante"],
-    help="Faixas padronizadas conforme revisão técnica da Fundação Net do Bem.")
+    help="")
 add("q026", "Ordene os motivos mais frequentes de acolhimento (1º, 2º e 3º lugar)", "rank", 2, "Rotina de acolhimento", "Sheet1!B26",
     options=["Violência", "Negligência / Abandono", "Álcool / drogas"],
     help="Escolha uma posição diferente (1º, 2º e 3º lugar) para cada motivo. Não descreva casos individuais.")
@@ -339,10 +353,10 @@ add("q028", "Quais refeições são oferecidas diariamente?", "multi", 2, "Rotin
     help="Selecione todas as refeições servidas regularmente na rotina da casa.")
 add("q_padrinhos_afetivo", "A instituição possui sistema de padrinhos — Afetivo?", "options", 2, "Rotina de acolhimento", "Revisão V2",
     options=["Sim", "Não"],
-    help="Programas de apadrinhamento afetivo devidamente regulamentados.")
+    help="")
 add("q_padrinhos_financeiro", "A instituição possui sistema de padrinhos — Financeiro?", "options", 2, "Rotina de acolhimento", "Revisão V2",
     options=["Sim", "Não"],
-    help="Programas de apadrinhamento financeiro ou custeio de demandas específicas.")
+    help="")
 
 # ==============================================================================
 # BLOCO 3 (Etapa 4): PESSOAS (Quadro de Equipe + Formação + Desafios de Folha)
@@ -359,22 +373,22 @@ add("q_equipe_grid", "Quem compõe a equipe da unidade? (Informe a quantidade po
         "Voluntários",
         "Padrinhos cadastrados"
     ],
-    help="Atualizado com Coordenação Técnica, Coordenação Funcional e Supervisão (equipe externa). Informe zero quando não houver.")
+    help="Use os seletores [-] e [+] para informar a quantidade de pessoas em cada função.")
 add("q042", "A equipe recebe capacitação periódica?", "options", 3, "Formação e composição", "Sheet1!B42",
     options=["Sim", "Não", "Parcial"],
-    help="Indique se há formação continuada regular para cuidadores e equipe técnica.")
+    help="")
 add("q043", "A equipe mínima prevista na legislação (NOB-RH/SUAS) está completa?", "options", 3, "Formação e composição", "Sheet1!B43",
     options=["Sim", "Não", "Parcial"],
-    help="Considere a proporção exigida de coordenador, equipe técnica e educadores/cuidadores por turno.")
+    help="Considere a proporção de coordenador, equipe técnica e educadores/cuidadores por turno.")
 add("q125", "Qual o grau de dificuldade com capacitação e estabilidade (rotatividade) da equipe?", "options", 3, "Formação e composição", "Sheet1!B125",
     options=["Alto", "Médio", "Baixo"],
-    help="Pergunta realocada para o bloco Pessoas conforme revisão técnica.")
+    help="")
 add("q_pessoas_funcao_extra", "Descreva os desafios de pagar alguma função extra de equipe técnica", "textarea", 3, "Desafios da equipe", "Revisão V2",
-    placeholder="Descreva em até 300 caracteres as dificuldades financeiras para custear especialistas ou horas técnicas extras...",
-    help="Campo aberto solicitado na revisão para detalhar gargalos na contratação de equipe técnica (até 300 caracteres).")
+    placeholder="Descreva as dificuldades financeiras para custear especialistas ou horas técnicas extras...",
+    help="")
 add("q_pessoas_obs", "Observações ou comentários adicionais sobre a equipe (Opcional)", "textarea", 3, "Desafios da equipe", "Revisão V2",
     placeholder="Se houver algo mais a acrescentar sobre a realidade da sua equipe, registre aqui...",
-    help="Espaço complementar de final de bloco (até 300 caracteres).")
+    help="")
 
 # ==============================================================================
 # BLOCO 4 (Etapa 5): GOVERNANÇA (Subtítulo único: Práticas)
@@ -390,14 +404,14 @@ add("q052", "Existe gestão de risco?", "options", 4, "Práticas", "Sheet1!B52",
 add("q053", "A instituição possui políticas internas (compliance, ética, proteção de dados, compras)?", "options", 4, "Práticas", "Sheet1!B53", options=gov_yesno)
 add("q056", "O balanço financeiro é publicado?", "options", 4, "Práticas", "Sheet1!B56", options=gov_yesno)
 add("q_gov_prestacao_simnao", "As prestações de contas são feitas aos financiadores?", "options", 4, "Práticas", "Revisão V2",
-    options=gov_yesno, help="Informe se a instituição realiza retorno formal de prestação de contas aos seus financiadores e apoiadores.")
+    options=gov_yesno, help="")
 add("q060", "Descreva como você dá retorno de prestações de contas aos financiadores.", "textarea", 4, "Práticas", "Sheet1!B60",
     placeholder="Ex.: Enviamos relatórios periódicos com notas fiscais, balancete contábil e registro das atividades realizadas...",
-    help="Descreva de forma objetiva em até 300 caracteres.")
+    help="")
 add("q057", "A instituição divulga relatório anual de atividades?", "options", 4, "Práticas", "Sheet1!B57", options=gov_yesno)
 add("q058", "Possui auditoria?", "options", 4, "Práticas", "Sheet1!B58", options=gov_yesno)
 add("q059", "Há um portal de atividades e financiamento disponíveis ao público?", "options", 4, "Práticas", "Sheet1!B59",
-    options=gov_yesno, help="Indique se as atividades e informações de financiamento estão disponíveis publicamente no site ou portal da entidade.")
+    options=gov_yesno, help="")
 
 # ==============================================================================
 # BLOCO 5 (Etapa 6): SUSTENTABILIDADE (Fontes de recursos + Dificuldades até Vestuário e Higiene)
@@ -424,9 +438,9 @@ add("q077", "Educação e desenvolvimento (material escolar, uniformes, transpor
 add("q078", "Moradia e manutenção (aluguel, energia elétrica, água, gás, manutenção predial...)", "options", 5, "Dificuldades financeiras", "Sheet1!B78",
     options=scale_hmb, help="Qual o grau de dificuldade financeira para custear este item?")
 add("q079_vestuario", "Vestuário (roupas, calçados, enxoval de cama e banho)", "options", 5, "Dificuldades financeiras", "Sheet1!B79",
-    options=scale_hmb, help="Desmembrado de 'Vestuário e higiene': avalie o grau de dificuldade financeira apenas para Vestuário.")
+    options=scale_hmb, help="Qual o grau de dificuldade financeira para custear este item?")
 add("q079_higiene", "Higiene (produtos de higiene pessoal, fraldas e limpeza)", "options", 5, "Dificuldades financeiras", "Sheet1!B79",
-    options=scale_hmb, help="Desmembrado de 'Vestuário e higiene': avalie o grau de dificuldade financeira apenas para Higiene.")
+    options=scale_hmb, help="Qual o grau de dificuldade financeira para custear este item?")
 
 # ==============================================================================
 # BLOCO 6 (Etapa 7): CAPTAÇÃO (Caminhos e Desafios para Captar)
@@ -438,9 +452,9 @@ add("q081", "Exigências legais e administrativas (contabilidade, certificaçõe
 add("q084", "Possui profissional dedicado/responsável pela captação de recursos?", "options", 6, "Caminhos de captação", "Sheet1!B84", options=["Sim", "Não"])
 add("q085", "Realiza campanhas periódicas de doação?", "options", 6, "Caminhos de captação", "Sheet1!B85", options=["Sim", "Não"])
 add("q086_pf", "Recebe doações via Imposto de Renda — Pessoa Física (PF)?", "options", 6, "Caminhos de captação", "Sheet1!B86",
-    options=["Sim", "Não"], help="Destinação de IR de Pessoas Físicas via Fundo da Infância e Adolescência (FIA/CMDCA).")
+    options=["Sim", "Não"], help="Destinação de Imposto de Renda de Pessoas Físicas via Fundo da Infância e Adolescência (FIA/CMDCA).")
 add("q086_pj", "Recebe doações via Imposto de Renda — Pessoa Jurídica (PJ)?", "options", 6, "Caminhos de captação", "Sheet1!B86",
-    options=["Sim", "Não"], help="Destinação de incentivo fiscal de empresas (Lucro Real) via FIA/CMDCA.")
+    options=["Sim", "Não"], help="Destinação de incentivo fiscal de empresas via FIA/CMDCA.")
 add("q087_pub", "Participa de Editais Públicos?", "options", 6, "Caminhos de captação", "Sheet1!B87",
     options=["Sim", "Não"], help="Chamamentos públicos, emendas ou editais governamentais.")
 add("q087_priv", "Participa de Editais Privados?", "options", 6, "Caminhos de captação", "Sheet1!B87",
@@ -456,11 +470,11 @@ add("q093", "Baixa visibilidade do trabalho (por sigilo legal não poder expor h
 add("q095", "Pouca profissionalização da captação e dificuldade em acessar empresas", "options", 6, "Desafios para captar", "Sheet1!B95",
     options=scale_hmb, help="Como avalia o nível de dificuldade neste aspecto?")
 add("q097_pub", "Burocracia para obtenção de recursos públicos", "options", 6, "Desafios para captar", "Sheet1!B97",
-    options=scale_hmb, help="Desmembrado conforme revisão: avalie o grau de dificuldade com a burocracia pública.")
+    options=scale_hmb, help="Como avalia o nível de dificuldade neste aspecto?")
 add("q097_priv", "Burocracia para obtenção de recursos privados", "options", 6, "Desafios para captar", "Sheet1!B97",
-    options=scale_hmb, help="Desmembrado conforme revisão: avalie o grau de dificuldade com a burocracia privada.")
+    options=scale_hmb, help="Como avalia o nível de dificuldade neste aspecto?")
 add("q099", "Necessidade de demonstrar impacto e recursos financeiros limitados", "options", 6, "Desafios para captar", "Sheet1!B99",
-    options=scale_hmb, help="Inclui o desafio de recursos financeiros limitados realocado para Captação.")
+    options=scale_hmb, help="Como avalia o nível de dificuldade neste aspecto?")
 
 # ==============================================================================
 # BLOCO 7 (Etapa 8): SAÚDE (Sem a palavra "autonomia" + Articulação com Rede de Saúde)
@@ -471,10 +485,10 @@ add("q104", "Acesso a saúde geral (hospital, consultas médicas, odontologia e 
 add("q105", "Existem programas de preparação gradual para saída / autonomia dos adolescentes?", "options", 7, "Saúde", "Sheet1!B105", options=["Sim", "Parcial", "Não"])
 add("q145", "Como avalia a articulação e o atendimento da Rede de Saúde (UBS, CAPS, Hospitais) à casa?", "options", 7, "Relação com a Rede de Saúde", "Sheet1!B145",
     options=["Bom", "Regular", "Ruim", "Não há relacionamento"],
-    help="Pergunta incorporada ao bloco Saúde para avaliar diretamente o relacionamento com o SUS/Rede de Saúde.")
+    help="")
 add("q_saude_relacao_obs", "Descreva a relação das casas de acolhimento com a Saúde e os principais problemas enfrentados", "textarea", 7, "Relação com a Rede de Saúde", "Revisão V2",
-    placeholder="Relate em até 300 caracteres dificuldades como filas de espera, atendimento em saúde mental/CAPS, acesso a medicamentos...",
-    help="Pergunta aberta adicionada na revisão para mapear os gargalos reais com a Saúde (até 300 caracteres).")
+    placeholder="Relate dificuldades como filas de espera, atendimento em saúde mental/CAPS, acesso a medicamentos...",
+    help="")
 
 # ==============================================================================
 # BLOCO 8 (Etapa 9): EDUCAÇÃO (Sem "Não se aplica" + Relação com as Escolas)
@@ -497,20 +511,20 @@ add("q114", "Formação insuficiente dos professores para lidar com o contexto d
     options=scale_hmb, help="Qual o grau de dificuldade enfrentado neste aspecto?")
 add("q146", "Como avalia a relação e articulação direta da casa com as Escolas / Rede de Educação?", "options", 8, "Relação com a Escola", "Sheet1!B146",
     options=["Bom", "Regular", "Ruim", "Não há relacionamento"],
-    help="Incorporada ao bloco Educação para avaliar a parceria com a rede de ensino.")
+    help="")
 add("q_educacao_relacao_obs", "Detalhe a relação da casa de acolhimento com a Educação e os principais problemas com as escolas", "textarea", 8, "Relação com a Escola", "Revisão V2",
-    placeholder="Descreva em até 300 caracteres como é o diálogo com a direção/professores, acesso a vagas, contraturno e transporte...",
-    help="Pergunta aberta adicionada na revisão para detalhar a relação com a Educação (até 300 caracteres).")
+    placeholder="Descreva como é o diálogo com a direção/professores, acesso a vagas, contraturno e transporte...",
+    help="")
 
 # ==============================================================================
 # BLOCO 9 (Etapa 10): ATENDIMENTO (Reparação Traumática Sim/Não + % | Adoção vs Desacolhimento)
 # ==============================================================================
 add("q116_simnao", "A instituição já teve experiência bem-sucedida na reparação dos impactos de experiências traumáticas?", "options", 9, "Reparação de experiências traumáticas", "Sheet1!B116",
     options=["Sim", "Não"],
-    help="Primeira pergunta sobre recuperação emocional e superação de traumas durante o acolhimento.")
+    help="")
 add("q116_pct", "Qual o percentual estimado de reparação de experiências traumáticas nas crianças atendidas?", "options", 9, "Reparação de experiências traumáticas", "Sheet1!B116",
     options=["Até 10%", "Até 25%", "Até 50%", "Mais que 50%"],
-    help="Estimativa percentual definida na revisão técnica.")
+    help="")
 add("q117", "Construção de vínculo de confiança com as crianças e adolescentes", "options", 9, "Desafios do atendimento", "Sheet1!B117",
     options=scale_hmb, help="Qual o grau de dificuldade neste aspecto?")
 add("q118", "Manejo de comportamentos desafiadores", "options", 9, "Desafios do atendimento", "Sheet1!B118",
@@ -524,9 +538,9 @@ add("q121", "Atendimento individualizado a cada acolhido", "options", 9, "Desafi
 add("q122", "Fortalecimento dos vínculos familiares durante o acolhimento", "options", 9, "Desafios do atendimento", "Sheet1!B122",
     options=scale_hmb, help="Qual o grau de dificuldade neste aspecto?")
 add("q123_adocao", "Preparação para adoção", "options", 9, "Adoção e Desacolhimento", "Sheet1!B123",
-    options=scale_hmb, help="Desmembrado conforme revisão (sem 'Não se aplica'): avalie o grau de dificuldade na preparação para adoção.")
+    options=scale_hmb, help="Qual o grau de dificuldade neste aspecto?")
 add("q123_desacolhimento", "Preparação para o desacolhimento", "options", 9, "Adoção e Desacolhimento", "Sheet1!B123",
-    options=scale_hmb, help="Desmembrado conforme revisão (termo técnico 'desacolhimento'): avalie o grau de dificuldade.")
+    options=scale_hmb, help="Qual o grau de dificuldade neste aspecto?")
 add("q128", "Realizar o Plano Individual de Atendimento (PIA) com causas, necessidades e ações para reintegração", "options", 9, "Plano Individual de Atendimento", "Sheet1!B128",
     options=scale_hmb, help="Qual o grau de dificuldade na elaboração e execução do PIA?")
 
@@ -534,13 +548,13 @@ add("q128", "Realizar o Plano Individual de Atendimento (PIA) com causas, necess
 # BLOCO 10 (Etapa 11): REDE DE PROTEÇÃO (4 Órgãos Desmembrados + Qualidade da Relação)
 # ==============================================================================
 add("q124_assistencia", "Grau de dificuldade na articulação integrada com a Assistência Social (CRAS / CREAS)", "options", 10, "Articulação da rede de proteção", "Sheet1!B124",
-    options=scale_hmb, help="Desmembrado por órgão conforme revisão (sem 'Não se aplica').")
+    options=scale_hmb, help="")
 add("q124_ct", "Grau de dificuldade na articulação integrada com o Conselho Tutelar", "options", 10, "Articulação da rede de proteção", "Sheet1!B124",
-    options=scale_hmb, help="Avalie o grau de dificuldade de atuação integrada com o Conselho Tutelar.")
+    options=scale_hmb, help="")
 add("q124_mp", "Grau de dificuldade na articulação integrada com o MP (Ministério Público)", "options", 10, "Articulação da rede de proteção", "Sheet1!B124",
-    options=scale_hmb, help="Avalie o grau de dificuldade de atuação integrada com o Ministério Público.")
+    options=scale_hmb, help="")
 add("q124_judiciario", "Grau de dificuldade na articulação integrada com o Poder Judiciário (Vara da Infância e Juventude)", "options", 10, "Articulação da rede de proteção", "Sheet1!B124",
-    options=scale_hmb, help="Avalie o grau de dificuldade de atuação integrada com o Poder Judiciário.")
+    options=scale_hmb, help="")
 rel_opts = ["Bom", "Regular", "Ruim", "Não há relacionamento"]
 add("q140", "Como classifica o relacionamento institucional com o Poder Judiciário?", "options", 10, "Qualidade do relacionamento com a Rede", "Sheet1!B140", options=rel_opts)
 add("q141", "Como classifica o relacionamento institucional com o Ministério Público?", "options", 10, "Qualidade do relacionamento com a Rede", "Sheet1!B141", options=rel_opts)
@@ -551,35 +565,35 @@ add("q143", "Como classifica o relacionamento institucional com o CREAS e o CRAS
 # BLOCO 11 (Etapa 12): VÍNCULOS FAMILIARES (Enunciados e Escalas Reformulados)
 # ==============================================================================
 add("q129", "Frequência de visita dos familiares à instituição", "options", 11, "Frequência de visitas e contatos", "Sheet1!B129",
-    options=["Alta", "Média", "Baixa"], help="Com que frequência os familiares comparecem às visitas presenciais na casa?")
+    options=["Alta", "Média", "Baixa"], help="")
 add("q130", "Frequência de contato de familiares (vídeo, telefone ou cartas)", "options", 11, "Frequência de visitas e contatos", "Sheet1!B130",
-    options=["Alta", "Média", "Baixa"], help="Com que frequência ocorre o contato remoto entre familiares e acolhidos?")
+    options=["Alta", "Média", "Baixa"], help="")
 add("q131", "Grau de dificuldade de atendimento psicossocial à família", "options", 11, "Grau de dificuldade no trabalho com famílias", "Sheet1!B131",
-    options=scale_hmb, help="Avalie o grau de dificuldade enfrentado pela equipe técnica.")
+    options=scale_hmb, help="")
 add("q132", "Grau de dificuldade de orientação parental (comunicação, resolução de conflitos e fortalecimento do cuidado)", "options", 11, "Grau de dificuldade no trabalho com famílias", "Sheet1!B132",
-    options=scale_hmb, help="Avalie o grau de dificuldade enfrentado pela equipe técnica.")
+    options=scale_hmb, help="")
 add("q133_trabalho", "Grau de dificuldade do encaminhamento dos responsáveis (família) para o mercado de trabalho", "options", 11, "Encaminhamento da família na rede", "Sheet1!B133",
-    options=scale_hmb, help="Desmembrado 1/3 conforme revisão: encaminhamento para emprego/renda.")
+    options=scale_hmb, help="")
 add("q133_saude_mental", "Grau de dificuldade do encaminhamento dos responsáveis (familiares) para saúde mental (casos de dependência química)", "options", 11, "Encaminhamento da família na rede", "Sheet1!B133",
-    options=scale_hmb, help="Desmembrado 2/3 conforme revisão: encaminhamento para tratamento em saúde mental e dependência química.")
+    options=scale_hmb, help="")
 add("q133_moradia", "Grau de dificuldade do encaminhamento dos responsáveis para moradia", "options", 11, "Encaminhamento da família na rede", "Sheet1!B133",
-    options=scale_hmb, help="Desmembrado 3/3 conforme revisão: encaminhamento habitacional/moradia.")
+    options=scale_hmb, help="")
 add("q134", "Grau de participação da família na vida da criança durante o acolhimento (na instituição)", "options", 11, "Participação e Reintegração Familiar", "Sheet1!B134",
-    options=scale_hmb, help="Avalie o nível de participação da família nas rotinas e datas importantes durante o acolhimento.")
+    options=scale_hmb, help="")
 add("q135", "Grau de dificuldade de promover visitas das crianças acolhidas aos familiares (criança ir na casa do familiar)", "options", 11, "Participação e Reintegração Familiar", "Sheet1!B135",
     options=["Alto", "Médio", "Baixo", "Não ocorre"],
-    help="Inclui a opção 'Não ocorre' conforme definido na revisão técnica.")
+    help="")
 add("q136", "Grau de dificuldade de realizar preparação gradual para a reintegração (finais de semana e férias)", "options", 11, "Participação e Reintegração Familiar", "Sheet1!B136",
-    options=scale_hmb, help="Avalie o grau de dificuldade nessa transição gradual.")
+    options=scale_hmb, help="")
 add("q137", "Grau de dificuldade de realizar escuta qualificada da criança e da família", "options", 11, "Participação e Reintegração Familiar", "Sheet1!B137",
-    options=scale_hmb, help="Ouvir expectativas, medos e desejos de todos os envolvidos.")
+    options=scale_hmb, help="")
 
 # ==============================================================================
 # BLOCO 12 (Etapa 13): PLANO DE MELHORIA (5 Ambientes + Régua de Urgência 1-5 + Campo Aberto)
 # ==============================================================================
 add("q155_ambientes", "Reforma Estrutural: avalie a situação estrutural atual dos 5 ambientes da casa e detalhe o que precisa ser reformado", "structural_condition", 12, "Situação estrutural e Reforma", "Sheet1!B155",
     options=["Cômodos (Quartos / Salas)", "Banheiro", "Cozinha", "Área de lazer", "Quintal"],
-    placeholder="Detalhe em até 300 caracteres quais ambientes precisam de reforma estrutural e o que precisa ser feito (ex.: telhado, infiltração, pintura, adaptação de banheiro)...",
+    placeholder="Detalhe quais ambientes precisam de reforma estrutural e o que precisa ser feito (ex.: telhado, infiltração, pintura, adaptação de banheiro)...",
     help="Avalie cada ambiente em Bom, Médio ou Péssimo e descreva abaixo as reformas prioritárias.")
 add("q158", "Veículo — Nível de prioridade/urgência e especificação", "urgency_detail", 12, "Prioridades físicas e equipamentos", "Sheet1!B158",
     placeholder="Que tipo de veículo a casa precisa e para qual finalidade? (Ex.: van de 15 lugares para levar crianças à escola e consultas)...",
@@ -610,10 +624,10 @@ add("q160", "Tecnologia e ferramentas de gestão", "urgency_detail", 12, "Gestã
     help="Selecione o nível de urgência (0 a 5) e especifique a necessidade tecnológica.")
 add("q161", "Estruturação do setor de captação de recursos", "urgency_detail", 12, "Gestão, Captação e Projetos", "Sheet1!B161",
     placeholder="Qual o apoio necessário para estruturar ou profissionalizar o setor de captação de recursos da casa?",
-    help="Renomeado conforme revisão para focar na estruturação da área de captação.")
+    help="Selecione o nível de urgência (0 a 5) e detalhe o apoio necessário.")
 add("q162", "Programas e projetos adicionais ao acolhimento (ex.: horta, oficinas de trabalho, jovem aprendiz, etc.)", "urgency_detail", 12, "Gestão, Captação e Projetos", "Sheet1!B162",
     placeholder="Quais programas ou projetos adicionais ao acolhimento a instituição deseja implantar?",
-    help="Renomeado conforme revisão para abranger projetos complementares na casa.")
+    help="Selecione o nível de urgência (0 a 5) e descreva os projetos desejados.")
 
 # ==============================================================================
 # BLOCO 13 (Etapa 14): IMPACTO E FUTURO (Onde o apoio faz diferença + Visão de Futuro)
@@ -633,27 +647,27 @@ add("q_onde_apoio_diferenca", "Em quais frentes o apoio da Rede Net do Bem faria
     help="Selecione as áreas estratégicas em que mentoria e suporte técnico mais ajudariam sua entidade.")
 add("a004", "Como a instituição mede seus resultados e quais indicadores acompanha hoje?", "textarea", 13, "Impacto social", "Perguntas Abertas!A4:A5",
     placeholder="Descreva brevemente como acompanham a evolução das crianças e as metas da casa...",
-    help="Não inclua nomes ou histórias que identifiquem crianças e famílias (até 300 caracteres).")
+    help="Não inclua nomes ou histórias que identifiquem crianças e famílias.")
 add("a006", "Quais foram as principais conquistas da instituição nos últimos anos?", "textarea", 13, "Impacto social", "Perguntas Abertas!A6",
     placeholder="Compartilhe marcos importantes, melhorias conquistadas ou histórias institucionais de superação...",
-    help="Até 300 caracteres.")
+    help="")
 add("a007", "Quais mudanças estruturais ou metodológicas considera prioritárias para melhorar o acolhimento?", "textarea", 13, "Impacto social", "Perguntas Abertas!A7",
     placeholder="O que mais transformaria o dia a dia da casa hoje?",
-    help="Até 300 caracteres.")
+    help="")
 add("a012", "Quais parcerias considera estratégicas e quais parcerias ainda fazem falta?", "textarea", 13, "Parcerias", "Perguntas Abertas!A12:A13",
     placeholder="Ex.: parcerias com clínicas de psicologia, escolas profissionalizantes, empresas apoiadoras...",
-    help="Até 300 caracteres.")
+    help="")
 add("a014", "A instituição mantém relacionamento ou parcerias com Universidades?", "options", 13, "Parcerias", "Perguntas Abertas!A14",
     options=["Sim, mantemos parceria ativa", "Já tivemos no passado, mas não atualmente", "Não temos, mas gostaríamos de iniciar", "Não"])
 add("a018", "Onde a instituição quer estar nos próximos 5 anos?", "textarea", 13, "Visão de futuro", "Perguntas Abertas!A18",
     placeholder="Descreva a visão de futuro e os sonhos da sua instituição para os próximos 5 anos...",
-    help="Até 300 caracteres.")
+    help="")
 add("a019", "O que considera essencial para o fortalecimento das Casas de Acolhimento no Estado de São Paulo e no Brasil?", "textarea", 13, "Visão de futuro", "Perguntas Abertas!A19",
-    placeholder="Sua visão contribuirá diretamente para o E-book diagnóstico da Fundação Net do Bem...",
-    help="Até 300 caracteres.")
+    placeholder="Sua visão contribuirá diretamente para o diagnóstico da Fundação Net do Bem...",
+    help="")
 add("a020", "Que tipo de apoio uma organização parceira como a Fundação Net do Bem poderia oferecer para gerar maior impacto?", "textarea", 13, "Visão de futuro", "Perguntas Abertas!A20",
     placeholder="Deixe sua mensagem final e sugestões de apoio para a Fundação Net do Bem...",
-    help="Até 300 caracteres.")
+    help="")
 
 pages = []
 for b_idx in range(len(blocks_meta)):
@@ -702,3 +716,4 @@ for b in blocks_meta:
 
 (root / "docs" / "Questionario-organizado-v2.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 print(f"MVP-2 schema generated: {len(blocks_meta)} blocks, {len(questions)} questions.")
+

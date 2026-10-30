@@ -25,7 +25,9 @@ import {
   Sun,
   Moon,
   ExternalLink,
-  LayoutGrid
+  LayoutGrid,
+  ChevronUp,
+  ChevronDown
 } from 'lucide-react';
 import data from './questionnaire.json';
 import {
@@ -545,15 +547,12 @@ function App() {
           </p>
         )}
 
-        {/* TEXTO, EMAIL, NUMERO, CNPJ */}
-        {['text', 'email', 'cnpj', 'number'].includes(q.type) && (
+        {/* TEXTO, EMAIL, CNPJ */}
+        {['text', 'email', 'cnpj'].includes(q.type) && (
           <input
             id={q.id}
-            type={q.type === 'number' ? 'number' : q.type === 'email' ? 'email' : 'text'}
-            inputMode={q.type === 'number' ? 'decimal' : q.type === 'email' ? 'email' : 'text'}
-            min={q.type === 'number' ? 0 : undefined}
-            max={q.type === 'number' ? 1000000 : undefined}
-            step={q.id === 'q023' ? '0.5' : '1'}
+            type={q.type === 'email' ? 'email' : 'text'}
+            inputMode={q.type === 'email' ? 'email' : q.type === 'cnpj' ? 'numeric' : 'text'}
             maxLength={200}
             autoComplete="off"
             placeholder={placeholder(q)}
@@ -567,6 +566,46 @@ function App() {
             }}
           />
         )}
+
+        {/* NÚMERO COM SETAS VERDES GRANDES (MELHOR NO MOBILE) */}
+        {q.type === 'number' && (() => {
+          const step = q.id === 'q023' ? 0.5 : 1;
+          const current = Number(String(value ?? '').replace(',', '.')) || 0;
+          const setNum = (n: number) => answer(q, String(Math.max(0, Math.min(1000000, Math.round(n * 10) / 10))));
+          return (
+            <div className="number-stepper">
+              <input
+                id={q.id}
+                type="number"
+                inputMode="decimal"
+                min={0}
+                max={1000000}
+                step={step}
+                autoComplete="off"
+                placeholder={placeholder(q)}
+                value={String(value ?? '')}
+                aria-required={q.required}
+                aria-invalid={!!error}
+                aria-describedby={q.id + '-help ' + q.id + '-error'}
+                onChange={e => answer(q, e.target.value)}
+              />
+              {q.unit && <span className="number-unit">{q.unit}</span>}
+              <div className="stepper-buttons">
+                <button type="button" aria-label="Aumentar" onClick={() => setNum(current + step)}>
+                  <ChevronUp strokeWidth={3} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Diminuir"
+                  disabled={current <= 0}
+                  onClick={() => setNum(current - step)}
+                >
+                  <ChevronDown strokeWidth={3} />
+                </button>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* MÊS E ANO DE FUNDAÇÃO (MM/AAAA) COM CÁLCULO AUTOMÁTICO DE IDADE */}
         {q.type === 'month_year' && (
@@ -1813,3 +1852,4 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </React.StrictMode>
 );
+

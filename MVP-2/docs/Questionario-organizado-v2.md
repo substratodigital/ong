@@ -35,11 +35,11 @@ Total: **151 questões/telas** distribuídas em **14 blocos temáticos enxutos**
 | `q_acessibilidade` | Ambientes e mobiliário | O imóvel possui acessibilidade física? | `options` | Sim, totalmente acessível, Parcialmente acessível (apenas alguns ambientes), Não possui acessibilidade |
 | `q_internet_computadores` | Ambientes e mobiliário | Como é a disponibilidade de internet (Wi-Fi) e computadores para os acolhidos? | `options` | Internet estável e computadores suficientes para estudo/lazer, Parcial (internet restrita ou poucos computadores para os acolhidos), Apenas computadores de uso administrativo, Não possui internet ou computadores |
 | `q016_brinquedos_faixas` | Ambientes e mobiliário | A casa possui brinquedos e materiais lúdicos em bom estado para quais faixas etárias? | `multi` | 0 a 3 anos, 4 a 7 anos, 8 a 12 anos, 13 a 18 anos (jogos, livros, esportes) |
-| `q016_brinquedos_obs` | Ambientes e mobiliário | Observações sobre brinquedos e materiais lúdicos | `textarea` | Se desejar, descreva em até 300 caracteres o que falta ou precisa ser reposto em brinquedos por idade... |
+| `q016_brinquedos_obs` | Ambientes e mobiliário | Observações sobre brinquedos e materiais lúdicos | `textarea` | Se desejar, descreva o que falta ou precisa ser reposto em brinquedos por idade... |
 | `q018_veiculo_proprio` | Veículos e segurança no transporte | A instituição possui veículo próprio? | `options` | Sim, Não |
 | `q018_veiculo_tipos` | Veículos e segurança no transporte | Quais tipos de veículo a instituição possui ou utiliza? | `multi` | Van / Kombi, Carro de passeio, Caminhonete / Utilitário, Não possui veículo próprio |
 | `q018_veiculo_seguranca` | Veículos e segurança no transporte | Possui sistema de segurança de veículo para criança (Bebê conforto, cadeirinha e assento de elevação)? | `options` | Sim, Parcial, Não |
-| `q018_veiculo_obs` | Veículos e segurança no transporte | Observações sobre veículos e transporte | `textarea` | Descreva em até 300 caracteres a quantidade, estado de conservação ou demandas de transporte da casa... |
+| `q018_veiculo_obs` | Veículos e segurança no transporte | Observações sobre veículos e transporte | `textarea` | Descreva a quantidade, estado de conservação ou demandas de transporte da casa... |
 | `q030` | Ambientes e mobiliário | A estrutura física atende às necessidades dos acolhidos? | `options` | Sim, Não, Parcial |
 
 ## Etapa 3: Cotidiano e acolhimento (`cotidiano` — 10 itens)
@@ -71,7 +71,7 @@ Total: **151 questões/telas** distribuídas em **14 blocos temáticos enxutos**
 | `q042` | Formação e composição | A equipe recebe capacitação periódica? | `options` | Sim, Não, Parcial |
 | `q043` | Formação e composição | A equipe mínima prevista na legislação (NOB-RH/SUAS) está completa? | `options` | Sim, Não, Parcial |
 | `q125` | Formação e composição | Qual o grau de dificuldade com capacitação e estabilidade (rotatividade) da equipe? | `options` | Alto, Médio, Baixo |
-| `q_pessoas_funcao_extra` | Desafios da equipe | Descreva os desafios de pagar alguma função extra de equipe técnica | `textarea` | Descreva em até 300 caracteres as dificuldades financeiras para custear especialistas ou horas técnicas extras... |
+| `q_pessoas_funcao_extra` | Desafios da equipe | Descreva os desafios de pagar alguma função extra de equipe técnica | `textarea` | Descreva as dificuldades financeiras para custear especialistas ou horas técnicas extras... |
 | `q_pessoas_obs` | Desafios da equipe | Observações ou comentários adicionais sobre a equipe (Opcional) | `textarea` | Se houver algo mais a acrescentar sobre a realidade da sua equipe, registre aqui... |
 
 ## Etapa 5: Governança (`governanca` — 14 itens)
@@ -153,7 +153,7 @@ Total: **151 questões/telas** distribuídas em **14 blocos temáticos enxutos**
 | `q104` | Saúde | Acesso a saúde geral (hospital, consultas médicas, odontologia e exames)? | `options` | Sim, Parcial, Não |
 | `q105` | Saúde | Existem programas de preparação gradual para saída / autonomia dos adolescentes? | `options` | Sim, Parcial, Não |
 | `q145` | Relação com a Rede de Saúde | Como avalia a articulação e o atendimento da Rede de Saúde (UBS, CAPS, Hospitais) à casa? | `options` | Bom, Regular, Ruim, Não há relacionamento |
-| `q_saude_relacao_obs` | Relação com a Rede de Saúde | Descreva a relação das casas de acolhimento com a Saúde e os principais problemas enfrentados | `textarea` | Relate em até 300 caracteres dificuldades como filas de espera, atendimento em saúde mental/CAPS, acesso a medicamentos... |
+| `q_saude_relacao_obs` | Relação com a Rede de Saúde | Descreva a relação das casas de acolhimento com a Saúde e os principais problemas enfrentados | `textarea` | Relate dificuldades como filas de espera, atendimento em saúde mental/CAPS, acesso a medicamentos... |
 
 ## Etapa 9: Educação (`educacao` — 10 itens)
 - **Ícone Lucide:** `graduation-cap` | **Animação GSAP:** `capToss`
@@ -171,7 +171,7 @@ Total: **151 questões/telas** distribuídas em **14 blocos temáticos enxutos**
 | `q113` | Educação | Desafios na socialização escolar (vínculos de confiança, atividades em grupo e conflitos) | `options` | Alto, Médio, Baixo |
 | `q114` | Educação | Formação insuficiente dos professores para lidar com o contexto do acolhimento institucional | `options` | Alto, Médio, Baixo |
 | `q146` | Relação com a Escola | Como avalia a relação e articulação direta da casa com as Escolas / Rede de Educação? | `options` | Bom, Regular, Ruim, Não há relacionamento |
-| `q_educacao_relacao_obs` | Relação com a Escola | Detalhe a relação da casa de acolhimento com a Educação e os principais problemas com as escolas | `textarea` | Descreva em até 300 caracteres como é o diálogo com a direção/professores, acesso a vagas, contraturno e transporte... |
+| `q_educacao_relacao_obs` | Relação com a Escola | Detalhe a relação da casa de acolhimento com a Educação e os principais problemas com as escolas | `textarea` | Descreva como é o diálogo com a direção/professores, acesso a vagas, contraturno e transporte... |
 
 ## Etapa 10: Atendimento (`atendimento` — 11 itens)
 - **Ícone Lucide:** `heart-handshake` | **Animação GSAP:** `heartbeat`
@@ -262,6 +262,6 @@ Total: **151 questões/telas** distribuídas em **14 blocos temáticos enxutos**
 | `a012` | Parcerias | Quais parcerias considera estratégicas e quais parcerias ainda fazem falta? | `textarea` | Ex.: parcerias com clínicas de psicologia, escolas profissionalizantes, empresas apoiadoras... |
 | `a014` | Parcerias | A instituição mantém relacionamento ou parcerias com Universidades? | `options` | Sim, mantemos parceria ativa, Já tivemos no passado, mas não atualmente, Não temos, mas gostaríamos de iniciar, Não |
 | `a018` | Visão de futuro | Onde a instituição quer estar nos próximos 5 anos? | `textarea` | Descreva a visão de futuro e os sonhos da sua instituição para os próximos 5 anos... |
-| `a019` | Visão de futuro | O que considera essencial para o fortalecimento das Casas de Acolhimento no Estado de São Paulo e no Brasil? | `textarea` | Sua visão contribuirá diretamente para o E-book diagnóstico da Fundação Net do Bem... |
+| `a019` | Visão de futuro | O que considera essencial para o fortalecimento das Casas de Acolhimento no Estado de São Paulo e no Brasil? | `textarea` | Sua visão contribuirá diretamente para o diagnóstico da Fundação Net do Bem... |
 | `a020` | Visão de futuro | Que tipo de apoio uma organização parceira como a Fundação Net do Bem poderia oferecer para gerar maior impacto? | `textarea` | Deixe sua mensagem final e sugestões de apoio para a Fundação Net do Bem... |
 

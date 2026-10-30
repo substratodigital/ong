@@ -165,3 +165,4 @@ export function activeAnswers(questions, answers) {
       .map(q => [q.id, answers[q.id]])
   );
 }
+

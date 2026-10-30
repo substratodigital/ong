@@ -24,6 +24,7 @@ import {
   X,
   Save,
   ChevronDown,
+  ChevronRight,
   LayoutGrid,
   FileSpreadsheet,
   Sparkles,
@@ -203,7 +204,16 @@ export function Survey(p: Props) {
     const mm = gsap.matchMedia();
     mm.add('(prefers-reduced-motion: no-preference)', () => {
       const tl = gsap.timeline();
-      tl.fromTo(box, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.42, ease: 'back.out(1.6)' })
+      const art = box.querySelector('.celeb-art img');
+      if (art) {
+        tl.fromTo(
+          art,
+          { filter: 'grayscale(1) contrast(0.6) brightness(1.12)', scale: 1.06 },
+          { filter: 'grayscale(0) contrast(1) brightness(1)', scale: 1, duration: 1.1, ease: 'power2.out' },
+          0
+        );
+      }
+      tl.fromTo(box, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.42, ease: 'back.out(1.6)' }, 0)
         .fromTo(
           box.querySelector('.celeb-icon-ring'),
           { scale: 0, rotation: -35 },
@@ -572,6 +582,20 @@ export function Survey(p: Props) {
                       onClick={e => openBlockFromCard(realIdx, e.currentTarget)}
                     >
                       <div className="card-glow" />
+                      <div
+                        className={`card-art ${status}`}
+                        style={{ ['--art-progress' as any]: pct / 100 } as React.CSSProperties}
+                        aria-hidden="true"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}${(b as any).art || `cards/stage-${String(realIdx + 1).padStart(2, '0')}.webp`}`}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          width={640}
+                          height={360}
+                        />
+                      </div>
                       <div>
                         <div className="card-top">
                           <div className="card-icon-box">
@@ -640,17 +664,34 @@ export function Survey(p: Props) {
           <>
             <div className="question-viewport">
               <div className="question-content" data-kind={p.question.type} ref={ref}>
-                <div className="question-heading">
-                  <div className="block-symbol">
+                <nav className="question-breadcrumb" aria-label="Você está em">
+                  <span className="block-symbol">
                     <Icon strokeWidth={1.6} />
-                  </div>
-                  <span className="block-heading-copy">
-                    <strong>
-                      Etapa {currentBlockIdx + 1} de {data.blocks.length} · {block.title}
-                    </strong>
-                    <span>{p.question.page}</span>
                   </span>
-                </div>
+                  <ol>
+                    <li>
+                      <button type="button" onClick={() => p.onChangeSubView('cards')}>
+                        Etapa {currentBlockIdx + 1} de {data.blocks.length}
+                      </button>
+                    </li>
+                    <li aria-hidden="true" className="crumb-sep">
+                      <ChevronRight size={14} />
+                    </li>
+                    <li>
+                      <button type="button" onClick={() => p.onBlock(currentBlockIdx)}>
+                        {block.title}
+                      </button>
+                    </li>
+                    {p.question.page && p.question.page !== block.title && (
+                      <>
+                        <li aria-hidden="true" className="crumb-sep">
+                          <ChevronRight size={14} />
+                        </li>
+                        <li aria-current="page">{p.question.page}</li>
+                      </>
+                    )}
+                  </ol>
+                </nav>
 
                 {block.introWarning && position === 1 && (
                   <div className="block-intro-warning" role="note">
@@ -659,8 +700,8 @@ export function Survey(p: Props) {
                   </div>
                 )}
 
-                <h1 ref={title} tabIndex={-1}>
-                  {p.question.page}
+                <h1 ref={title} tabIndex={-1} className="sr-only">
+                  {p.question.label}
                 </h1>
 
                 {p.editable ? (
@@ -726,6 +767,14 @@ export function Survey(p: Props) {
         {p.subView === 'celebration' && (
           <div className="question-viewport celebration-viewport">
             <div className="celebration-card" ref={celebBoxRef}>
+              <div className="celeb-art" aria-hidden="true">
+                <img
+                  src={`${import.meta.env.BASE_URL}${(block as any).art || `cards/stage-${String(currentBlockIdx + 1).padStart(2, '0')}.webp`}`}
+                  alt=""
+                  width={640}
+                  height={360}
+                />
+              </div>
               <div className="celeb-icon-ring">
                 <Icon size={36} strokeWidth={1.8} />
                 <div className="celeb-check-badge">
@@ -806,3 +855,4 @@ export function Survey(p: Props) {
     </section>
   );
 }
+
