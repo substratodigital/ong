@@ -1,0 +1,4480 @@
+{
+  "version": "mvp-2",
+  "blocks": [
+    {
+      "id": "identificacao",
+      "number": 1,
+      "title": "Sua entidade",
+      "intro": "Identidade, natureza jurídica, fundação, CNPJ, endereço via CEP e dados de contato.",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa.",
+      "icon": "building-2",
+      "animType": "bounceScale",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Parabéns! A identidade da sua instituição já está registrada.",
+        "copy": "Dar visibilidade a quem acolhe é o primeiro passo para fortalecermos essa rede. Agora que já conhecemos os dados básicos da sua entidade, vamos olhar para o espaço físico que recebe as crianças no dia a dia?"
+      }
+    },
+    {
+      "id": "estrutura",
+      "number": 2,
+      "title": "Estrutura",
+      "intro": "Ambientes e mobiliário (painel rápido), acessibilidade, brinquedos por idade e veículos.",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa.",
+      "icon": "home",
+      "animType": "roofLift",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Excelente! Mapeamos toda a estrutura física da casa.",
+        "copy": "Cada quarto, espaço de lazer e detalhe da casa faz diferença no bem-estar de quem chega. Você está indo muito bem! Na próxima etapa, vamos entender como funciona a ocupação atual e a rotina das crianças."
+      }
+    },
+    {
+      "id": "cotidiano",
+      "number": 3,
+      "title": "Cotidiano e acolhimento",
+      "intro": "Capacidade, acolhidos hoje e nos últimos 12 meses por faixa etária, motivos e apadrinhamento.",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária.",
+      "icon": "sun",
+      "animType": "spinGlow",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Muito obrigado! O retrato do cotidiano das crianças está completo.",
+        "copy": "Compreender o perfil etário e os motivos de acolhimento nos ajuda a mostrar a realidade real dos abrigos no Brasil. Vamos avançar mais um passo para valorizar quem faz esse cuidado acontecer todos os dias: a sua equipe!"
+      }
+    },
+    {
+      "id": "pessoas",
+      "number": 4,
+      "title": "Pessoas",
+      "intro": "Quadro de colaboradores, Coordenação Técnica/Funcional, equipe mínima e desafios de folha.",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação.",
+      "icon": "users",
+      "animType": "waveUsers",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Incrível! Você concluiu o mapeamento da sua equipe.",
+        "copy": "Sabemos que cuidar de quem cuida é um dos maiores desafios do acolhimento institucional. Suas respostas já estão salvas! Que tal aproveitarmos o ritmo para registrar as práticas de Governança da instituição? É um bloco super rápido!"
+      }
+    },
+    {
+      "id": "governanca",
+      "number": 5,
+      "title": "Governança",
+      "intro": "Práticas de gestão, conselho, balanço, retorno de prestação de contas aos financiadores e portal.",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores.",
+      "icon": "shield-check",
+      "animType": "shieldPulse",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Parabéns! Mais uma etapa fundamental concluída: Governança.",
+        "copy": "A clareza na gestão e na prestação de contas é o que constrói pontes sólidas com grandes apoiadores e financiadores. Você já chegou quase na metade da jornada! Vamos falar agora sobre a Sustentabilidade financeira da casa?"
+      }
+    },
+    {
+      "id": "sustentabilidade",
+      "number": 6,
+      "title": "Sustentabilidade",
+      "intro": "Fontes de recursos, reserva financeira e dificuldades de custeio (incluindo Vestuário e Higiene).",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição.",
+      "icon": "wallet",
+      "animType": "coinFlip",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Ótimo avanço! O diagnóstico financeiro de custeio está salvo.",
+        "copy": "Mapear onde o orçamento mais aperta — da alimentação à manutenção, vestuário e higiene — é essencial para direcionarmos apoios que realmente aliviem o seu caixa. No próximo bloco, vamos focar especificamente nas fontes e desafios de Captação."
+      }
+    },
+    {
+      "id": "captacao",
+      "number": 7,
+      "title": "Captação",
+      "intro": "Doações sazonais, Imposto de Renda (PF e PJ), Editais (Públicos e Privados) e burocracia.",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação.",
+      "icon": "hand-coins",
+      "animType": "bounceScale",
+      "estimatedMinutes": 4,
+      "celebration": {
+        "title": "Parabéns! Fechamos o panorama de Captação de Recursos.",
+        "copy": "Suas respostas sobre Imposto de Renda PF/PJ, editais e burocracia vão enriquecer diretamente o nosso diagnóstico nacional sobre as casas de acolhimento. Agora, vamos entrar no coração do cuidado diário, começando pela Saúde das crianças!"
+      }
+    },
+    {
+      "id": "saude",
+      "number": 8,
+      "title": "Saúde",
+      "intro": "Acompanhamento psicológico, psiquiátrico, médico e relação com a rede de Saúde (SUS/CAPS).",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada.",
+      "icon": "heart-pulse",
+      "animType": "heartbeat",
+      "estimatedMinutes": 2,
+      "celebration": {
+        "title": "Etapa de Saúde concluída com sucesso!",
+        "copy": "Registrar como funciona o atendimento médico, emocional e a relação com a rede pública de saúde dá voz às necessidades mais urgentes dos acolhidos. O próximo bloco é bem curtinho e trata da Educação e relação com a escola!"
+      }
+    },
+    {
+      "id": "educacao",
+      "number": 9,
+      "title": "Educação",
+      "intro": "Inclusão escolar, aprendizagem, reforço, socialização e relação direta com as escolas.",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar.",
+      "icon": "graduation-cap",
+      "animType": "capToss",
+      "estimatedMinutes": 2,
+      "celebration": {
+        "title": "Maravilha! Você concluiu o bloco de Educação.",
+        "copy": "Garantir o desenvolvimento escolar e o contraturno das crianças transforma futuros. Você já superou mais de dois terços da pesquisa! Vamos avançar agora para os desafios técnicos do Atendimento?"
+      }
+    },
+    {
+      "id": "atendimento",
+      "number": 10,
+      "title": "Atendimento",
+      "intro": "Reparação de experiências traumáticas (Sim/Não e %), PIA, adoção e preparação para desacolhimento.",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças.",
+      "icon": "heart-handshake",
+      "animType": "heartbeat",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Parabéns pelo cuidado! O bloco de Atendimento está completo.",
+        "copy": "Falar sobre reparação de traumas, adoção, desacolhimento e preparação para a maioridade exige sensibilidade e vivência real. Na sequência, vamos registrar rapidamente como é a articulação da casa com a Rede de Proteção."
+      }
+    },
+    {
+      "id": "rede",
+      "number": 11,
+      "title": "Rede de proteção",
+      "intro": "Articulação desmembrada com Assistência Social (CRAS/CREAS), Conselho Tutelar, MP e Judiciário.",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos.",
+      "icon": "network",
+      "animType": "spinGlow",
+      "estimatedMinutes": 2,
+      "celebration": {
+        "title": "Excelente! Articulação com a Rede de Proteção registrada.",
+        "copy": "Esse foi super rápido! Entender o diálogo com Assistência Social, Conselho Tutelar, MP e Judiciário mostra onde o sistema precisa evoluir. Agora vamos para a etapa de Vínculos Familiares!"
+      }
+    },
+    {
+      "id": "vinculos",
+      "number": 12,
+      "title": "Vínculos familiares",
+      "intro": "Frequência de visitas/contatos, encaminhamento da família (trabalho, saúde mental, moradia) e reintegração.",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração.",
+      "icon": "house",
+      "animType": "roofLift",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "Quase lá! Você concluiu a etapa de Vínculos Familiares.",
+        "copy": "O trabalho com as famílias de origem e a reintegração é uma das missões mais complexas do acolhimento. Agora falta muito pouco: vamos construir o Plano de Melhoria com as prioridades práticas da sua casa!"
+      }
+    },
+    {
+      "id": "plano_melhoria",
+      "number": 13,
+      "title": "Plano de melhoria",
+      "intro": "Situação dos 5 ambientes, veículo, equipamentos, equipe, capacitação, captação e projetos adicionais.",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio.",
+      "icon": "sprout",
+      "animType": "sproutGrow",
+      "estimatedMinutes": 4,
+      "introWarning": "Orientação importante: sabemos que as casas possuem muitas demandas, mas pedimos que avalie com rigor e reserve a nota 5 (Urgente) apenas para o que for realmente mais crítico hoje. Detalhe nos campos abertos os itens específicos para enriquecer nosso diagnóstico.",
+      "celebration": {
+        "title": "Fantástico! O Plano de Melhoria da sua casa foi registrado!",
+        "copy": "Saber exatamente quais reformas, veículos, equipamentos e profissionais são prioritários hoje nos permite conectar sua instituição a apoios reais e construir o nosso E-book diagnóstico. Vamos para o fechamento de Impacto e Futuro?"
+      }
+    },
+    {
+      "id": "impacto_futuro",
+      "number": 14,
+      "title": "Impacto e futuro",
+      "intro": "Tecnologia na gestão, onde o apoio faz diferença, conquistas, parcerias estratégicas e visão de 5 anos.",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição.",
+      "icon": "compass",
+      "animType": "spinGlow",
+      "estimatedMinutes": 3,
+      "celebration": {
+        "title": "🎉 Missão Cumprida! Você concluiu 100% do Retrato da sua Instituição!",
+        "copy": "Em nome da Fundação Net do Bem, nosso muito obrigado! Cada resposta sua ajuda a construir um retrato fiel, humano e estratégico das instituições de acolhimento no Brasil."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "entidade",
+      "label": "Nome oficial da entidade (Razão Social)",
+      "type": "text",
+      "block": 0,
+      "page": "A identidade da entidade",
+      "source": "Sheet1!A2",
+      "required": true,
+      "options": [],
+      "help": "Informe a razão social conforme consta no CNPJ.",
+      "placeholder": "Ex.: Associação Caminhos do Bem",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "casa",
+      "label": "Nome fantasia / Nome da casa ou unidade de acolhimento",
+      "type": "text",
+      "block": 0,
+      "page": "A identidade da entidade",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "Identifique esta unidade. Uma mesma mantenedora pode cadastrar mais de uma casa.",
+      "placeholder": "Ex.: Casa de Acolhimento Girassol",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "natureza",
+      "label": "Natureza jurídica da instituição",
+      "type": "options",
+      "block": 0,
+      "page": "A identidade da entidade",
+      "source": "Sheet1!A3",
+      "required": true,
+      "options": [
+        "Associação privada",
+        "Organização religiosa",
+        "Organização pública",
+        "Outra"
+      ],
+      "help": "Selecione o enquadramento institucional da entidade.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "fundacao_data",
+      "label": "Mês e Ano de fundação da instituição (MM/AAAA)",
+      "type": "month_year",
+      "block": 0,
+      "page": "A identidade da entidade",
+      "source": "Sheet1!A4",
+      "required": false,
+      "options": [],
+      "help": "O sistema calcula automaticamente o tempo de existência da instituição a partir desta data.",
+      "placeholder": "Ex.: 04/2008",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "cnpj",
+      "label": "CNPJ da entidade",
+      "type": "cnpj",
+      "block": 0,
+      "page": "A identidade da entidade",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "Digite os 14 dígitos do CNPJ (formatação automática).",
+      "placeholder": "Ex.: 12.345.678/0001-95",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "cep",
+      "label": "CEP e Endereço da unidade",
+      "type": "cep",
+      "block": 0,
+      "page": "Onde o cuidado acontece",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Digite o CEP para preencher automaticamente rua, bairro, município e estado (UF).",
+      "placeholder": "Ex.: 01310-100",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "endereco",
+      "label": "Logradouro, número, complemento e bairro",
+      "type": "text",
+      "block": 0,
+      "page": "Onde o cuidado acontece",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Preenchido automaticamente pelo CEP; complemente com o número do imóvel.",
+      "placeholder": "Ex.: Rua das Flores, 120 - Vila Mariana",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "cidade",
+      "label": "Município",
+      "type": "text",
+      "block": 0,
+      "page": "Onde o cuidado acontece",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "Município onde a casa de acolhimento está localizada.",
+      "placeholder": "Ex.: São Paulo",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "uf",
+      "label": "Estado (UF)",
+      "type": "select",
+      "block": 0,
+      "page": "Onde o cuidado acontece",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [
+        "SP",
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SE",
+        "TO"
+      ],
+      "help": "Estado pré-selecionado em SP; altere caso a unidade fique em outro estado.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "gestor",
+      "label": "Quem está respondendo a pesquisa (Nome completo)",
+      "type": "text",
+      "block": 0,
+      "page": "Dados de contato",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "Informe o nome da pessoa responsável pelo preenchimento.",
+      "placeholder": "Ex.: Maria Oliveira",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "funcao",
+      "label": "Função de quem está respondendo a pesquisa",
+      "type": "text",
+      "block": 0,
+      "page": "Dados de contato",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "Cargo ou função que exerce na instituição.",
+      "placeholder": "Ex.: Coordenadora Técnica / Gestora",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "email",
+      "label": "E-mail de comunicação com a entidade",
+      "type": "email",
+      "block": 0,
+      "page": "Dados de contato",
+      "source": "Revisão V2",
+      "required": true,
+      "options": [],
+      "help": "E-mail oficial para comunicação da Fundação Net do Bem com a entidade.",
+      "placeholder": "Ex.: contato@entidade.org.br",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "telefone",
+      "label": "Telefone fixo e WhatsApp de contato",
+      "type": "text",
+      "block": 0,
+      "page": "Dados de contato",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Informe o principal número de contato da unidade.",
+      "placeholder": "Ex.: (11) 99999-0000 / (11) 3333-0000",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "conselhos",
+      "label": "Possui inscrição ativa nos conselhos (CMDCA / CMAS)?",
+      "type": "options",
+      "block": 0,
+      "page": "Registro nos Conselhos",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim, em ambos (CMDCA e CMAS)",
+        "Apenas no CMDCA",
+        "Apenas no CMAS",
+        "Em processo de regularização",
+        "Não possui"
+      ],
+      "help": "Informe a situação de registro nos Conselhos Municipais.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar a entidade mantenedora, a unidade de acolhimento e quem responde à pesquisa."
+    },
+    {
+      "id": "q_ambientes_grid",
+      "label": "Informe a quantidade de ambientes, cômodos e mobiliário da casa",
+      "type": "quintoandar",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Sheet1!B7:B17",
+      "required": false,
+      "options": [
+        "Quartos / Dormitórios",
+        "Camas / Beliches",
+        "Banheiros",
+        "Chuveiros",
+        "Mesas para refeição",
+        "Cadeiras para refeição",
+        "Mesas para estudos",
+        "Cadeiras para estudos",
+        "Televisores",
+        "Vídeo Game"
+      ],
+      "help": "Use os seletores [-] e [+] para informar rapidamente as quantidades disponíveis na casa.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q_acessibilidade",
+      "label": "O imóvel possui acessibilidade física?",
+      "type": "options",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim, totalmente acessível",
+        "Parcialmente acessível (apenas alguns ambientes)",
+        "Não possui acessibilidade"
+      ],
+      "help": "Considere rampas, banheiros adaptados e circulação sem barreiras.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q_internet_computadores",
+      "label": "Como é a disponibilidade de internet (Wi-Fi) e computadores para os acolhidos?",
+      "type": "options",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Internet estável e computadores suficientes para estudo/lazer",
+        "Parcial (internet restrita ou poucos computadores para os acolhidos)",
+        "Apenas computadores de uso administrativo",
+        "Não possui internet ou computadores"
+      ],
+      "help": "Avalie os recursos digitais disponíveis para uso das crianças e adolescentes.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q016_brinquedos_faixas",
+      "label": "A casa possui brinquedos e materiais lúdicos em bom estado para quais faixas etárias?",
+      "type": "multi",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Sheet1!B16",
+      "required": false,
+      "options": [
+        "0 a 3 anos",
+        "4 a 7 anos",
+        "8 a 12 anos",
+        "13 a 18 anos (jogos, livros, esportes)"
+      ],
+      "help": "Selecione todas as faixas etárias que contam com brinquedos adequados e em bom estado.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q016_brinquedos_obs",
+      "label": "Observações sobre brinquedos e materiais lúdicos",
+      "type": "textarea",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Espaço aberto para detalhar necessidades de brinquedos ou lazer (até 300 caracteres).",
+      "placeholder": "Se desejar, descreva em até 300 caracteres o que falta ou precisa ser reposto em brinquedos por idade...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q018_veiculo_proprio",
+      "label": "A instituição possui veículo próprio?",
+      "type": "options",
+      "block": 1,
+      "page": "Veículos e segurança no transporte",
+      "source": "Sheet1!B18",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Informe se a unidade dispõe de veículo próprio ou exclusivo para a rotina das crianças.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q018_veiculo_tipos",
+      "label": "Quais tipos de veículo a instituição possui ou utiliza?",
+      "type": "multi",
+      "block": 1,
+      "page": "Veículos e segurança no transporte",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Van / Kombi",
+        "Carro de passeio",
+        "Caminhonete / Utilitário",
+        "Não possui veículo próprio"
+      ],
+      "help": "Marque todos os tipos de veículos disponíveis na unidade.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q018_veiculo_seguranca",
+      "label": "Possui sistema de segurança de veículo para criança (Bebê conforto, cadeirinha e assento de elevação)?",
+      "type": "options",
+      "block": 1,
+      "page": "Veículos e segurança no transporte",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim",
+        "Parcial",
+        "Não"
+      ],
+      "help": "Equipamentos obrigatórios para o transporte seguro de bebês e crianças.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q018_veiculo_obs",
+      "label": "Observações sobre veículos e transporte",
+      "type": "textarea",
+      "block": 1,
+      "page": "Veículos e segurança no transporte",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Espaço aberto para observações sobre os veículos (até 300 caracteres).",
+      "placeholder": "Descreva em até 300 caracteres a quantidade, estado de conservação ou demandas de transporte da casa...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q030",
+      "label": "A estrutura física atende às necessidades dos acolhidos?",
+      "type": "options",
+      "block": 1,
+      "page": "Ambientes e mobiliário",
+      "source": "Sheet1!B30",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não",
+        "Parcial"
+      ],
+      "help": "Avaliação geral sobre a adequação do imóvel atual.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a infraestrutura física, equipamentos lúdicos e recursos de transporte da casa."
+    },
+    {
+      "id": "q022",
+      "label": "A casa tem capacidade autorizada para acolher quantas crianças e adolescentes?",
+      "type": "number",
+      "block": 2,
+      "page": "O acolhimento em números",
+      "source": "Sheet1!B22",
+      "required": false,
+      "options": [],
+      "help": "Informe a capacidade total autorizada da unidade.",
+      "placeholder": "Ex.: 20",
+      "maxLength": 200,
+      "unit": "vagas",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q021_faixas",
+      "label": "Quantos acolhimentos estão na casa NO MOMENTO, por faixa etária?",
+      "type": "quintoandar",
+      "block": 2,
+      "page": "O acolhimento em números",
+      "source": "Sheet1!B21",
+      "required": false,
+      "options": [
+        "0 a 3 anos",
+        "4 a 7 anos",
+        "8 a 12 anos",
+        "13 a 18 anos"
+      ],
+      "help": "Informe quantas crianças/adolescentes vivem na casa hoje em cada faixa etária. O total é somado automaticamente.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q019_faixas",
+      "label": "Quantos acolhimentos ocorreram nos ÚLTIMOS 12 MESES, por faixa etária?",
+      "type": "quintoandar",
+      "block": 2,
+      "page": "O acolhimento em números",
+      "source": "Sheet1!B19",
+      "required": false,
+      "options": [
+        "0 a 3 anos",
+        "4 a 7 anos",
+        "8 a 12 anos",
+        "13 a 18 anos"
+      ],
+      "help": "Informe a quantidade de novos acolhimentos recebidos nos últimos 12 meses em cada faixa.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q020_faixas",
+      "label": "Quantos desligamentos (desacolhimentos) ocorreram nos ÚLTIMOS 12 MESES, por faixa etária?",
+      "type": "quintoandar",
+      "block": 2,
+      "page": "O acolhimento em números",
+      "source": "Sheet1!B20",
+      "required": false,
+      "options": [
+        "0 a 3 anos",
+        "4 a 7 anos",
+        "8 a 12 anos",
+        "13 a 18 anos"
+      ],
+      "help": "Informe quantas saídas/reintegrações/adoções ocorreram nos últimos 12 meses por faixa etária.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q023",
+      "label": "Tempo (em meses) em média que as crianças ficam acolhidas na casa",
+      "type": "number",
+      "block": 2,
+      "page": "O acolhimento em números",
+      "source": "Sheet1!B23",
+      "required": false,
+      "options": [],
+      "help": "Informe a média estimada em meses de permanência na unidade.",
+      "placeholder": "Ex.: 14",
+      "maxLength": 200,
+      "unit": "meses",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q024",
+      "label": "Qual é a faixa etária predominante entre os acolhidos?",
+      "type": "options",
+      "block": 2,
+      "page": "Rotina de acolhimento",
+      "source": "Sheet1!B24",
+      "required": false,
+      "options": [
+        "0 a 3 anos",
+        "4 a 7 anos",
+        "8 a 12 anos",
+        "13 a 18 anos",
+        "Não há faixa predominante"
+      ],
+      "help": "Faixas padronizadas conforme revisão técnica da Fundação Net do Bem.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q026",
+      "label": "Ordene os motivos mais frequentes de acolhimento (1º, 2º e 3º lugar)",
+      "type": "rank",
+      "block": 2,
+      "page": "Rotina de acolhimento",
+      "source": "Sheet1!B26",
+      "required": false,
+      "options": [
+        "Violência",
+        "Negligência / Abandono",
+        "Álcool / drogas"
+      ],
+      "help": "Escolha uma posição diferente (1º, 2º e 3º lugar) para cada motivo. Não descreva casos individuais.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q028",
+      "label": "Quais refeições são oferecidas diariamente?",
+      "type": "multi",
+      "block": 2,
+      "page": "Rotina de acolhimento",
+      "source": "Sheet1!B28",
+      "required": false,
+      "options": [
+        "Café da manhã",
+        "Almoço",
+        "Lanche",
+        "Jantar",
+        "Ceia noturna"
+      ],
+      "help": "Selecione todas as refeições servidas regularmente na rotina da casa.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q_padrinhos_afetivo",
+      "label": "A instituição possui sistema de padrinhos — Afetivo?",
+      "type": "options",
+      "block": 2,
+      "page": "Rotina de acolhimento",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Programas de apadrinhamento afetivo devidamente regulamentados.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q_padrinhos_financeiro",
+      "label": "A instituição possui sistema de padrinhos — Financeiro?",
+      "type": "options",
+      "block": 2,
+      "page": "Rotina de acolhimento",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Programas de apadrinhamento financeiro ou custeio de demandas específicas.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender o perfil etário, fluxo de acolhimento/desacolhimento e rotina diária."
+    },
+    {
+      "id": "q_equipe_grid",
+      "label": "Quem compõe a equipe da unidade? (Informe a quantidade por função)",
+      "type": "quintoandar",
+      "block": 3,
+      "page": "Quem compõe a equipe",
+      "source": "Sheet1!B34:B40",
+      "required": false,
+      "options": [
+        "Cuidadores / Educadores",
+        "Assistente Social",
+        "Psicólogo",
+        "Pedagogia",
+        "Coordenação Técnica",
+        "Coordenação Funcional (RH / Apoio)",
+        "Supervisão (equipe externa)",
+        "Voluntários",
+        "Padrinhos cadastrados"
+      ],
+      "help": "Atualizado com Coordenação Técnica, Coordenação Funcional e Supervisão (equipe externa). Informe zero quando não houver.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q042",
+      "label": "A equipe recebe capacitação periódica?",
+      "type": "options",
+      "block": 3,
+      "page": "Formação e composição",
+      "source": "Sheet1!B42",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não",
+        "Parcial"
+      ],
+      "help": "Indique se há formação continuada regular para cuidadores e equipe técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q043",
+      "label": "A equipe mínima prevista na legislação (NOB-RH/SUAS) está completa?",
+      "type": "options",
+      "block": 3,
+      "page": "Formação e composição",
+      "source": "Sheet1!B43",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não",
+        "Parcial"
+      ],
+      "help": "Considere a proporção exigida de coordenador, equipe técnica e educadores/cuidadores por turno.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q125",
+      "label": "Qual o grau de dificuldade com capacitação e estabilidade (rotatividade) da equipe?",
+      "type": "options",
+      "block": 3,
+      "page": "Formação e composição",
+      "source": "Sheet1!B125",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Pergunta realocada para o bloco Pessoas conforme revisão técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q_pessoas_funcao_extra",
+      "label": "Descreva os desafios de pagar alguma função extra de equipe técnica",
+      "type": "textarea",
+      "block": 3,
+      "page": "Desafios da equipe",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Campo aberto solicitado na revisão para detalhar gargalos na contratação de equipe técnica (até 300 caracteres).",
+      "placeholder": "Descreva em até 300 caracteres as dificuldades financeiras para custear especialistas ou horas técnicas extras...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q_pessoas_obs",
+      "label": "Observações ou comentários adicionais sobre a equipe (Opcional)",
+      "type": "textarea",
+      "block": 3,
+      "page": "Desafios da equipe",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Espaço complementar de final de bloco (até 300 caracteres).",
+      "placeholder": "Se houver algo mais a acrescentar sobre a realidade da sua equipe, registre aqui...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Dimensionar a equipe técnica, operacional e de apoio e suas demandas de capacitação."
+    },
+    {
+      "id": "q046",
+      "label": "A instituição possui planejamento estratégico?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B46",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q047",
+      "label": "Existem indicadores para acompanhar resultados?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B47",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q048",
+      "label": "Há conselho diretor?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B48",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q049",
+      "label": "O conselho diretor é atuante?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B49",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": {
+        "id": "q048",
+        "equals": "Sim"
+      },
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q050",
+      "label": "Há reuniões de governança?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B50",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q051",
+      "label": "As reuniões de governança ocorrem regularmente?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B51",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": {
+        "id": "q050",
+        "equals": "Sim"
+      },
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q052",
+      "label": "Existe gestão de risco?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B52",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q053",
+      "label": "A instituição possui políticas internas (compliance, ética, proteção de dados, compras)?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B53",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q056",
+      "label": "O balanço financeiro é publicado?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B56",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q_gov_prestacao_simnao",
+      "label": "As prestações de contas são feitas aos financiadores?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Informe se a instituição realiza retorno formal de prestação de contas aos seus financiadores e apoiadores.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q060",
+      "label": "Descreva como você dá retorno de prestações de contas aos financiadores.",
+      "type": "textarea",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B60",
+      "required": false,
+      "options": [],
+      "help": "Descreva de forma objetiva em até 300 caracteres.",
+      "placeholder": "Ex.: Enviamos relatórios periódicos com notas fiscais, balancete contábil e registro das atividades realizadas...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q057",
+      "label": "A instituição divulga relatório anual de atividades?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B57",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q058",
+      "label": "Possui auditoria?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B58",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q059",
+      "label": "Há um portal de atividades e financiamento disponíveis ao público?",
+      "type": "options",
+      "block": 4,
+      "page": "Práticas",
+      "source": "Sheet1!B59",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Indique se as atividades e informações de financiamento estão disponíveis publicamente no site ou portal da entidade.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer práticas de governança, controle e prestação de contas aos financiadores."
+    },
+    {
+      "id": "q063",
+      "label": "Quais são as principais fontes de receita da instituição?",
+      "type": "multi",
+      "block": 5,
+      "page": "De onde vêm os recursos",
+      "source": "Sheet1!B63",
+      "required": false,
+      "options": [
+        "Poder público",
+        "Pessoas físicas",
+        "Empresas",
+        "Imposto de Renda",
+        "Eventos",
+        "Outros"
+      ],
+      "help": "Selecione todas as fontes de receita que compõem o orçamento da casa.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q065",
+      "label": "Qual percentual da receita vem do poder público?",
+      "type": "options",
+      "block": 5,
+      "page": "De onde vêm os recursos",
+      "source": "Sheet1!B65",
+      "required": false,
+      "options": [
+        "0% a 25%",
+        "Mais de 25% a 50%",
+        "Mais de 50% a 75%",
+        "Mais de 75% a 100%"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q067",
+      "label": "Qual percentual da receita vem de doações?",
+      "type": "options",
+      "block": 5,
+      "page": "De onde vêm os recursos",
+      "source": "Sheet1!B67",
+      "required": false,
+      "options": [
+        "0% a 25%",
+        "Mais de 25% a 50%",
+        "Mais de 50% a 75%",
+        "Mais de 75% a 100%"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q069",
+      "label": "A instituição possui reserva financeira?",
+      "type": "options",
+      "block": 5,
+      "page": "De onde vêm os recursos",
+      "source": "Sheet1!B69",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q071",
+      "label": "Quantos meses conseguiria manter as atividades sem novos recursos?",
+      "type": "options",
+      "block": 5,
+      "page": "De onde vêm os recursos",
+      "source": "Sheet1!B71",
+      "required": false,
+      "options": [
+        "Até 1 mês",
+        "Mais de 1 até 3 meses",
+        "Mais de 3 até 6 meses",
+        "Mais de 6 meses"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q074",
+      "label": "Custo com equipe (salários de cuidadores, educadores, psicólogos, coordenadores...)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B74",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade financeira para custear este item?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q075",
+      "label": "Alimentação (fornecimento de refeições e dietas especiais quando necessário)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B75",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade financeira para custear este item?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q076",
+      "label": "Saúde (medicamentos não fornecidos pelo SUS, consultas e exames...)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B76",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade financeira para custear este item?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q077",
+      "label": "Educação e desenvolvimento (material escolar, uniformes, transporte...)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B77",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade financeira para custear este item?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q078",
+      "label": "Moradia e manutenção (aluguel, energia elétrica, água, gás, manutenção predial...)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B78",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade financeira para custear este item?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q079_vestuario",
+      "label": "Vestuário (roupas, calçados, enxoval de cama e banho)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B79",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado de 'Vestuário e higiene': avalie o grau de dificuldade financeira apenas para Vestuário.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q079_higiene",
+      "label": "Higiene (produtos de higiene pessoal, fraldas e limpeza)",
+      "type": "options",
+      "block": 5,
+      "page": "Dificuldades financeiras",
+      "source": "Sheet1!B79",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado de 'Vestuário e higiene': avalie o grau de dificuldade financeira apenas para Higiene.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar composição do orçamento e pressões de custeio mensal da instituição."
+    },
+    {
+      "id": "q080",
+      "label": "Captação de recursos instável (oscilação de doações sazonais)",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios estruturais de captação",
+      "source": "Sheet1!B80",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q081",
+      "label": "Exigências legais e administrativas (contabilidade, certificações, auditorias...)",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios estruturais de captação",
+      "source": "Sheet1!B81",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q084",
+      "label": "Possui profissional dedicado/responsável pela captação de recursos?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B84",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q085",
+      "label": "Realiza campanhas periódicas de doação?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B85",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q086_pf",
+      "label": "Recebe doações via Imposto de Renda — Pessoa Física (PF)?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B86",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Destinação de IR de Pessoas Físicas via Fundo da Infância e Adolescência (FIA/CMDCA).",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q086_pj",
+      "label": "Recebe doações via Imposto de Renda — Pessoa Jurídica (PJ)?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B86",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Destinação de incentivo fiscal de empresas (Lucro Real) via FIA/CMDCA.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q087_pub",
+      "label": "Participa de Editais Públicos?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B87",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Chamamentos públicos, emendas ou editais governamentais.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q087_priv",
+      "label": "Participa de Editais Privados?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B87",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Editais de fundações empresariais, institutos e bancos.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q088",
+      "label": "Possui relacionamento ativo e parcerias com empresas?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B88",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q089",
+      "label": "Recebe doações por programas de nota fiscal (ex.: Nota Fiscal Paulista)?",
+      "type": "options",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B89",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q091",
+      "label": "Número estimado de doadores recorrentes ativos",
+      "type": "number",
+      "block": 6,
+      "page": "Caminhos de captação",
+      "source": "Sheet1!B91",
+      "required": false,
+      "options": [],
+      "help": "Informe zero quando não houver doadores mensais recorrentes.",
+      "placeholder": "Ex.: 35",
+      "maxLength": 200,
+      "unit": "doadores",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q092",
+      "label": "Grande concorrência entre instituições e dependência de campanhas sazonais",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B92",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Como avalia o nível de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q093",
+      "label": "Baixa visibilidade do trabalho (por sigilo legal não poder expor histórias das crianças)",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B93",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Como avalia o nível de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q095",
+      "label": "Pouca profissionalização da captação e dificuldade em acessar empresas",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B95",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Como avalia o nível de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q097_pub",
+      "label": "Burocracia para obtenção de recursos públicos",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B97",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado conforme revisão: avalie o grau de dificuldade com a burocracia pública.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q097_priv",
+      "label": "Burocracia para obtenção de recursos privados",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B97",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado conforme revisão: avalie o grau de dificuldade com a burocracia privada.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q099",
+      "label": "Necessidade de demonstrar impacto e recursos financeiros limitados",
+      "type": "options",
+      "block": 6,
+      "page": "Desafios para captar",
+      "source": "Sheet1!B99",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Inclui o desafio de recursos financeiros limitados realocado para Captação.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender canais de mobilização de recursos, incentivos fiscais e gargalos de captação."
+    },
+    {
+      "id": "q102",
+      "label": "Acesso a atendimento psicológico regular para os acolhidos?",
+      "type": "options",
+      "block": 7,
+      "page": "Saúde",
+      "source": "Sheet1!B102",
+      "required": false,
+      "options": [
+        "Sim",
+        "Parcial",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q103",
+      "label": "Acesso a atendimento psiquiátrico quando necessário?",
+      "type": "options",
+      "block": 7,
+      "page": "Saúde",
+      "source": "Sheet1!B103",
+      "required": false,
+      "options": [
+        "Sim",
+        "Parcial",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q104",
+      "label": "Acesso a saúde geral (hospital, consultas médicas, odontologia e exames)?",
+      "type": "options",
+      "block": 7,
+      "page": "Saúde",
+      "source": "Sheet1!B104",
+      "required": false,
+      "options": [
+        "Sim",
+        "Parcial",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q105",
+      "label": "Existem programas de preparação gradual para saída / autonomia dos adolescentes?",
+      "type": "options",
+      "block": 7,
+      "page": "Saúde",
+      "source": "Sheet1!B105",
+      "required": false,
+      "options": [
+        "Sim",
+        "Parcial",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q145",
+      "label": "Como avalia a articulação e o atendimento da Rede de Saúde (UBS, CAPS, Hospitais) à casa?",
+      "type": "options",
+      "block": 7,
+      "page": "Relação com a Rede de Saúde",
+      "source": "Sheet1!B145",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "Pergunta incorporada ao bloco Saúde para avaliar diretamente o relacionamento com o SUS/Rede de Saúde.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q_saude_relacao_obs",
+      "label": "Descreva a relação das casas de acolhimento com a Saúde e os principais problemas enfrentados",
+      "type": "textarea",
+      "block": 7,
+      "page": "Relação com a Rede de Saúde",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Pergunta aberta adicionada na revisão para mapear os gargalos reais com a Saúde (até 300 caracteres).",
+      "placeholder": "Relate em até 300 caracteres dificuldades como filas de espera, atendimento em saúde mental/CAPS, acesso a medicamentos...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear o cuidado em saúde física e emocional e os gargalos na rede pública e privada."
+    },
+    {
+      "id": "q107",
+      "label": "Defasagem na aprendizagem (histórico de negligência ou evasão gerando dificuldades escolares)",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B107",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q108",
+      "label": "Impactos emocionais e comportamentais refletindo no ambiente escolar",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B108",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q109",
+      "label": "Preconceito e estigmatização na escola (rotulagem, exclusão ou redução de expectativas)",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B109",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q110",
+      "label": "Falta de articulação entre serviços (comunicação entre escola, instituição e rede)",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B110",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q111",
+      "label": "Necessidade de atendimento pedagógico individualizado / reforço escolar",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B111",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q112",
+      "label": "Baixa expectativa em relação ao futuro e baixa motivação para os estudos",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B112",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q113",
+      "label": "Desafios na socialização escolar (vínculos de confiança, atividades em grupo e conflitos)",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B113",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q114",
+      "label": "Formação insuficiente dos professores para lidar com o contexto do acolhimento institucional",
+      "type": "options",
+      "block": 8,
+      "page": "Educação",
+      "source": "Sheet1!B114",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade enfrentado neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q146",
+      "label": "Como avalia a relação e articulação direta da casa com as Escolas / Rede de Educação?",
+      "type": "options",
+      "block": 8,
+      "page": "Relação com a Escola",
+      "source": "Sheet1!B146",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "Incorporada ao bloco Educação para avaliar a parceria com a rede de ensino.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q_educacao_relacao_obs",
+      "label": "Detalhe a relação da casa de acolhimento com a Educação e os principais problemas com as escolas",
+      "type": "textarea",
+      "block": 8,
+      "page": "Relação com a Escola",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Pergunta aberta adicionada na revisão para detalhar a relação com a Educação (até 300 caracteres).",
+      "placeholder": "Descreva em até 300 caracteres como é o diálogo com a direção/professores, acesso a vagas, contraturno e transporte...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar os desafios educacionais das crianças acolhidas e a articulação com a rede escolar."
+    },
+    {
+      "id": "q116_simnao",
+      "label": "A instituição já teve experiência bem-sucedida na reparação dos impactos de experiências traumáticas?",
+      "type": "options",
+      "block": 9,
+      "page": "Reparação de experiências traumáticas",
+      "source": "Sheet1!B116",
+      "required": false,
+      "options": [
+        "Sim",
+        "Não"
+      ],
+      "help": "Primeira pergunta sobre recuperação emocional e superação de traumas durante o acolhimento.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q116_pct",
+      "label": "Qual o percentual estimado de reparação de experiências traumáticas nas crianças atendidas?",
+      "type": "options",
+      "block": 9,
+      "page": "Reparação de experiências traumáticas",
+      "source": "Sheet1!B116",
+      "required": false,
+      "options": [
+        "Até 10%",
+        "Até 25%",
+        "Até 50%",
+        "Mais que 50%"
+      ],
+      "help": "Estimativa percentual definida na revisão técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q117",
+      "label": "Construção de vínculo de confiança com as crianças e adolescentes",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B117",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q118",
+      "label": "Manejo de comportamentos desafiadores",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B118",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q119",
+      "label": "Promoção contínua da saúde mental",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B119",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q120",
+      "label": "Garantia de desenvolvimento integral",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B120",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q121",
+      "label": "Atendimento individualizado a cada acolhido",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B121",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q122",
+      "label": "Fortalecimento dos vínculos familiares durante o acolhimento",
+      "type": "options",
+      "block": 9,
+      "page": "Desafios do atendimento",
+      "source": "Sheet1!B122",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade neste aspecto?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q123_adocao",
+      "label": "Preparação para adoção",
+      "type": "options",
+      "block": 9,
+      "page": "Adoção e Desacolhimento",
+      "source": "Sheet1!B123",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado conforme revisão (sem 'Não se aplica'): avalie o grau de dificuldade na preparação para adoção.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q123_desacolhimento",
+      "label": "Preparação para o desacolhimento",
+      "type": "options",
+      "block": 9,
+      "page": "Adoção e Desacolhimento",
+      "source": "Sheet1!B123",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado conforme revisão (termo técnico 'desacolhimento'): avalie o grau de dificuldade.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q128",
+      "label": "Realizar o Plano Individual de Atendimento (PIA) com causas, necessidades e ações para reintegração",
+      "type": "options",
+      "block": 9,
+      "page": "Plano Individual de Atendimento",
+      "source": "Sheet1!B128",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Qual o grau de dificuldade na elaboração e execução do PIA?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Compreender os desafios técnicos e psicossociais no atendimento cotidiano às crianças."
+    },
+    {
+      "id": "q124_assistencia",
+      "label": "Grau de dificuldade na articulação integrada com a Assistência Social (CRAS / CREAS)",
+      "type": "options",
+      "block": 10,
+      "page": "Articulação da rede de proteção",
+      "source": "Sheet1!B124",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado por órgão conforme revisão (sem 'Não se aplica').",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q124_ct",
+      "label": "Grau de dificuldade na articulação integrada com o Conselho Tutelar",
+      "type": "options",
+      "block": 10,
+      "page": "Articulação da rede de proteção",
+      "source": "Sheet1!B124",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade de atuação integrada com o Conselho Tutelar.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q124_mp",
+      "label": "Grau de dificuldade na articulação integrada com o MP (Ministério Público)",
+      "type": "options",
+      "block": 10,
+      "page": "Articulação da rede de proteção",
+      "source": "Sheet1!B124",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade de atuação integrada com o Ministério Público.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q124_judiciario",
+      "label": "Grau de dificuldade na articulação integrada com o Poder Judiciário (Vara da Infância e Juventude)",
+      "type": "options",
+      "block": 10,
+      "page": "Articulação da rede de proteção",
+      "source": "Sheet1!B124",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade de atuação integrada com o Poder Judiciário.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q140",
+      "label": "Como classifica o relacionamento institucional com o Poder Judiciário?",
+      "type": "options",
+      "block": 10,
+      "page": "Qualidade do relacionamento com a Rede",
+      "source": "Sheet1!B140",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q141",
+      "label": "Como classifica o relacionamento institucional com o Ministério Público?",
+      "type": "options",
+      "block": 10,
+      "page": "Qualidade do relacionamento com a Rede",
+      "source": "Sheet1!B141",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q142",
+      "label": "Como classifica o relacionamento institucional com o Conselho Tutelar?",
+      "type": "options",
+      "block": 10,
+      "page": "Qualidade do relacionamento com a Rede",
+      "source": "Sheet1!B142",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q143",
+      "label": "Como classifica o relacionamento institucional com o CREAS e o CRAS?",
+      "type": "options",
+      "block": 10,
+      "page": "Qualidade do relacionamento com a Rede",
+      "source": "Sheet1!B143",
+      "required": false,
+      "options": [
+        "Bom",
+        "Regular",
+        "Ruim",
+        "Não há relacionamento"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Avaliar o diálogo e a qualidade da articulação com cada órgão do Sistema de Garantia de Direitos."
+    },
+    {
+      "id": "q129",
+      "label": "Frequência de visita dos familiares à instituição",
+      "type": "options",
+      "block": 11,
+      "page": "Frequência de visitas e contatos",
+      "source": "Sheet1!B129",
+      "required": false,
+      "options": [
+        "Alta",
+        "Média",
+        "Baixa"
+      ],
+      "help": "Com que frequência os familiares comparecem às visitas presenciais na casa?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q130",
+      "label": "Frequência de contato de familiares (vídeo, telefone ou cartas)",
+      "type": "options",
+      "block": 11,
+      "page": "Frequência de visitas e contatos",
+      "source": "Sheet1!B130",
+      "required": false,
+      "options": [
+        "Alta",
+        "Média",
+        "Baixa"
+      ],
+      "help": "Com que frequência ocorre o contato remoto entre familiares e acolhidos?",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q131",
+      "label": "Grau de dificuldade de atendimento psicossocial à família",
+      "type": "options",
+      "block": 11,
+      "page": "Grau de dificuldade no trabalho com famílias",
+      "source": "Sheet1!B131",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade enfrentado pela equipe técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q132",
+      "label": "Grau de dificuldade de orientação parental (comunicação, resolução de conflitos e fortalecimento do cuidado)",
+      "type": "options",
+      "block": 11,
+      "page": "Grau de dificuldade no trabalho com famílias",
+      "source": "Sheet1!B132",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade enfrentado pela equipe técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q133_trabalho",
+      "label": "Grau de dificuldade do encaminhamento dos responsáveis (família) para o mercado de trabalho",
+      "type": "options",
+      "block": 11,
+      "page": "Encaminhamento da família na rede",
+      "source": "Sheet1!B133",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado 1/3 conforme revisão: encaminhamento para emprego/renda.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q133_saude_mental",
+      "label": "Grau de dificuldade do encaminhamento dos responsáveis (familiares) para saúde mental (casos de dependência química)",
+      "type": "options",
+      "block": 11,
+      "page": "Encaminhamento da família na rede",
+      "source": "Sheet1!B133",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado 2/3 conforme revisão: encaminhamento para tratamento em saúde mental e dependência química.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q133_moradia",
+      "label": "Grau de dificuldade do encaminhamento dos responsáveis para moradia",
+      "type": "options",
+      "block": 11,
+      "page": "Encaminhamento da família na rede",
+      "source": "Sheet1!B133",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Desmembrado 3/3 conforme revisão: encaminhamento habitacional/moradia.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q134",
+      "label": "Grau de participação da família na vida da criança durante o acolhimento (na instituição)",
+      "type": "options",
+      "block": 11,
+      "page": "Participação e Reintegração Familiar",
+      "source": "Sheet1!B134",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o nível de participação da família nas rotinas e datas importantes durante o acolhimento.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q135",
+      "label": "Grau de dificuldade de promover visitas das crianças acolhidas aos familiares (criança ir na casa do familiar)",
+      "type": "options",
+      "block": 11,
+      "page": "Participação e Reintegração Familiar",
+      "source": "Sheet1!B135",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo",
+        "Não ocorre"
+      ],
+      "help": "Inclui a opção 'Não ocorre' conforme definido na revisão técnica.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q136",
+      "label": "Grau de dificuldade de realizar preparação gradual para a reintegração (finais de semana e férias)",
+      "type": "options",
+      "block": 11,
+      "page": "Participação e Reintegração Familiar",
+      "source": "Sheet1!B136",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Avalie o grau de dificuldade nessa transição gradual.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q137",
+      "label": "Grau de dificuldade de realizar escuta qualificada da criança e da família",
+      "type": "options",
+      "block": 11,
+      "page": "Participação e Reintegração Familiar",
+      "source": "Sheet1!B137",
+      "required": false,
+      "options": [
+        "Alto",
+        "Médio",
+        "Baixo"
+      ],
+      "help": "Ouvir expectativas, medos e desejos de todos os envolvidos.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Mapear a frequência de convivência familiar e o grau de dificuldade na reintegração."
+    },
+    {
+      "id": "q155_ambientes",
+      "label": "Reforma Estrutural: avalie a situação estrutural atual dos 5 ambientes da casa e detalhe o que precisa ser reformado",
+      "type": "structural_condition",
+      "block": 12,
+      "page": "Situação estrutural e Reforma",
+      "source": "Sheet1!B155",
+      "required": false,
+      "options": [
+        "Cômodos (Quartos / Salas)",
+        "Banheiro",
+        "Cozinha",
+        "Área de lazer",
+        "Quintal"
+      ],
+      "help": "Avalie cada ambiente em Bom, Médio ou Péssimo e descreva abaixo as reformas prioritárias.",
+      "placeholder": "Detalhe em até 300 caracteres quais ambientes precisam de reforma estrutural e o que precisa ser feito (ex.: telhado, infiltração, pintura, adaptação de banheiro)...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q158",
+      "label": "Veículo — Nível de prioridade/urgência e especificação",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Prioridades físicas e equipamentos",
+      "source": "Sheet1!B158",
+      "required": false,
+      "options": [],
+      "help": "Selecione de 0 (Não precisa) a 5 (Urgente) na régua visual e especifique abaixo.",
+      "placeholder": "Que tipo de veículo a casa precisa e para qual finalidade? (Ex.: van de 15 lugares para levar crianças à escola e consultas)...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q159_mobilia",
+      "label": "Equipamentos — Mobília (camas, beliches, armários, mesas, sofás)",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Prioridades físicas e equipamentos",
+      "source": "Sheet1!B159",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e especifique os móveis necessários.",
+      "placeholder": "Quais itens de mobília e quantidades são mais urgentes hoje?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q159_eletrodomesticos",
+      "label": "Equipamentos — Eletrodomésticos (geladeira, fogão industrial, máquina de lavar, freezer)",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Prioridades físicas e equipamentos",
+      "source": "Sheet1!B159",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e especifique os eletrodomésticos necessários.",
+      "placeholder": "Quais eletrodomésticos e quantidades são mais urgentes hoje?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q159_eletroeletronicos",
+      "label": "Equipamentos — Eletroeletrônicos (computadores, notebooks, tablets, TVs, impressoras)",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Prioridades físicas e equipamentos",
+      "source": "Sheet1!B159",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e especifique os itens necessários.",
+      "placeholder": "Quais equipamentos eletroeletrônicos e quantidades são mais urgentes hoje?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q156",
+      "label": "Ampliação da equipe",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Equipe e Capacitação",
+      "source": "Sheet1!B156",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e informe quais profissionais são prioritários.",
+      "placeholder": "Quais os profissionais mais importantes que faltam hoje na equipe? (Ex.: 1 psicólogo, 2 cuidadores noturnos, 1 pedagogo)...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q157",
+      "label": "Capacitação da equipe",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Equipe e Capacitação",
+      "source": "Sheet1!B157",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e descreva os temas de treinamento necessários.",
+      "placeholder": "Quais as principais lacunas de capacitação e quais treinamentos a equipe precisa?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q_melhoria_psicologico",
+      "label": "Apoio psicológico e cuidado emocional (para acolhidos e equipe)",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Equipe e Capacitação",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e detalhe a demanda.",
+      "placeholder": "Especifique a necessidade de apoio psicológico, psiquiátrico ou supervisão clínica...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q_melhoria_cultura",
+      "label": "Atividades culturais, pedagógicas e esportivas",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Gestão, Captação e Projetos",
+      "source": "Revisão V2",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e descreva as atividades desejadas.",
+      "placeholder": "Quais atividades culturais, esportivas ou de lazer gostaria de implementar para as crianças?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q160",
+      "label": "Tecnologia e ferramentas de gestão",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Gestão, Captação e Projetos",
+      "source": "Sheet1!B160",
+      "required": false,
+      "options": [],
+      "help": "Selecione o nível de urgência (0 a 5) e especifique a necessidade tecnológica.",
+      "placeholder": "Quais sistemas, prontuário eletrônico ou ferramentas de gestão a instituição precisa?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q161",
+      "label": "Estruturação do setor de captação de recursos",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Gestão, Captação e Projetos",
+      "source": "Sheet1!B161",
+      "required": false,
+      "options": [],
+      "help": "Renomeado conforme revisão para focar na estruturação da área de captação.",
+      "placeholder": "Qual o apoio necessário para estruturar ou profissionalizar o setor de captação de recursos da casa?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q162",
+      "label": "Programas e projetos adicionais ao acolhimento (ex.: horta, oficinas de trabalho, jovem aprendiz, etc.)",
+      "type": "urgency_detail",
+      "block": 12,
+      "page": "Gestão, Captação e Projetos",
+      "source": "Sheet1!B162",
+      "required": false,
+      "options": [],
+      "help": "Renomeado conforme revisão para abranger projetos complementares na casa.",
+      "placeholder": "Quais programas ou projetos adicionais ao acolhimento a instituição deseja implantar?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Identificar e detalhar as prioridades práticas mais urgentes da instituição para o E-book e conexões de apoio."
+    },
+    {
+      "id": "q149",
+      "label": "A instituição já utiliza tecnologia para gestão, prontuário eletrônico ou automação?",
+      "type": "options",
+      "block": 13,
+      "page": "Tecnologia e Desenvolvimento Institucional",
+      "source": "Sheet1!B149:B151",
+      "required": false,
+      "options": [
+        "Sim, utiliza sistema e prontuário eletrônico",
+        "Utiliza parcialmente (apenas planilhas/controles básicos)",
+        "Não utiliza"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "q_onde_apoio_diferenca",
+      "label": "Em quais frentes o apoio da Rede Net do Bem faria maior diferença para o desenvolvimento da sua instituição?",
+      "type": "multi",
+      "block": 13,
+      "page": "Onde o apoio faz diferença",
+      "source": "Sheet1!B165:B176",
+      "required": false,
+      "options": [
+        "Governança e Planejamento Estratégico",
+        "Captação de Recursos e Marketing",
+        "Prestação de Contas e Indicadores",
+        "Formação e Desenvolvimento de Equipe",
+        "Aspectos Jurídicos e Regularização",
+        "Tecnologia e Inovação",
+        "Comunicação com o Município e Rede"
+      ],
+      "help": "Selecione as áreas estratégicas em que mentoria e suporte técnico mais ajudariam sua entidade.",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a004",
+      "label": "Como a instituição mede seus resultados e quais indicadores acompanha hoje?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Impacto social",
+      "source": "Perguntas Abertas!A4:A5",
+      "required": false,
+      "options": [],
+      "help": "Não inclua nomes ou histórias que identifiquem crianças e famílias (até 300 caracteres).",
+      "placeholder": "Descreva brevemente como acompanham a evolução das crianças e as metas da casa...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a006",
+      "label": "Quais foram as principais conquistas da instituição nos últimos anos?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Impacto social",
+      "source": "Perguntas Abertas!A6",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "Compartilhe marcos importantes, melhorias conquistadas ou histórias institucionais de superação...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a007",
+      "label": "Quais mudanças estruturais ou metodológicas considera prioritárias para melhorar o acolhimento?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Impacto social",
+      "source": "Perguntas Abertas!A7",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "O que mais transformaria o dia a dia da casa hoje?",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a012",
+      "label": "Quais parcerias considera estratégicas e quais parcerias ainda fazem falta?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Parcerias",
+      "source": "Perguntas Abertas!A12:A13",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "Ex.: parcerias com clínicas de psicologia, escolas profissionalizantes, empresas apoiadoras...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a014",
+      "label": "A instituição mantém relacionamento ou parcerias com Universidades?",
+      "type": "options",
+      "block": 13,
+      "page": "Parcerias",
+      "source": "Perguntas Abertas!A14",
+      "required": false,
+      "options": [
+        "Sim, mantemos parceria ativa",
+        "Já tivemos no passado, mas não atualmente",
+        "Não temos, mas gostaríamos de iniciar",
+        "Não"
+      ],
+      "help": "",
+      "placeholder": "",
+      "maxLength": 200,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a018",
+      "label": "Onde a instituição quer estar nos próximos 5 anos?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Visão de futuro",
+      "source": "Perguntas Abertas!A18",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "Descreva a visão de futuro e os sonhos da sua instituição para os próximos 5 anos...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a019",
+      "label": "O que considera essencial para o fortalecimento das Casas de Acolhimento no Estado de São Paulo e no Brasil?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Visão de futuro",
+      "source": "Perguntas Abertas!A19",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "Sua visão contribuirá diretamente para o E-book diagnóstico da Fundação Net do Bem...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    },
+    {
+      "id": "a020",
+      "label": "Que tipo de apoio uma organização parceira como a Fundação Net do Bem poderia oferecer para gerar maior impacto?",
+      "type": "textarea",
+      "block": 13,
+      "page": "Visão de futuro",
+      "source": "Perguntas Abertas!A20",
+      "required": false,
+      "options": [],
+      "help": "Até 300 caracteres.",
+      "placeholder": "Deixe sua mensagem final e sugestões de apoio para a Fundação Net do Bem...",
+      "maxLength": 300,
+      "unit": "",
+      "condition": null,
+      "review": "",
+      "purpose": "Conhecer o impacto alcançado, parcerias desejadas e visão de futuro da instituição."
+    }
+  ],
+  "pages": [
+    {
+      "id": "p001",
+      "block": 0,
+      "title": "A identidade da entidade",
+      "questionIds": [
+        "entidade"
+      ]
+    },
+    {
+      "id": "p002",
+      "block": 0,
+      "title": "A identidade da entidade",
+      "questionIds": [
+        "casa"
+      ]
+    },
+    {
+      "id": "p003",
+      "block": 0,
+      "title": "A identidade da entidade",
+      "questionIds": [
+        "natureza"
+      ]
+    },
+    {
+      "id": "p004",
+      "block": 0,
+      "title": "A identidade da entidade",
+      "questionIds": [
+        "fundacao_data"
+      ]
+    },
+    {
+      "id": "p005",
+      "block": 0,
+      "title": "A identidade da entidade",
+      "questionIds": [
+        "cnpj"
+      ]
+    },
+    {
+      "id": "p006",
+      "block": 0,
+      "title": "Onde o cuidado acontece",
+      "questionIds": [
+        "cep"
+      ]
+    },
+    {
+      "id": "p007",
+      "block": 0,
+      "title": "Onde o cuidado acontece",
+      "questionIds": [
+        "endereco"
+      ]
+    },
+    {
+      "id": "p008",
+      "block": 0,
+      "title": "Onde o cuidado acontece",
+      "questionIds": [
+        "cidade"
+      ]
+    },
+    {
+      "id": "p009",
+      "block": 0,
+      "title": "Onde o cuidado acontece",
+      "questionIds": [
+        "uf"
+      ]
+    },
+    {
+      "id": "p010",
+      "block": 0,
+      "title": "Dados de contato",
+      "questionIds": [
+        "gestor"
+      ]
+    },
+    {
+      "id": "p011",
+      "block": 0,
+      "title": "Dados de contato",
+      "questionIds": [
+        "funcao"
+      ]
+    },
+    {
+      "id": "p012",
+      "block": 0,
+      "title": "Dados de contato",
+      "questionIds": [
+        "email"
+      ]
+    },
+    {
+      "id": "p013",
+      "block": 0,
+      "title": "Dados de contato",
+      "questionIds": [
+        "telefone"
+      ]
+    },
+    {
+      "id": "p014",
+      "block": 0,
+      "title": "Registro nos Conselhos",
+      "questionIds": [
+        "conselhos"
+      ]
+    },
+    {
+      "id": "p015",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q_ambientes_grid"
+      ]
+    },
+    {
+      "id": "p016",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q_acessibilidade"
+      ]
+    },
+    {
+      "id": "p017",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q_internet_computadores"
+      ]
+    },
+    {
+      "id": "p018",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q016_brinquedos_faixas"
+      ]
+    },
+    {
+      "id": "p019",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q016_brinquedos_obs"
+      ]
+    },
+    {
+      "id": "p020",
+      "block": 1,
+      "title": "Veículos e segurança no transporte",
+      "questionIds": [
+        "q018_veiculo_proprio"
+      ]
+    },
+    {
+      "id": "p021",
+      "block": 1,
+      "title": "Veículos e segurança no transporte",
+      "questionIds": [
+        "q018_veiculo_tipos"
+      ]
+    },
+    {
+      "id": "p022",
+      "block": 1,
+      "title": "Veículos e segurança no transporte",
+      "questionIds": [
+        "q018_veiculo_seguranca"
+      ]
+    },
+    {
+      "id": "p023",
+      "block": 1,
+      "title": "Veículos e segurança no transporte",
+      "questionIds": [
+        "q018_veiculo_obs"
+      ]
+    },
+    {
+      "id": "p024",
+      "block": 1,
+      "title": "Ambientes e mobiliário",
+      "questionIds": [
+        "q030"
+      ]
+    },
+    {
+      "id": "p025",
+      "block": 2,
+      "title": "O acolhimento em números",
+      "questionIds": [
+        "q022"
+      ]
+    },
+    {
+      "id": "p026",
+      "block": 2,
+      "title": "O acolhimento em números",
+      "questionIds": [
+        "q021_faixas"
+      ]
+    },
+    {
+      "id": "p027",
+      "block": 2,
+      "title": "O acolhimento em números",
+      "questionIds": [
+        "q019_faixas"
+      ]
+    },
+    {
+      "id": "p028",
+      "block": 2,
+      "title": "O acolhimento em números",
+      "questionIds": [
+        "q020_faixas"
+      ]
+    },
+    {
+      "id": "p029",
+      "block": 2,
+      "title": "O acolhimento em números",
+      "questionIds": [
+        "q023"
+      ]
+    },
+    {
+      "id": "p030",
+      "block": 2,
+      "title": "Rotina de acolhimento",
+      "questionIds": [
+        "q024"
+      ]
+    },
+    {
+      "id": "p031",
+      "block": 2,
+      "title": "Rotina de acolhimento",
+      "questionIds": [
+        "q026"
+      ]
+    },
+    {
+      "id": "p032",
+      "block": 2,
+      "title": "Rotina de acolhimento",
+      "questionIds": [
+        "q028"
+      ]
+    },
+    {
+      "id": "p033",
+      "block": 2,
+      "title": "Rotina de acolhimento",
+      "questionIds": [
+        "q_padrinhos_afetivo"
+      ]
+    },
+    {
+      "id": "p034",
+      "block": 2,
+      "title": "Rotina de acolhimento",
+      "questionIds": [
+        "q_padrinhos_financeiro"
+      ]
+    },
+    {
+      "id": "p035",
+      "block": 3,
+      "title": "Quem compõe a equipe",
+      "questionIds": [
+        "q_equipe_grid"
+      ]
+    },
+    {
+      "id": "p036",
+      "block": 3,
+      "title": "Formação e composição",
+      "questionIds": [
+        "q042"
+      ]
+    },
+    {
+      "id": "p037",
+      "block": 3,
+      "title": "Formação e composição",
+      "questionIds": [
+        "q043"
+      ]
+    },
+    {
+      "id": "p038",
+      "block": 3,
+      "title": "Formação e composição",
+      "questionIds": [
+        "q125"
+      ]
+    },
+    {
+      "id": "p039",
+      "block": 3,
+      "title": "Desafios da equipe",
+      "questionIds": [
+        "q_pessoas_funcao_extra"
+      ]
+    },
+    {
+      "id": "p040",
+      "block": 3,
+      "title": "Desafios da equipe",
+      "questionIds": [
+        "q_pessoas_obs"
+      ]
+    },
+    {
+      "id": "p041",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q046"
+      ]
+    },
+    {
+      "id": "p042",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q047"
+      ]
+    },
+    {
+      "id": "p043",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q048"
+      ]
+    },
+    {
+      "id": "p044",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q049"
+      ]
+    },
+    {
+      "id": "p045",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q050"
+      ]
+    },
+    {
+      "id": "p046",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q051"
+      ]
+    },
+    {
+      "id": "p047",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q052"
+      ]
+    },
+    {
+      "id": "p048",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q053"
+      ]
+    },
+    {
+      "id": "p049",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q056"
+      ]
+    },
+    {
+      "id": "p050",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q_gov_prestacao_simnao"
+      ]
+    },
+    {
+      "id": "p051",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q060"
+      ]
+    },
+    {
+      "id": "p052",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q057"
+      ]
+    },
+    {
+      "id": "p053",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q058"
+      ]
+    },
+    {
+      "id": "p054",
+      "block": 4,
+      "title": "Práticas",
+      "questionIds": [
+        "q059"
+      ]
+    },
+    {
+      "id": "p055",
+      "block": 5,
+      "title": "De onde vêm os recursos",
+      "questionIds": [
+        "q063"
+      ]
+    },
+    {
+      "id": "p056",
+      "block": 5,
+      "title": "De onde vêm os recursos",
+      "questionIds": [
+        "q065"
+      ]
+    },
+    {
+      "id": "p057",
+      "block": 5,
+      "title": "De onde vêm os recursos",
+      "questionIds": [
+        "q067"
+      ]
+    },
+    {
+      "id": "p058",
+      "block": 5,
+      "title": "De onde vêm os recursos",
+      "questionIds": [
+        "q069"
+      ]
+    },
+    {
+      "id": "p059",
+      "block": 5,
+      "title": "De onde vêm os recursos",
+      "questionIds": [
+        "q071"
+      ]
+    },
+    {
+      "id": "p060",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q074"
+      ]
+    },
+    {
+      "id": "p061",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q075"
+      ]
+    },
+    {
+      "id": "p062",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q076"
+      ]
+    },
+    {
+      "id": "p063",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q077"
+      ]
+    },
+    {
+      "id": "p064",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q078"
+      ]
+    },
+    {
+      "id": "p065",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q079_vestuario"
+      ]
+    },
+    {
+      "id": "p066",
+      "block": 5,
+      "title": "Dificuldades financeiras",
+      "questionIds": [
+        "q079_higiene"
+      ]
+    },
+    {
+      "id": "p067",
+      "block": 6,
+      "title": "Desafios estruturais de captação",
+      "questionIds": [
+        "q080"
+      ]
+    },
+    {
+      "id": "p068",
+      "block": 6,
+      "title": "Desafios estruturais de captação",
+      "questionIds": [
+        "q081"
+      ]
+    },
+    {
+      "id": "p069",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q084"
+      ]
+    },
+    {
+      "id": "p070",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q085"
+      ]
+    },
+    {
+      "id": "p071",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q086_pf"
+      ]
+    },
+    {
+      "id": "p072",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q086_pj"
+      ]
+    },
+    {
+      "id": "p073",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q087_pub"
+      ]
+    },
+    {
+      "id": "p074",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q087_priv"
+      ]
+    },
+    {
+      "id": "p075",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q088"
+      ]
+    },
+    {
+      "id": "p076",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q089"
+      ]
+    },
+    {
+      "id": "p077",
+      "block": 6,
+      "title": "Caminhos de captação",
+      "questionIds": [
+        "q091"
+      ]
+    },
+    {
+      "id": "p078",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q092"
+      ]
+    },
+    {
+      "id": "p079",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q093"
+      ]
+    },
+    {
+      "id": "p080",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q095"
+      ]
+    },
+    {
+      "id": "p081",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q097_pub"
+      ]
+    },
+    {
+      "id": "p082",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q097_priv"
+      ]
+    },
+    {
+      "id": "p083",
+      "block": 6,
+      "title": "Desafios para captar",
+      "questionIds": [
+        "q099"
+      ]
+    },
+    {
+      "id": "p084",
+      "block": 7,
+      "title": "Saúde",
+      "questionIds": [
+        "q102"
+      ]
+    },
+    {
+      "id": "p085",
+      "block": 7,
+      "title": "Saúde",
+      "questionIds": [
+        "q103"
+      ]
+    },
+    {
+      "id": "p086",
+      "block": 7,
+      "title": "Saúde",
+      "questionIds": [
+        "q104"
+      ]
+    },
+    {
+      "id": "p087",
+      "block": 7,
+      "title": "Saúde",
+      "questionIds": [
+        "q105"
+      ]
+    },
+    {
+      "id": "p088",
+      "block": 7,
+      "title": "Relação com a Rede de Saúde",
+      "questionIds": [
+        "q145"
+      ]
+    },
+    {
+      "id": "p089",
+      "block": 7,
+      "title": "Relação com a Rede de Saúde",
+      "questionIds": [
+        "q_saude_relacao_obs"
+      ]
+    },
+    {
+      "id": "p090",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q107"
+      ]
+    },
+    {
+      "id": "p091",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q108"
+      ]
+    },
+    {
+      "id": "p092",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q109"
+      ]
+    },
+    {
+      "id": "p093",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q110"
+      ]
+    },
+    {
+      "id": "p094",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q111"
+      ]
+    },
+    {
+      "id": "p095",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q112"
+      ]
+    },
+    {
+      "id": "p096",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q113"
+      ]
+    },
+    {
+      "id": "p097",
+      "block": 8,
+      "title": "Educação",
+      "questionIds": [
+        "q114"
+      ]
+    },
+    {
+      "id": "p098",
+      "block": 8,
+      "title": "Relação com a Escola",
+      "questionIds": [
+        "q146"
+      ]
+    },
+    {
+      "id": "p099",
+      "block": 8,
+      "title": "Relação com a Escola",
+      "questionIds": [
+        "q_educacao_relacao_obs"
+      ]
+    },
+    {
+      "id": "p100",
+      "block": 9,
+      "title": "Reparação de experiências traumáticas",
+      "questionIds": [
+        "q116_simnao"
+      ]
+    },
+    {
+      "id": "p101",
+      "block": 9,
+      "title": "Reparação de experiências traumáticas",
+      "questionIds": [
+        "q116_pct"
+      ]
+    },
+    {
+      "id": "p102",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q117"
+      ]
+    },
+    {
+      "id": "p103",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q118"
+      ]
+    },
+    {
+      "id": "p104",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q119"
+      ]
+    },
+    {
+      "id": "p105",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q120"
+      ]
+    },
+    {
+      "id": "p106",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q121"
+      ]
+    },
+    {
+      "id": "p107",
+      "block": 9,
+      "title": "Desafios do atendimento",
+      "questionIds": [
+        "q122"
+      ]
+    },
+    {
+      "id": "p108",
+      "block": 9,
+      "title": "Adoção e Desacolhimento",
+      "questionIds": [
+        "q123_adocao"
+      ]
+    },
+    {
+      "id": "p109",
+      "block": 9,
+      "title": "Adoção e Desacolhimento",
+      "questionIds": [
+        "q123_desacolhimento"
+      ]
+    },
+    {
+      "id": "p110",
+      "block": 9,
+      "title": "Plano Individual de Atendimento",
+      "questionIds": [
+        "q128"
+      ]
+    },
+    {
+      "id": "p111",
+      "block": 10,
+      "title": "Articulação da rede de proteção",
+      "questionIds": [
+        "q124_assistencia"
+      ]
+    },
+    {
+      "id": "p112",
+      "block": 10,
+      "title": "Articulação da rede de proteção",
+      "questionIds": [
+        "q124_ct"
+      ]
+    },
+    {
+      "id": "p113",
+      "block": 10,
+      "title": "Articulação da rede de proteção",
+      "questionIds": [
+        "q124_mp"
+      ]
+    },
+    {
+      "id": "p114",
+      "block": 10,
+      "title": "Articulação da rede de proteção",
+      "questionIds": [
+        "q124_judiciario"
+      ]
+    },
+    {
+      "id": "p115",
+      "block": 10,
+      "title": "Qualidade do relacionamento com a Rede",
+      "questionIds": [
+        "q140"
+      ]
+    },
+    {
+      "id": "p116",
+      "block": 10,
+      "title": "Qualidade do relacionamento com a Rede",
+      "questionIds": [
+        "q141"
+      ]
+    },
+    {
+      "id": "p117",
+      "block": 10,
+      "title": "Qualidade do relacionamento com a Rede",
+      "questionIds": [
+        "q142"
+      ]
+    },
+    {
+      "id": "p118",
+      "block": 10,
+      "title": "Qualidade do relacionamento com a Rede",
+      "questionIds": [
+        "q143"
+      ]
+    },
+    {
+      "id": "p119",
+      "block": 11,
+      "title": "Frequência de visitas e contatos",
+      "questionIds": [
+        "q129"
+      ]
+    },
+    {
+      "id": "p120",
+      "block": 11,
+      "title": "Frequência de visitas e contatos",
+      "questionIds": [
+        "q130"
+      ]
+    },
+    {
+      "id": "p121",
+      "block": 11,
+      "title": "Grau de dificuldade no trabalho com famílias",
+      "questionIds": [
+        "q131"
+      ]
+    },
+    {
+      "id": "p122",
+      "block": 11,
+      "title": "Grau de dificuldade no trabalho com famílias",
+      "questionIds": [
+        "q132"
+      ]
+    },
+    {
+      "id": "p123",
+      "block": 11,
+      "title": "Encaminhamento da família na rede",
+      "questionIds": [
+        "q133_trabalho"
+      ]
+    },
+    {
+      "id": "p124",
+      "block": 11,
+      "title": "Encaminhamento da família na rede",
+      "questionIds": [
+        "q133_saude_mental"
+      ]
+    },
+    {
+      "id": "p125",
+      "block": 11,
+      "title": "Encaminhamento da família na rede",
+      "questionIds": [
+        "q133_moradia"
+      ]
+    },
+    {
+      "id": "p126",
+      "block": 11,
+      "title": "Participação e Reintegração Familiar",
+      "questionIds": [
+        "q134"
+      ]
+    },
+    {
+      "id": "p127",
+      "block": 11,
+      "title": "Participação e Reintegração Familiar",
+      "questionIds": [
+        "q135"
+      ]
+    },
+    {
+      "id": "p128",
+      "block": 11,
+      "title": "Participação e Reintegração Familiar",
+      "questionIds": [
+        "q136"
+      ]
+    },
+    {
+      "id": "p129",
+      "block": 11,
+      "title": "Participação e Reintegração Familiar",
+      "questionIds": [
+        "q137"
+      ]
+    },
+    {
+      "id": "p130",
+      "block": 12,
+      "title": "Situação estrutural e Reforma",
+      "questionIds": [
+        "q155_ambientes"
+      ]
+    },
+    {
+      "id": "p131",
+      "block": 12,
+      "title": "Prioridades físicas e equipamentos",
+      "questionIds": [
+        "q158"
+      ]
+    },
+    {
+      "id": "p132",
+      "block": 12,
+      "title": "Prioridades físicas e equipamentos",
+      "questionIds": [
+        "q159_mobilia"
+      ]
+    },
+    {
+      "id": "p133",
+      "block": 12,
+      "title": "Prioridades físicas e equipamentos",
+      "questionIds": [
+        "q159_eletrodomesticos"
+      ]
+    },
+    {
+      "id": "p134",
+      "block": 12,
+      "title": "Prioridades físicas e equipamentos",
+      "questionIds": [
+        "q159_eletroeletronicos"
+      ]
+    },
+    {
+      "id": "p135",
+      "block": 12,
+      "title": "Equipe e Capacitação",
+      "questionIds": [
+        "q156"
+      ]
+    },
+    {
+      "id": "p136",
+      "block": 12,
+      "title": "Equipe e Capacitação",
+      "questionIds": [
+        "q157"
+      ]
+    },
+    {
+      "id": "p137",
+      "block": 12,
+      "title": "Equipe e Capacitação",
+      "questionIds": [
+        "q_melhoria_psicologico"
+      ]
+    },
+    {
+      "id": "p138",
+      "block": 12,
+      "title": "Gestão, Captação e Projetos",
+      "questionIds": [
+        "q_melhoria_cultura"
+      ]
+    },
+    {
+      "id": "p139",
+      "block": 12,
+      "title": "Gestão, Captação e Projetos",
+      "questionIds": [
+        "q160"
+      ]
+    },
+    {
+      "id": "p140",
+      "block": 12,
+      "title": "Gestão, Captação e Projetos",
+      "questionIds": [
+        "q161"
+      ]
+    },
+    {
+      "id": "p141",
+      "block": 12,
+      "title": "Gestão, Captação e Projetos",
+      "questionIds": [
+        "q162"
+      ]
+    },
+    {
+      "id": "p142",
+      "block": 13,
+      "title": "Tecnologia e Desenvolvimento Institucional",
+      "questionIds": [
+        "q149"
+      ]
+    },
+    {
+      "id": "p143",
+      "block": 13,
+      "title": "Onde o apoio faz diferença",
+      "questionIds": [
+        "q_onde_apoio_diferenca"
+      ]
+    },
+    {
+      "id": "p144",
+      "block": 13,
+      "title": "Impacto social",
+      "questionIds": [
+        "a004"
+      ]
+    },
+    {
+      "id": "p145",
+      "block": 13,
+      "title": "Impacto social",
+      "questionIds": [
+        "a006"
+      ]
+    },
+    {
+      "id": "p146",
+      "block": 13,
+      "title": "Impacto social",
+      "questionIds": [
+        "a007"
+      ]
+    },
+    {
+      "id": "p147",
+      "block": 13,
+      "title": "Parcerias",
+      "questionIds": [
+        "a012"
+      ]
+    },
+    {
+      "id": "p148",
+      "block": 13,
+      "title": "Parcerias",
+      "questionIds": [
+        "a014"
+      ]
+    },
+    {
+      "id": "p149",
+      "block": 13,
+      "title": "Visão de futuro",
+      "questionIds": [
+        "a018"
+      ]
+    },
+    {
+      "id": "p150",
+      "block": 13,
+      "title": "Visão de futuro",
+      "questionIds": [
+        "a019"
+      ]
+    },
+    {
+      "id": "p151",
+      "block": 13,
+      "title": "Visão de futuro",
+      "questionIds": [
+        "a020"
+      ]
+    }
+  ]
+}
