@@ -332,3 +332,146 @@ body[data-screen=intro] #main{margin:0;max-width:none;padding:0}
 .stage-card>.card-glow{position:absolute;z-index:3}
 .stage-card{justify-content:flex-start}
 .stage-card>div:last-child{margin-top:auto}
+
+/* ===== AJUSTES MVP-2 (rodada 3: Header Unificado Desktop, Governança Casa/Usuário, Sem Rolagem Mobile & Concluídos) ===== */
+
+/* 1. CAPA DE BOAS-VINDAS (INTRO) SEM ROLAGEM */
+body[data-screen=intro]{height:100dvh;overflow:hidden}
+.survey-intro{height:100dvh;min-height:100dvh;max-height:100dvh;overflow-y:auto;padding:18px 20px;display:flex;align-items:center;justify-content:center}
+.intro-content{width:min(100%,680px);margin:auto;display:flex;flex-direction:column;align-items:center}
+.intro-logo{width:162px;height:66px;margin:0 auto 12px}
+.survey-intro h1{font-size:clamp(26px,3.4vw,42px);line-height:1.08;margin:0 0 14px}
+.survey-intro h1:focus,.survey-intro h1:focus-visible{outline:none}
+.survey-intro .intro-description{padding:14px 18px;font-size:14.5px;line-height:1.45;margin:0 auto}
+.intro-details{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin:14px 0 12px;font-size:13px;width:100%}
+.intro-details span{white-space:nowrap}
+.intro-accept{padding:12px 16px;font-size:13px;line-height:1.4;width:100%}
+.intro-actions{margin-top:14px;width:100%}
+.intro-start{min-height:48px;padding:11px 24px;font-size:15px}
+.intro-links-row{margin-top:10px;gap:10px}
+.intro-privacy{font-size:12.5px;padding:4px}
+
+@media(max-width:600px),(max-height:740px){
+  .survey-intro{padding:12px 16px}
+  .intro-logo{width:134px;height:50px;margin:0 auto 8px}
+  .survey-intro h1{font-size:clamp(22px,6vw,28px);margin:0 0 10px}
+  .survey-intro .intro-description{padding:11px 14px;font-size:13px;line-height:1.38;border-radius:12px}
+  .intro-details{flex-direction:column;align-items:center;gap:5px;margin:10px 0;font-size:12.5px}
+  .intro-details svg{width:16px;height:16px}
+  .intro-accept{padding:9px 12px;font-size:12px;line-height:1.34;gap:10px;border-radius:10px}
+  .intro-accept input{width:18px;height:18px;min-height:18px}
+  .intro-actions{margin-top:10px}
+  .intro-start{width:100%;min-height:44px;padding:10px 16px;font-size:14px;border-radius:11px}
+  .intro-links-row{margin-top:6px;gap:8px}
+  .intro-privacy{font-size:12px;padding:2px 4px}
+}
+
+/* 2. HEADER UNIFICADO NO DESKTOP/NOTEBOOK + DADOS DA CASA E DADOS DO USUÁRIO LADO A LADO */
+body[data-screen=form] .header{height:68px;padding:8px 24px;gap:18px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:25}
+body[data-screen=form] #survey-menu-slot{flex:1;min-width:0;display:flex;align-items:center}
+.desktop-header-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-width:0}
+.header-identity-group{display:flex;align-items:center;gap:10px;min-width:0}
+.identity-chip-wrap{position:relative;min-width:0}
+.house-toggle,.user-toggle{display:inline-flex;align-items:center;gap:9px;max-width:235px;min-height:42px;padding:5px 11px;background:var(--paper);border:1px solid var(--line);border-radius:11px;color:var(--ink);text-align:left;transition:all .16s}
+.house-toggle:hover,.user-toggle:hover{border-color:var(--green);background:var(--soft)}
+.house-toggle>svg:first-child,.user-toggle>svg:first-child{width:17px;height:17px;color:var(--green);flex-shrink:0}
+.house-toggle>svg:last-child,.user-toggle>svg:last-child{width:14px;height:14px;color:var(--muted);flex-shrink:0}
+.identity-meta{display:flex;flex-direction:column;min-width:0;line-height:1.18}
+.identity-meta small{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.identity-meta strong{font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.house-popover,.user-popover{position:absolute;left:0;top:calc(100% + 8px);width:320px;max-width:90vw;padding:16px;border:1px solid var(--control-line);background:var(--surface);border-radius:14px;box-shadow:0 16px 36px rgba(15,40,25,.16);z-index:50}
+.popover-head{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.popover-head strong{font-size:14px;color:var(--ink)}
+.popover-head small{font-size:12px;color:var(--muted)}
+.gov-badge{display:inline-flex;align-self:flex-start;padding:3px 8px;border-radius:999px;background:var(--soft);color:var(--green);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px}
+.popover-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.compact-btn{min-height:36px!important;padding:6px 14px!important;font-size:12.5px!important;width:auto!important}
+.popover-gov-links{display:flex;flex-direction:column;gap:8px}
+.gov-link-btn{display:flex;align-items:flex-start;gap:10px;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-align:left;transition:all .15s}
+.gov-link-btn:hover{border-color:var(--green);background:var(--soft)}
+.gov-link-btn svg{color:var(--green);margin-top:2px;flex-shrink:0}
+.gov-link-btn strong{display:block;font-size:12.5px;color:var(--ink);line-height:1.25}
+.gov-link-btn small{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.25}
+
+@media(min-width:961px){
+  /* No desktop/notebook, a segunda barra (.survey-context) desaparece porque já subiu para o header principal */
+  .survey-context{display:none}
+}
+
+/* 3. TELA DE CONCLUÍDOS (CELEBRATION) COMPACTA E SEM ROLAGEM NO DESKTOP E MOBILE */
+.celebration-viewport{padding:12px 24px;align-items:center;justify-content:center;overflow-y:auto}
+.celebration-card{max-width:560px;width:100%;padding:0 24px 18px;border-radius:18px;margin:auto}
+.celeb-art{margin:0 -24px 8px;height:122px;aspect-ratio:auto;overflow:hidden;border-bottom:1px solid var(--line)}
+.celebration-card .celeb-icon-ring{width:54px;height:54px;margin:-35px auto 8px;box-shadow:0 0 0 6px rgba(47,111,76,.07);position:relative;z-index:3}
+.celeb-check-badge{width:21px;height:21px;bottom:-2px;right:-2px}
+.celeb-step-tag{padding:4px 12px;font-size:11px;margin-bottom:6px}
+.celeb-title{font-size:19px;line-height:1.22;margin:0 0 8px}
+.celeb-copy{font-size:13.5px;line-height:1.46;padding:10px 14px;border-radius:12px;margin:0 0 10px}
+.next-stage-preview{padding:9px 13px;border-radius:11px;margin-bottom:12px}
+.next-stage-left small{font-size:10.5px}
+.next-stage-left strong{font-size:13.5px}
+.celeb-actions{display:flex;flex-direction:row;gap:10px;align-items:center}
+.celeb-secondary-btn{flex:0 0 auto;min-width:118px;min-height:44px;padding:9px 16px;font-size:13.5px;width:auto}
+.celeb-primary-btn{flex:1;min-height:44px;padding:9px 18px;font-size:13.5px;width:auto}
+
+/* 4. RESPONSIVIDADE MOBILE REFINADA (EVITAR ROLAGEM E QUEBRAS) */
+@media(max-width:960px){
+  .desktop-header-bar{display:none}
+  body[data-screen=form] .header{display:grid;grid-template-columns:auto 1fr auto;height:54px;padding:6px 12px;gap:8px;flex-wrap:nowrap}
+  body[data-screen=form] #survey-menu-slot{justify-content:center}
+  .official-brand,.official-brand img{width:92px;height:40px}
+  .mobile-menu-trigger{min-height:38px;padding:5px 11px;font-size:13px;border-radius:9px;gap:5px;width:auto}
+  .theme-toggle{width:38px;height:38px;padding:7px}
+  .theme-toggle svg{width:18px;height:18px}
+
+  .survey-context{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;height:44px;min-height:44px;padding:4px 12px;gap:8px}
+  .context-view-pills{margin-inline:0;display:inline-flex;align-items:center;gap:2px;padding:3px;overflow-x:auto;max-width:calc(100% - 70px)}
+  .context-pill-btn{font-size:12px;padding:4px 10px;gap:4px;white-space:nowrap}
+  .survey-save{font-size:11.5px;gap:4px;white-space:nowrap;flex-shrink:0}
+  .survey-save svg{width:14px;height:14px}
+
+  .question-viewport{padding:12px 16px 14px}
+  .question-breadcrumb{margin-bottom:8px;gap:7px}
+  .question-breadcrumb .block-symbol{width:28px;height:28px;border-radius:8px}
+  .question-breadcrumb .block-symbol svg{width:15px;height:15px}
+  .question-breadcrumb ol,.question-breadcrumb button{font-size:11.5px}
+  .question-breadcrumb li:first-child button{font-size:10.5px}
+
+  .question-content .field>label{font-size:clamp(14.5pt,4.4vw,17.5pt);line-height:1.22;margin-bottom:3px}
+  .question-content .help{font-size:12.5px;line-height:1.35;margin:4px 0 8px}
+  .question-content .field-meta{margin-top:5px;font-size:11.5px}
+  .question-content input,.question-content select,.question-content textarea{min-height:46px;padding:10px 14px;font-size:13.5pt;margin-top:6px}
+  .question-content textarea{min-height:84px}
+
+  .options-stack{gap:6px;margin-top:6px}
+  .option-btn{padding:9px 13px;font-size:13.5px;min-height:40px;border-radius:10px;width:100%}
+  .question-content .choices{gap:6px;margin-top:6px}
+  .question-content .choice{padding:9px 12px;min-height:40px;font-size:13px}
+
+  .survey-bottom{padding:8px 14px max(10px,env(safe-area-inset-bottom))}
+  .survey-progress-label{font-size:11.5px;margin-bottom:5px}
+  .survey-bottom progress{height:5px}
+  .survey-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;margin-top:8px}
+  .survey-controls .button{flex:1;min-width:0;min-height:42px;padding:8px 12px;font-size:13.5px;width:auto;border-radius:10px}
+  .summary-link{order:0;width:auto;padding:6px 10px;font-size:12.5px;white-space:nowrap;flex-shrink:0}
+
+  .menu-profile{display:flex;flex-direction:column;gap:8px;border-top:2px solid var(--green);background:var(--soft);border-radius:12px;padding:12px;color:var(--ink);margin-top:8px}
+  .menu-profile-row{display:flex;align-items:center;gap:10px}
+  .menu-profile-row svg{color:var(--green);flex-shrink:0}
+  .menu-profile-row small{display:block;font-size:10.5px;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:1.1}
+  .menu-profile-row strong{display:block;font-size:13px;color:var(--ink);line-height:1.25}
+  .menu-profile .unit-selector{margin:4px 0 0;font-size:12.5px}
+  .menu-profile .unit-selector select{min-height:40px;padding:6px 10px;margin-top:4px;font-size:13px}
+
+  /* Celebration no mobile também sem rolagem */
+  .celebration-viewport{padding:10px 14px}
+  .celebration-card{padding:0 16px 14px}
+  .celeb-art{margin:0 -16px 6px;height:96px}
+  .celebration-card .celeb-icon-ring{width:46px;height:46px;margin:-28px auto 6px}
+  .celeb-title{font-size:16.5px;margin-bottom:6px}
+  .celeb-copy{font-size:12.5px;padding:8px 11px;margin-bottom:8px;line-height:1.4}
+  .next-stage-preview{padding:8px 10px;margin-bottom:10px}
+  .celeb-actions{gap:8px}
+  .celeb-secondary-btn,.celeb-primary-btn{min-height:40px;padding:8px 12px;font-size:12.5px}
+}

@@ -93,18 +93,28 @@ G:\00 - CLIENTES\ONG\FUNDACAO-NETDOBEM\
 
 ---
 
-## 4. Pauta de Foco para Amanhã (Ajustes Responsivos & Mobile)
+## 4. Ajustes Responsivos, Header Unificado e Governança (Rodada 3 — 31/10/2026)
 
-Para a sessão de amanhã, o foco principal será o refinamento da experiência no **celular e tablets**:
+1. **Capa de Boas-Vindas (`intro`) sem rolagem no Mobile e Desktop:**
+   - Remoção do texto superior `"PESQUISA OFICIAL · FUNDAÇÃO NET DO BEM"` e do texto auxiliar `"Ao avançar, você verá o Painel de Etapas em Cards para responder no seu ritmo."`.
+   - Simplificação dos bullets em linha única: `"Etapas curtas, em média 10 questões"` e `"Salvo automaticamente"`.
+   - Simplificação dos links inferiores para `"Quem somos"` e `"Termo privacidade"`.
+   - Compactação vertical responsiva (`100dvh`) garantindo zero rolagem vertical em celulares (iPhone/Android) e notebooks.
+2. **Nomenclatura Enxuta de Navegação:**
+   - Padronização dos 3 modos de visão e atalhos para:
+     - **`Painel`** (substituindo *"Painel de Cards (X/14)"*, *"Ver Painel de Etapas (Cards)"* e *"Ver cards de etapas"*)
+     - **`Formulário`**
+     - **`Concluídos`** (substituindo *"Ver Parabéns"*)
+3. **Header Único no Desktop/Notebook com Governança (Casa Vinculada + Usuário Logado):**
+   - Eliminação do segundo header redundante no desktop (`.survey-context`), subindo todos os controles para a barra superior principal e liberando ~60px de área útil vertical.
+   - Separação clara lado a lado no topo:
+     - **Seletor da Casa Vinculada** (`Casa vinculada` + troca rápida de unidade da mantenedora).
+     - **Seletor do Usuário Logado** (`Participante / Função` + nome do responsável + menu rápido de governança com acesso à **Área do Participante / Entidade** e à **Área Gestores · Fundação Net do Bem**, preparado para a futura autenticação e banco de dados no Replit).
+   - Indicador **`✓ Salvo`** posicionado diretamente no header principal ao lado do botão de tema Claro/Escuro.
+4. **Tela de Concluídos (`celebration`) sem rolagem no Computador e Mobile:**
+   - Redimensionamento da arte superior (`.celeb-art`), anel de ícone, tipografia e botões lado a lado (`Painel` + `Avançar para: ...`), fazendo o card de conclusão caber 100% na tela sem rolagem vertical.
+5. **Experiência Mobile do Formulário sem rolagem desnecessária:**
+   - Barra de contexto mobile em linha única (`Painel | Formulário | Concluídos` + `✓ Salvo`).
+   - Rodapé mobile em linha única (`Voltar | Painel | Continuar`) com suporte a `safe-area-inset-bottom` e espaçamento compacto nas opções e campos.
 
-1. **Ajuste de Altura e Safe Areas:**
-   - Garantir que a barra inferior de navegação (`Voltar`, `Continuar`, `Progresso`) respeite perfeitamente a *home indicator* do iOS (`env(safe-area-inset-bottom)`).
-   - Ajustar o padding vertical da área de rolagem para que nenhuma pergunta ou opção fique oculta atrás da barra inferior quando o teclado virtual estiver aberto.
-2. **Layout dos Cards de Etapas no Mobile (320px a 430px):**
-   - Refinar a proporção de aspecto das artes nos cards e a altura dos cards em telas estreitas para caber com elegância na rolagem vertical.
-   - Avaliar a visualização em lista compacta vs cards verticais no smartphone.
-3. **Grades QuintoAndar e Sliders no Mobile:**
-   - Garantir que os contadores `[-]` e `[+]` tenham espaçamento generoso para toque sem risco de clique acidental.
-   - Otimizar o grid de condição estrutural dos 5 ambientes em telas abaixo de 375px.
-4. **Header e Gaveta de Etapas Móvel:**
-   - Polir a abertura e fechamento da gaveta lateral de etapas no mobile (`mobile-menu-trigger`), assegurando transição suave e bloqueio de scroll de fundo enquanto aberta.
+

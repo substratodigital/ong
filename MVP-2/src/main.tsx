@@ -1076,7 +1076,7 @@ function App() {
             {screen !== 'form' && (
               <>
                 <button className="text-button" onClick={() => go('form', 'cards')}>
-                  Painel de Etapas
+                  Painel
                 </button>
                 <button className="text-button" onClick={() => go('form', 'form')}>
                   Formulário
@@ -1103,7 +1103,6 @@ function App() {
                 src={`${import.meta.env.BASE_URL}brand/NET-DO-BEM-WHITE-HORIZONTAL.svg`}
                 alt="Fundação Net do Bem"
               />
-              <span className="intro-eyebrow">PESQUISA OFICIAL · FUNDAÇÃO NET DO BEM</span>
               <h1 id="intro-title" ref={title} tabIndex={-1}>
                 Conhecer para
                 <br />
@@ -1116,10 +1115,10 @@ function App() {
 
               <div className="intro-details">
                 <span>
-                  <LayoutGrid aria-hidden="true" /> {data.blocks.length} etapas curtas em cards (~10 questões por bloco)
+                  <LayoutGrid aria-hidden="true" /> Etapas curtas, em média 10 questões
                 </span>
                 <span>
-                  <Clock3 aria-hidden="true" /> Pause e retome quando quiser (salvo automaticamente)
+                  <Clock3 aria-hidden="true" /> Salvo automaticamente
                 </span>
               </div>
 
@@ -1135,17 +1134,13 @@ function App() {
                 </span>
               </label>
 
-              <p className="intro-guidance">
-                Ao avançar, você verá o <strong>Painel de Etapas em Cards</strong> para responder no seu ritmo.
-              </p>
-
               <div className="intro-actions">
                 <button
                   className="button intro-start"
                   disabled={!introAccepted}
                   onClick={() => go(editable ? 'form' : 'portal', 'cards')}
                 >
-                  {completed ? 'Entrar no Painel de Etapas' : 'Começar Pesquisa (Ver Etapas)'}
+                  {completed ? 'Entrar no Painel' : 'Começar Pesquisa'}
                   <ArrowRight aria-hidden="true" />
                 </button>
               </div>
@@ -1157,11 +1152,11 @@ function App() {
                   rel="noopener noreferrer"
                   className="intro-privacy"
                 >
-                  Quem somos · Apresentação da Fundação <ExternalLink size={14} style={{ display: 'inline', verticalAlign: 'middle' }} />
+                  Quem somos <ExternalLink size={14} style={{ display: 'inline', verticalAlign: 'middle' }} />
                 </a>
                 <span aria-hidden="true" style={{ color: '#bed8c8' }}>•</span>
                 <button type="button" className="intro-privacy" onClick={() => go('privacy')}>
-                  Termo de Privacidade e Uso dos Dados
+                  Termo privacidade
                 </button>
               </div>
             </div>
@@ -1259,7 +1254,10 @@ function App() {
             saved={saved}
             storageError={storageError}
             editable={editable}
-            userName={String(state.org.gestor || 'Responsável pelo preenchimento')}
+            userName={String(state.org.gestor || 'Participante da pesquisa')}
+            userRole={String(state.org.funcao || 'Acesso Participante')}
+            userEmail={String(state.org.email || '')}
+            orgName={String(state.org.entidade || 'Mantenedora vinculada')}
             unitName={unit.name}
             unitSelect={unitSelect}
             subView={subView}
@@ -1283,6 +1281,7 @@ function App() {
             }}
             onReview={() => go('review')}
             onExit={() => go('portal')}
+            onOpenAdmin={() => go('admin')}
             last={pageIndex === pages.length - 1}
             first={pageIndex === 0}
           />
@@ -1305,7 +1304,7 @@ function App() {
               </div>
               <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 <button className="button secondary" onClick={() => go('form', 'cards')}>
-                  <LayoutGrid size={18} /> Ver Painel de Cards
+                  <LayoutGrid size={18} /> Painel
                 </button>
                 <span className="badge">{unit.status}</span>
               </div>

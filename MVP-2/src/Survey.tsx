@@ -66,6 +66,9 @@ type Props = {
   editable: boolean;
   unitName: string;
   userName: string;
+  userRole?: string;
+  userEmail?: string;
+  orgName?: string;
   unitSelect: React.ReactNode;
   subView: SurveySubView;
   onChangeSubView: (v: SurveySubView) => void;
@@ -75,6 +78,7 @@ type Props = {
   onBack: () => void;
   onReview: () => void;
   onExit: () => void;
+  onOpenAdmin?: () => void;
   last: boolean;
   first: boolean;
 };
@@ -115,6 +119,7 @@ export function spawnCompletionParticles(targetElement: HTMLElement | null) {
 export function Survey(p: Props) {
   const [menu, setMenu] = useState(false);
   const [houses, setHouses] = useState(false);
+  const [userMenu, setUserMenu] = useState(false);
   const [cardFilter, setCardFilter] = useState<'all' | 'completed' | 'pending'>('all');
   const ref = useRef<HTMLDivElement>(null);
   const cardsGridRef = useRef<HTMLDivElement>(null);
@@ -352,17 +357,171 @@ export function Survey(p: Props) {
     <section className="survey-shell">
       {menuSlot &&
         createPortal(
-          <button
-            className="mobile-menu-trigger"
-            aria-label="Ver etapas"
-            aria-expanded={menu}
-            aria-controls="survey-navigation"
-            onClick={() => setMenu(!menu)}
-          >
-            <Menu size={22} />
-            <span>Etapas ({doneBlocksCount}/14)</span>
-            <ChevronDown size={16} />
-          </button>,
+          <>
+            <button
+              className="mobile-menu-trigger"
+              aria-label="Ver etapas"
+              aria-expanded={menu}
+              aria-controls="survey-navigation"
+              onClick={() => setMenu(!menu)}
+            >
+              <Menu size={20} />
+              <span>Etapas ({doneBlocksCount}/14)</span>
+              <ChevronDown size={15} />
+            </button>
+
+            <div className="desktop-header-bar">
+              <div className="header-identity-group">
+                <div className="identity-chip-wrap">
+                  <button
+                    type="button"
+                    className="house-toggle"
+                    onClick={() => {
+                      setHouses(!houses);
+                      setUserMenu(false);
+                    }}
+                    aria-expanded={houses}
+                    title="Casa de acolhimento vinculada"
+                  >
+                    <House strokeWidth={1.7} />
+                    <span className="identity-meta">
+                      <small>Casa vinculada</small>
+                      <strong>{p.unitName}</strong>
+                    </span>
+                    <ChevronDown size={14} />
+                  </button>
+                  {houses && (
+                    <div className="house-popover">
+                      <div className="popover-head">
+                        <strong>Unidades da Mantenedora</strong>
+                        <small>{p.orgName || 'CNPJ vinculado'}</small>
+                      </div>
+                      {p.unitSelect}
+                      <div className="popover-actions">
+                        <button
+                          type="button"
+                          className="text-button"
+                          onClick={() => {
+                            setHouses(false);
+                            p.onExit();
+                          }}
+                        >
+                          Gerenciar casas
+                        </button>
+                        <button type="button" className="button secondary compact-btn" onClick={() => setHouses(false)}>
+                          Concluir
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="identity-chip-wrap">
+                  <button
+                    type="button"
+                    className="user-toggle"
+                    onClick={() => {
+                      setUserMenu(!userMenu);
+                      setHouses(false);
+                    }}
+                    aria-expanded={userMenu}
+                    title="Dados do usuário responsável pelo preenchimento"
+                  >
+                    <Users strokeWidth={1.7} />
+                    <span className="identity-meta">
+                      <small>{p.userRole || 'Participante'}</small>
+                      <strong>{p.userName}</strong>
+                    </span>
+                    <ChevronDown size={14} />
+                  </button>
+                  {userMenu && (
+                    <div className="user-popover">
+                      <div className="popover-head">
+                        <span className="gov-badge">Nível 1 · Participante da Pesquisa</span>
+                        <strong>{p.userName}</strong>
+                        <small>
+                          {p.userRole || 'Responsável pelo preenchimento'}
+                          {p.userEmail ? ` · ${p.userEmail}` : ''}
+                        </small>
+                      </div>
+                      <div className="popover-gov-links">
+                        <button
+                          type="button"
+                          className="gov-link-btn"
+                          onClick={() => {
+                            setUserMenu(false);
+                            p.onExit();
+                          }}
+                        >
+                          <Building2 size={16} />
+                          <div>
+                            <strong>Área do Participante (Entidade)</strong>
+                            <small>Casas vinculadas, equipe e status</small>
+                          </div>
+                        </button>
+                        {p.onOpenAdmin && (
+                          <button
+                            type="button"
+                            className="gov-link-btn"
+                            onClick={() => {
+                              setUserMenu(false);
+                              p.onOpenAdmin?.();
+                            }}
+                          >
+                            <ShieldCheck size={16} />
+                            <div>
+                              <strong>Área Gestores · Fundação Net do Bem</strong>
+                              <small>Base de cadastros, análise e relatórios</small>
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="context-view-pills" role="tablist" aria-label="Modo de visualização">
+                <button
+                  type="button"
+                  className={'context-pill-btn ' + (p.subView === 'cards' ? 'active' : '')}
+                  onClick={() => p.onChangeSubView('cards')}
+                >
+                  <LayoutGrid size={15} />
+                  <span>Painel</span>
+                </button>
+                <button
+                  type="button"
+                  className={'context-pill-btn ' + (p.subView === 'form' ? 'active' : '')}
+                  onClick={() => p.onChangeSubView('form')}
+                >
+                  <FileSpreadsheet size={15} />
+                  <span>Formulário</span>
+                </button>
+                <button
+                  type="button"
+                  className={'context-pill-btn ' + (p.subView === 'celebration' ? 'active' : '')}
+                  onClick={() => p.onChangeSubView('celebration')}
+                  title="Visualizar etapas concluídas e mensagem da etapa"
+                >
+                  <Sparkles size={15} />
+                  <span>Concluídos</span>
+                </button>
+              </div>
+
+              <span className="survey-save" role="status">
+                {p.storageError ? (
+                  'Falha ao salvar'
+                ) : p.saved ? (
+                  <>
+                    <Check /> Salvo
+                  </>
+                ) : (
+                  'Salvando…'
+                )}
+              </span>
+            </div>
+          </>,
           menuSlot
         )}
 
@@ -397,7 +556,7 @@ export function Survey(p: Props) {
           }}
         >
           <LayoutGrid size={19} />
-          <span>Painel de Etapas (Cards)</span>
+          <span>Painel</span>
         </button>
 
         <nav aria-label="Etapas da pesquisa" className="sidebar-blocks-scroll">
@@ -436,48 +595,53 @@ export function Survey(p: Props) {
         </button>
 
         <div className="menu-profile">
-          <House />
-          <strong>{p.unitName}</strong>
-          <span>{p.userName}</span>
+          <div className="menu-profile-row">
+            <House size={18} />
+            <div>
+              <small>Casa vinculada</small>
+              <strong>{p.unitName}</strong>
+            </div>
+          </div>
+          <div className="menu-profile-row">
+            <Users size={18} />
+            <div>
+              <small>{p.userRole || 'Usuário · Participante'}</small>
+              <strong>{p.userName}</strong>
+            </div>
+          </div>
           {p.unitSelect}
         </div>
       </aside>
 
       {/* ÁREA PRINCIPAL DIREITA */}
       <div className="survey-area">
-        {/* TOPBAR DE CONTEXTO */}
+        {/* TOPBAR DE CONTEXTO (VISÍVEL NO MOBILE) */}
         <div className="survey-context">
-          <button className="house-toggle" onClick={() => setHouses(!houses)} aria-expanded={houses}>
-            <House strokeWidth={1.6} />
-            <span>{p.unitName}</span>
-            <ChevronDown />
-          </button>
-
           <div className="context-view-pills">
             <button
               type="button"
               className={'context-pill-btn ' + (p.subView === 'cards' ? 'active' : '')}
               onClick={() => p.onChangeSubView('cards')}
             >
-              <LayoutGrid size={15} />
-              <span>Painel de Cards ({doneBlocksCount}/14)</span>
+              <LayoutGrid size={14} />
+              <span>Painel</span>
             </button>
             <button
               type="button"
               className={'context-pill-btn ' + (p.subView === 'form' ? 'active' : '')}
               onClick={() => p.onChangeSubView('form')}
             >
-              <FileSpreadsheet size={15} />
+              <FileSpreadsheet size={14} />
               <span>Formulário</span>
             </button>
             <button
               type="button"
               className={'context-pill-btn ' + (p.subView === 'celebration' ? 'active' : '')}
               onClick={() => p.onChangeSubView('celebration')}
-              title="Visualizar tela de parabéns desta etapa"
+              title="Visualizar etapas concluídas"
             >
-              <Sparkles size={15} />
-              <span>Ver Parabéns</span>
+              <Sparkles size={14} />
+              <span>Concluídos</span>
             </button>
           </div>
 
@@ -492,15 +656,6 @@ export function Survey(p: Props) {
               'Salvando…'
             )}
           </span>
-
-          {houses && (
-            <div className="house-popover">
-              {p.unitSelect}
-              <button className="text-button" onClick={() => setHouses(false)}>
-                Concluir
-              </button>
-            </div>
-          )}
         </div>
 
         {/* VIEW 1: PAINEL GERAL DE ETAPAS EM CARDS (HUB PÓS-CAPA COM GSAP) */}
@@ -751,7 +906,7 @@ export function Survey(p: Props) {
                     Voltar
                   </button>
                   <button type="button" className="summary-link" onClick={() => p.onChangeSubView('cards')}>
-                    Ver cards de etapas
+                    Painel
                   </button>
                   <button className="button primary" type="submit" form="survey-form" disabled={!p.editable}>
                     {isLastInBlock ? 'Concluir Etapa' : 'Continuar'}
@@ -776,9 +931,9 @@ export function Survey(p: Props) {
                 />
               </div>
               <div className="celeb-icon-ring">
-                <Icon size={36} strokeWidth={1.8} />
+                <Icon size={28} strokeWidth={1.8} />
                 <div className="celeb-check-badge">
-                  <Check size={15} strokeWidth={2.5} />
+                  <Check size={13} strokeWidth={2.5} />
                 </div>
               </div>
 
@@ -792,8 +947,8 @@ export function Survey(p: Props) {
               {nextBlockMeta ? (
                 <div className="next-stage-preview">
                   <div className="next-stage-left">
-                    <div className="card-icon-box" style={{ width: 42, height: 42 }}>
-                      <NextBlockIcon size={20} />
+                    <div className="card-icon-box" style={{ width: 38, height: 38 }}>
+                      <NextBlockIcon size={18} />
                     </div>
                     <div>
                       <small>Próxima Etapa Sugerida</small>
@@ -807,8 +962,8 @@ export function Survey(p: Props) {
               ) : (
                 <div className="next-stage-preview">
                   <div className="next-stage-left">
-                    <div className="card-icon-box" style={{ width: 42, height: 42 }}>
-                      <CheckCircle2 size={20} />
+                    <div className="card-icon-box" style={{ width: 38, height: 38 }}>
+                      <CheckCircle2 size={18} />
                     </div>
                     <div>
                       <small>Jornada Completa</small>
@@ -820,33 +975,33 @@ export function Survey(p: Props) {
               )}
 
               <div className="celeb-actions">
+                <button
+                  type="button"
+                  className="button secondary celeb-secondary-btn"
+                  onClick={() => p.onChangeSubView('cards')}
+                >
+                  <LayoutGrid size={16} />
+                  <span>Painel</span>
+                </button>
+
                 {nextBlockMeta ? (
                   <button
                     type="button"
-                    className="button primary full-btn"
+                    className="button primary celeb-primary-btn"
                     onClick={() => {
                       p.onBlock(currentBlockIdx + 1);
                       p.onChangeSubView('form');
                     }}
                   >
                     <span>Avançar para: {nextBlockMeta.title}</span>
-                    <ArrowRight size={18} />
+                    <ArrowRight size={17} />
                   </button>
                 ) : (
-                  <button type="button" className="button primary full-btn" onClick={p.onReview}>
+                  <button type="button" className="button primary celeb-primary-btn" onClick={p.onReview}>
                     <span>Revisar e Concluir Pesquisa</span>
-                    <ArrowRight size={18} />
+                    <ArrowRight size={17} />
                   </button>
                 )}
-
-                <button
-                  type="button"
-                  className="button secondary full-btn"
-                  onClick={() => p.onChangeSubView('cards')}
-                >
-                  <LayoutGrid size={17} />
-                  <span>Ver Painel de Etapas (Cards)</span>
-                </button>
               </div>
             </div>
           </div>
