@@ -27,7 +27,9 @@ import {
   ExternalLink,
   LayoutGrid,
   ChevronUp,
-  ChevronDown
+  ChevronDown,
+  Download,
+  FileSpreadsheet
 } from 'lucide-react';
 import data from './questionnaire.json';
 import {
@@ -43,6 +45,14 @@ import './styles.css';
 import './fonts.css';
 import './survey.css';
 import { Survey, SurveySubView } from './Survey';
+import {
+  computeBlockReportStats,
+  exportUnitReportCsv,
+  exportAllUnitsNetworkCsv,
+  ParticipantOnboarding,
+  DiagnosticRadarSection,
+  DetailedIconReport
+} from './ReportTools';
 
 type Answers = Record<string, any>;
 type Question = (typeof data.questions)[number];
@@ -189,6 +199,18 @@ function App() {
     document.body.dataset.screen = screen;
   }, [screen]);
 
+  useEffect(() => {
+    const checkHashOrQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (window.location.hash === '#fundacao' || params.get('gestao') === 'fundacao' || params.get('admin') === '1') {
+        setScreen('admin');
+      }
+    };
+    checkHashOrQuery();
+    window.addEventListener('hashchange', checkHashOrQuery);
+    return () => window.removeEventListener('hashchange', checkHashOrQuery);
+  }, []);
+
   const title = useRef<HTMLHeadingElement>(null);
   const previous = useRef('home');
   const unit = state.units.find(u => u.id === state.active) || state.units[0];
@@ -207,6 +229,26 @@ function App() {
   const editable = ['Rascunho', 'Ajustes solicitados'].includes(unit.status);
   const reviewAnswers = !editable && unit.snapshot ? unit.snapshot : answers;
   const reviewQuestions = data.questions.filter(q => visible(q, reviewAnswers));
+  const reportBlockStats = computeBlockReportStats(reviewQuestions, reviewAnswers);
+  const doneBlocksCount = reportBlockStats.filter(b => b.status === 'completed').length;
+
+  const handleExportCurrentUnitCsv = () => {
+    exportUnitReportCsv({
+      unitName: unit.name,
+      unitCity: unit.city,
+      unitStatus: unit.status,
+      org: state.org,
+      questions: reviewQuestions,
+      answers: reviewAnswers
+    });
+    setToast('Relatório .CSV exportado com sucesso.');
+  };
+
+  const jumpToBlockForm = (blockIdx: number) => {
+    const targetPage = pages.findIndex(p => p.block === blockIdx);
+    if (targetPage >= 0) updateUnit(u => ({ ...u, page: targetPage }));
+    go('form', 'form');
+  };
 
   const go = (to: Screen, initialSubView?: SurveySubView) => {
     previous.current = screen;
@@ -1062,7 +1104,38 @@ function App() {
             />
           </button>
 
-          {screen === 'form' && <div id="survey-menu-slot" />}
+          {screen === 'form' ? (
+            <div id="survey-menu-slot" />
+          ) : (
+            <div className="portal-header-nav" role="navigation" aria-label="Navegação do participante">
+              <div className="context-view-pills">
+                <button
+                  type="button"
+                  className="context-pill-btn"
+                  onClick={() => go('form', 'cards')}
+                >
+                  <LayoutGrid size={14} />
+                  <span>Painel</span>
+                </button>
+                <button
+                  type="button"
+                  className={'context-pill-btn ' + (screen === 'portal' ? 'active' : '')}
+                  onClick={() => go('portal')}
+                >
+                  <Building2 size={14} />
+                  <span>Entidade</span>
+                </button>
+                <button
+                  type="button"
+                  className={'context-pill-btn ' + (screen === 'review' ? 'active' : '')}
+                  onClick={() => go('review')}
+                >
+                  <FileSpreadsheet size={14} />
+                  <span>Relatório</span>
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="header-tools">
             <button
@@ -1073,22 +1146,6 @@ function App() {
             >
               {theme === 'dark' ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
             </button>
-            {screen !== 'form' && (
-              <>
-                <button className="text-button" onClick={() => go('form', 'cards')}>
-                  Painel
-                </button>
-                <button className="text-button" onClick={() => go('form', 'form')}>
-                  Formulário
-                </button>
-                <button className="text-button" onClick={() => go('portal')}>
-                  Minha entidade
-                </button>
-                <button className="text-button" onClick={() => go('admin')}>
-                  Fundação
-                </button>
-              </>
-            )}
           </div>
         </header>
       )}
@@ -1287,73 +1344,75 @@ function App() {
           />
         )}
 
-        {/* TELA DE REVISÃO GERAL DOS 14 BLOCOS */}
+        {/* TELA DE RELATÓRIO E REVISÃO GERAL DOS 14 BLOCOS */}
         {screen === 'review' && (
-          <section className="content">
+          <section className="content portal-report-page">
             {titleNode(
-              'ANTES DE ENVIAR',
+              'RELATÓRIO DO DIAGNÓSTICO · REVISÃO E EXPORTAÇÃO',
               'Sua história, com clareza.',
-              'Revise as informações desta casa distribuídas nos 14 blocos temáticos. Você pode voltar a qualquer bloco para ajustar as respostas.'
+              'Acompanhe o gráfico de radar, consulte o relatório detalhado com ícones por etapa, exporte em .CSV ou envie para a Fundação Net do Bem.'
             )}
+
             <div className="review-summary">
-              <div>
-                <strong>{unit.name}</strong>
-                <p>
-                  {completed} de {activeQuestions.length} questões preenchidas ({percent}%)
-                </p>
+              <div className="review-summary-left">
+                <div className="avatar">
+                  <Building2 />
+                </div>
+                <div>
+                  <span className={'badge ' + badgeClass(unit.status)}>{unit.status}</span>
+                  <strong>{unit.name}</strong>
+                  <p>
+                    {completed} de {activeQuestions.length} questões preenchidas ({percent}%) • {doneBlocksCount} de 14 etapas concluídas
+                  </p>
+                </div>
               </div>
-              <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                <button className="button secondary" onClick={() => go('form', 'cards')}>
-                  <LayoutGrid size={18} /> Painel
+              <div className="review-summary-actions">
+                <button type="button" className="button secondary compact-action-btn" onClick={() => go('form', 'cards')}>
+                  <LayoutGrid size={17} /> Painel
                 </button>
-                <span className="badge">{unit.status}</span>
+                <button type="button" className="button secondary compact-action-btn" onClick={() => go('portal')}>
+                  <Building2 size={17} /> Minha Entidade
+                </button>
+                <button type="button" className="button primary compact-action-btn" onClick={handleExportCurrentUnitCsv}>
+                  <Download size={17} /> Exportar .CSV
+                </button>
               </div>
             </div>
 
-            {data.blocks.map((b, i) => (
-              <details className="review-block" key={b.id} open={i === 0}>
-                <summary>
-                  {String(i + 1).padStart(2, '0')} · {b.title}
-                </summary>
-                <div className="review-answers">
-                  {reviewQuestions
-                    .filter(q => q.block === i)
-                    .map(q => (
-                      <div className="answer-row" key={q.id}>
-                        <span>{q.label}</span>
-                        <strong>{formatAnswerSummary(q, reviewAnswers[q.id])}</strong>
-                        {errors[q.id] && <p className="error">{errors[q.id]}</p>}
-                      </div>
-                    ))}
-                  <button
-                    className="button secondary"
-                    onClick={() => {
-                      const targetPage = pages.findIndex(p => p.block === i);
-                      if (targetPage >= 0) updateUnit(u => ({ ...u, page: targetPage }));
-                      go('form', 'form');
-                    }}
-                  >
-                    Editar este bloco
-                  </button>
-                </div>
-              </details>
-            ))}
+            <DiagnosticRadarSection
+              blockStats={reportBlockStats}
+              onSelectBlock={jumpToBlockForm}
+              onExportCsv={handleExportCurrentUnitCsv}
+            />
+
+            <DetailedIconReport
+              blockStats={reportBlockStats}
+              onEditBlock={jumpToBlockForm}
+              onExportCsv={handleExportCurrentUnitCsv}
+            />
 
             {Object.keys(errors).length > 0 && (
               <p className="error" role="alert">
-                Há campos obrigatórios ou respostas que precisam de revisão. Abra os blocos para conferir.
+                Há campos obrigatórios ou respostas que precisam de revisão. Clique em "Editar etapa" no bloco correspondente.
               </p>
             )}
 
-            <div className="panel">
+            <div className="panel submit-confirm-panel">
+              <span className="eyebrow">ENVIO OFICIAL PARA A FUNDAÇÃO NET DO BEM</span>
+              <h2>Concluir e enviar diagnóstico desta unidade</h2>
               <label className="checkbox-label">
                 <input id="ack" type="checkbox" checked={ack} onChange={e => setAck(e.target.checked)} />
-                Revisei as informações desta instituição e confirmo o envio para a Fundação Net do Bem.
+                <span>
+                  Revisei as informações institucionais da unidade <strong>{unit.name}</strong> e confirmo o envio para a Fundação Net do Bem.
+                </span>
               </label>
               {errors.ack && <p className="error">{errors.ack}</p>}
               <div className="actions">
                 <button className="button secondary" onClick={() => go('form', 'cards')}>
-                  <ArrowLeft /> Voltar ao Painel de Etapas
+                  <ArrowLeft /> Voltar ao Painel
+                </button>
+                <button className="button secondary" type="button" onClick={handleExportCurrentUnitCsv}>
+                  <Download size={18} /> Baixar Cópia em .CSV
                 </button>
                 <button className="button primary" disabled={!editable} onClick={submit}>
                   Concluir e Enviar Diagnóstico <ArrowRight />
@@ -1376,66 +1435,101 @@ function App() {
             <div className="panel">
               <span className="eyebrow">PROTOCOLO DA UNIDADE</span>
               <h2>PESQUISA · {unit.id.toUpperCase()}</h2>
-              <p>Você pode acompanhar as atualizações e cadastrar outras unidades no ambiente da entidade.</p>
+              <p>Você pode acompanhar as atualizações, exportar seu relatório em .CSV e gerenciar outras unidades no ambiente da entidade.</p>
             </div>
-            <button className="button primary" onClick={() => go('portal')}>
-              Ir para o Ambiente da Entidade <ArrowRight />
-            </button>
+            <div className="actions" style={{ justifyContent: 'center' }}>
+              <button className="button secondary" onClick={handleExportCurrentUnitCsv}>
+                <Download size={18} /> Exportar Relatório (.CSV)
+              </button>
+              <button className="button primary" onClick={() => go('portal')}>
+                Ir para Minha Entidade <ArrowRight />
+              </button>
+            </div>
           </section>
         )}
 
         {screen === 'portal' && (
-          <section className="content">
+          <section className="content portal-report-page">
             {titleNode(
-              'AMBIENTE DA ENTIDADE',
+              'AMBIENTE DA ENTIDADE · ÁREA DO PARTICIPANTE E GESTOR',
               'Um lugar para cuidar do próximo passo.',
-              String(state.org.entidade || 'Sua mantenedora')
+              String(state.org.entidade || 'Acompanhe o onboarding, o gráfico de radar e o relatório das casas vinculadas à sua mantenedora.')
             )}
-            <div className="portal-top">
-              <div className="profile">
-                <div className="avatar">
-                  <Building2 />
+
+            {/* PASSO A PASSO DE ONBOARDING DO PARTICIPANTE */}
+            <ParticipantOnboarding
+              hasOrgIdentity={Boolean(state.org.cnpj || state.org.entidade)}
+              percent={percent}
+              doneBlocksCount={doneBlocksCount}
+              status={unit.status}
+              onOpenPanel={() => go('form', 'cards')}
+              onOpenReport={() => go('review')}
+              onExportCsv={handleExportCurrentUnitCsv}
+            />
+
+            {/* CARD DE CONTEXTO DA CASA ATIVA + DADOS DO GESTOR */}
+            <div className="dashboard-grid portal-hero-grid">
+              <article className="panel accent-panel portal-unit-card">
+                <div className="portal-unit-top">
+                  <div className="profile" style={{ margin: 0 }}>
+                    <div className="avatar">
+                      <Building2 />
+                    </div>
+                    <div>
+                      <span className={'badge ' + badgeClass(unit.status)}>{unit.status}</span>
+                      <h2 style={{ marginTop: 6 }}>{unit.name}</h2>
+                      <p>
+                        <MapPin size={17} /> {unit.city || 'Município não informado'} · {answers.uf || 'SP'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="portal-unit-selector-wrap">{unitSelect}</div>
                 </div>
-                <div>
-                  <h2>{unit.name}</h2>
-                  <p>
-                    <MapPin size={22} /> {unit.city || 'Município não informado'}
-                  </p>
+
+                <div className="portal-progress-box">
+                  <div className="card-progress-meta">
+                    <span>
+                      Progresso da pesquisa: <strong>{doneBlocksCount} de 14 etapas</strong> ({completed}/{activeQuestions.length} questões)
+                    </span>
+                    <strong className="card-pct-number">{percent}%</strong>
+                  </div>
+                  <div className="card-progress-bar" style={{ height: 9 }}>
+                    <div className="card-progress-fill" style={{ width: `${percent}%` }} />
+                  </div>
                 </div>
-              </div>
-              {unitSelect}
-            </div>
-            <div className="dashboard-grid">
-              <article className="panel accent-panel">
-                <span className={'badge ' + badgeClass(unit.status)}>{unit.status}</span>
-                <h2>
-                  {unit.status === 'Aprovada'
-                    ? 'Vamos fortalecer a sua casa.'
-                    : editable
-                    ? 'Seu diagnóstico está em andamento.'
-                    : 'Diagnóstico enviado para análise.'}
-                </h2>
-                <p>
+
+                <p className="portal-status-desc">
                   {unit.status === 'Ajustes solicitados'
                     ? unit.feedback
                     : unit.status === 'Aprovada'
-                    ? 'Acompanhe as ações combinadas e quem está à frente de cada etapa.'
+                    ? 'Diagnóstico aprovado! Consulte abaixo o gráfico de radar e exporte seu relatório em .CSV.'
                     : editable
-                    ? 'Acesse o Painel de Etapas em Cards para responder os 14 blocos no seu ritmo.'
-                    : 'Acompanhe aqui as atualizações da análise.'}
+                    ? 'Acesse o Painel para responder as 14 etapas no seu ritmo ou exporte o relatório parcial em .CSV.'
+                    : 'Diagnóstico enviado para análise da Fundação Net do Bem.'}
                 </p>
-                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+
+                <div className="portal-action-buttons">
                   <button className="button primary" onClick={() => go(editable ? 'form' : 'review', 'cards')}>
-                    {editable ? 'Abrir Painel de Etapas (Cards)' : 'Consultar respostas'}
-                    <ArrowRight />
+                    <LayoutGrid size={18} />
+                    <span>{editable ? 'Ir para o Painel' : 'Ver Respostas'}</span>
+                    <ArrowRight size={17} />
+                  </button>
+                  <button className="button secondary" onClick={() => go('review')}>
+                    <FileSpreadsheet size={18} />
+                    <span>Relatório Completo</span>
+                  </button>
+                  <button className="button secondary" onClick={handleExportCurrentUnitCsv}>
+                    <Download size={18} />
+                    <span>Exportar .CSV</span>
                   </button>
                   <button className="button secondary" onClick={demo}>
-                    Preencher com exemplo
+                    <span>Carregar Exemplo</span>
                   </button>
                 </div>
               </article>
-              <article className="panel">
-                <span className="eyebrow">DADOS DE CONTATO</span>
+
+              <article className="panel portal-user-card">
+                <span className="eyebrow">DADOS DO GESTOR / PARTICIPANTE</span>
                 <div className="profile">
                   <div className="avatar soft">
                     <Users />
@@ -1445,45 +1539,94 @@ function App() {
                     <p>{String(state.org.funcao || 'Função na instituição')}</p>
                   </div>
                 </div>
-                <p>
-                  E-mail de comunicação: <strong>{String(state.org.email || 'Não informado')}</strong>
-                </p>
-                <span className="badge">1 gestor + até 3 colaboradores</span>
+                <div className="user-contact-meta">
+                  <div>
+                    <small>Mantenedora / CNPJ</small>
+                    <strong>
+                      {String(state.org.entidade || 'Não informada')}
+                      {state.org.cnpj ? ` · ${state.org.cnpj}` : ''}
+                    </strong>
+                  </div>
+                  <div>
+                    <small>E-mail e Telefone</small>
+                    <strong>
+                      {String(state.org.email || 'E-mail não informado')}
+                      {state.org.telefone ? ` · ${state.org.telefone}` : ''}
+                    </strong>
+                  </div>
+                </div>
+                <div className="portal-user-footer">
+                  <span className="badge">Governança: 1 Gestor + até 3 Colaboradores</span>
+                  <button type="button" className="text-button" onClick={() => jumpToBlockForm(0)}>
+                    Editar dados cadastrais →
+                  </button>
+                </div>
               </article>
             </div>
+
+            {/* GRÁFICO DE RADAR + MAPA DE EIXOS E ÍCONES */}
+            <DiagnosticRadarSection
+              blockStats={reportBlockStats}
+              onSelectBlock={jumpToBlockForm}
+              onExportCsv={handleExportCurrentUnitCsv}
+            />
+
+            {/* RELATÓRIO DETALHADO COM ÍCONES DAS 14 ETAPAS */}
+            <DetailedIconReport
+              blockStats={reportBlockStats}
+              onEditBlock={jumpToBlockForm}
+              onExportCsv={handleExportCurrentUnitCsv}
+            />
 
             <section className="panel">
               <div className="section-head">
                 <div>
                   <span className="eyebrow">UM CNPJ, VÁRIAS CASAS</span>
-                  <h2>Casas da mantenedora</h2>
+                  <h2>Casas vinculadas à mantenedora</h2>
                 </div>
                 <span className="badge">
-                  {state.units.length} {state.units.length === 1 ? 'casa' : 'casas'}
+                  {state.units.length} {state.units.length === 1 ? 'casa cadastrada' : 'casas cadastradas'}
                 </span>
               </div>
               <div className="unit-cards">
-                {state.units.map(u => (
-                  <button
-                    key={u.id}
-                    className={'unit-card ' + (u.id === unit.id ? 'selected' : '')}
-                    onClick={() => changeUnit(u.id)}
-                  >
-                    <Building2 />
-                    <strong>{u.name}</strong>
-                    <span>{u.city || 'Sem município'}</span>
-                    <span className={'badge ' + badgeClass(u.status)}>{u.status}</span>
-                  </button>
-                ))}
+                {state.units.map(u => {
+                  const uMerged: Answers = { uf: 'SP', ...u.answers, ...state.org };
+                  const uQs = data.questions.filter(q => visible(q, uMerged));
+                  const uDone = uQs.filter(q => answered(q, uMerged[q.id]) && !validate(q, uMerged[q.id])).length;
+                  const uPct = uQs.length ? Math.round((uDone / uQs.length) * 100) : 0;
+                  return (
+                    <button
+                      key={u.id}
+                      className={'unit-card ' + (u.id === unit.id ? 'selected' : '')}
+                      onClick={() => changeUnit(u.id)}
+                    >
+                      <div className="unit-card-head">
+                        <Building2 />
+                        <span className={'badge ' + badgeClass(u.status)}>{u.status}</span>
+                      </div>
+                      <strong>{u.name}</strong>
+                      <span>{u.city || 'Sem município'}</span>
+                      <div style={{ width: '100%', marginTop: 6 }}>
+                        <div className="card-progress-meta">
+                          <span>Preenchimento</span>
+                          <strong>{uPct}%</strong>
+                        </div>
+                        <div className="card-progress-bar">
+                          <div className="card-progress-fill" style={{ width: `${uPct}%` }} />
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
               <form className="inline-form" onSubmit={addUnit}>
                 <label>
                   Nome da nova casa
-                  <input required maxLength={100} value={newUnit} onChange={e => setNewUnit(e.target.value)} />
+                  <input required maxLength={100} value={newUnit} onChange={e => setNewUnit(e.target.value)} placeholder="Ex.: Casa Lar Esperança II" />
                 </label>
                 <label>
                   Município
-                  <input required maxLength={100} value={newCity} onChange={e => setNewCity(e.target.value)} />
+                  <input required maxLength={100} value={newCity} onChange={e => setNewCity(e.target.value)} placeholder="Ex.: Campinas" />
                 </label>
                 <button className="button secondary">
                   <Plus /> Adicionar casa
@@ -1494,8 +1637,8 @@ function App() {
             <section className="panel">
               <div className="section-head">
                 <div>
-                  <span className="eyebrow">ACESSOS INDIVIDUAIS</span>
-                  <h2>Equipe da mantenedora</h2>
+                  <span className="eyebrow">ACESSOS INDIVIDUAIS DA ENTIDADE</span>
+                  <h2>Equipe colaboradora no preenchimento</h2>
                 </div>
                 <span className="badge">{state.members.length} de 3 colaboradores</span>
               </div>
@@ -1503,13 +1646,13 @@ function App() {
                 <div className="member" key={m.id}>
                   <div>
                     <strong>{m.email}</strong>
-                    <p>{m.role} · convite registrado</p>
+                    <p>{m.role} · convite ativo nesta mantenedora</p>
                   </div>
                   <button
                     className="text-button"
                     onClick={() => setState(s => ({ ...s, members: s.members.filter(x => x.id !== m.id) }))}
                   >
-                    Revogar <X size={22} />
+                    Revogar <X size={18} />
                   </button>
                 </div>
               ))}
@@ -1544,18 +1687,41 @@ function App() {
           </section>
         )}
 
+        {/* ÁREA RESTRITA DE GOVERNANÇA NÍVEL 2: GESTORES FUNDAÇÃO NET DO BEM (OCULTA DO MENU DO PARTICIPANTE) */}
         {screen === 'admin' && (
-          <section className="content">
-            {titleNode(
-              'VISÃO DA FUNDAÇÃO',
-              'Uma rede que se acompanha de perto.',
-              'Painel de acompanhamento das casas de acolhimento cadastradas.'
-            )}
+          <section className="content portal-report-page">
+            <div className="admin-restricted-banner">
+              <div>
+                <span className="gov-badge">GOVERNANÇA NÍVEL 2 · ACESSO RESTRITO FUNDAÇÃO NET DO BEM</span>
+                <h1>Painel de Gestão de Usuários, Pesquisas e Relatórios</h1>
+                <p>Base consolidada de participantes cadastrados, percentual de preenchimento por unidade e exportação geral em .CSV.</p>
+              </div>
+              <div className="radar-head-actions">
+                <button
+                  type="button"
+                  className="button primary compact-action-btn"
+                  onClick={() => {
+                    exportAllUnitsNetworkCsv({
+                      org: state.org,
+                      units: state.units,
+                      allQuestions: data.questions
+                    });
+                    setToast('Base consolidada da rede exportada em .CSV.');
+                  }}
+                >
+                  <Download size={17} /> Exportar Base Geral (.CSV)
+                </button>
+                <button type="button" className="button secondary compact-action-btn" onClick={() => go('portal')}>
+                  Voltar à Visão Participante
+                </button>
+              </div>
+            </div>
+
             <div className="stats">
               {[
                 ['Casas cadastradas', state.units.length],
+                ['Média preenchida', `${percent}%`],
                 ['Para analisar', state.units.filter(u => ['Enviada', 'Em análise'].includes(u.status)).length],
-                ['Com ajustes', state.units.filter(u => u.status === 'Ajustes solicitados').length],
                 ['Aprovadas', state.units.filter(u => u.status === 'Aprovada').length]
               ].map(([label, value]) => (
                 <article key={label}>
@@ -1564,25 +1730,29 @@ function App() {
                 </article>
               ))}
             </div>
+
             <div className="panel">
               <div className="section-head">
-                <h2>Fila de acompanhamento</h2>
-                <span className="badge">Diagnóstico MVP-2</span>
+                <div>
+                  <span className="eyebrow">BASE DE USUÁRIOS E ENTIDADES CADASTRADAS</span>
+                  <h2>Monitoramento de Preenchimento e Relatórios</h2>
+                </div>
+                <span className="badge">{state.units.length} unidades monitoradas</span>
               </div>
               <div className="filters">
                 <label>
-                  <span>Buscar casa ou município</span>
+                  <span>Buscar casa, gestor ou município</span>
                   <div className="search-input">
                     <Search />
                     <input
                       value={search}
                       onChange={e => setSearch(e.target.value)}
-                      placeholder="Nome ou município"
+                      placeholder="Nome da casa, gestor ou município"
                     />
                   </div>
                 </label>
                 <label>
-                  Filtrar por etapa
+                  Filtrar por status
                   <select value={filter} onChange={e => setFilter(e.target.value)}>
                     {['Todas', 'Rascunho', 'Enviada', 'Em análise', 'Ajustes solicitados', 'Aprovada', 'Não selecionada'].map(
                       s => (
@@ -1592,89 +1762,158 @@ function App() {
                   </select>
                 </label>
               </div>
+
               <div className="queue">
                 {state.units
                   .filter(
                     u =>
                       (filter === 'Todas' || u.status === filter) &&
-                      (u.name + ' ' + u.city).toLowerCase().includes(search.toLowerCase())
+                      (u.name + ' ' + u.city + ' ' + String(state.org.gestor || '')).toLowerCase().includes(search.toLowerCase())
                   )
-                  .map(u => (
-                    <article className="queue-row" key={u.id}>
-                      <div className="queue-name">
-                        <Building2 />
-                        <div>
-                          <h3>{u.name}</h3>
-                          <p>{u.city || 'Município não informado'}</p>
+                  .map(u => {
+                    const uMerged: Answers = { uf: 'SP', ...u.answers, ...(u.snapshot || {}), ...state.org };
+                    const uQs = data.questions.filter(q => visible(q, uMerged));
+                    const uBlockStats = computeBlockReportStats(uQs, uMerged);
+                    const uAns = uBlockStats.reduce((acc, s) => acc + s.answeredCount, 0);
+                    const uTot = uBlockStats.reduce((acc, s) => acc + s.totalCount, 0);
+                    const uPct = uTot > 0 ? Math.round((uAns / uTot) * 100) : 0;
+                    const uDoneBlocks = uBlockStats.filter(s => s.status === 'completed').length;
+
+                    return (
+                      <article className="queue-row admin-unit-row" key={u.id}>
+                        <div className="queue-name">
+                          <div className="avatar" style={{ width: 48, height: 48, borderRadius: 12 }}>
+                            <Building2 size={22} />
+                          </div>
+                          <div>
+                            <h3>{u.name}</h3>
+                            <p>
+                              {u.city || 'Município não informado'} · Gestor:{' '}
+                              <strong>{String(state.org.gestor || 'Não informado')}</strong> (
+                              {String(state.org.email || 'sem e-mail')})
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <span className={'badge ' + badgeClass(u.status)}>{u.status}</span>
-                      <button
-                        className="button secondary"
-                        onClick={() => {
-                          setSelected(selected === u.id ? '' : u.id);
-                          setReason('');
-                        }}
-                      >
-                        Abrir análise <ArrowRight size={22} />
-                      </button>
-                      {selected === u.id && (
-                        <div className="analysis-detail">
-                          <h3>Diagnóstico enviado</h3>
-                          {u.snapshot ? (
-                            <details>
-                              <summary>Consultar respostas enviadas</summary>
-                              {data.questions
-                                .filter(q => u.snapshot?.[q.id] !== undefined)
-                                .map(q => (
-                                  <div className="answer-row" key={q.id}>
-                                    <span>{q.label}</span>
-                                    <strong>{formatAnswerSummary(q, u.snapshot![q.id])}</strong>
-                                  </div>
-                                ))}
-                            </details>
-                          ) : (
-                            <p>A casa ainda está preenchendo o diagnóstico.</p>
-                          )}
-                          {['Enviada', 'Em análise'].includes(u.status) && (
-                            <>
-                              <label htmlFor="reason">
-                                Devolutiva para a entidade
-                                <textarea
-                                  id="reason"
-                                  rows={3}
-                                  maxLength={300}
-                                  value={reason}
-                                  onChange={e => setReason(e.target.value)}
-                                  placeholder="Explique a decisão e o próximo passo."
-                                />
-                              </label>
-                              <div className="actions">
-                                {u.status === 'Enviada' && (
-                                  <button className="button secondary" onClick={() => decision(u.id, 'Em análise')}>
-                                    Iniciar análise
+
+                        <div className="admin-progress-cell">
+                          <div className="card-progress-meta">
+                            <span>{uDoneBlocks}/14 etapas</span>
+                            <strong>{uPct}% preenchido</strong>
+                          </div>
+                          <div className="card-progress-bar">
+                            <div className="card-progress-fill" style={{ width: `${uPct}%` }} />
+                          </div>
+                        </div>
+
+                        <span className={'badge ' + badgeClass(u.status)}>{u.status}</span>
+
+                        <div className="admin-row-actions">
+                          <button
+                            type="button"
+                            className="button secondary compact-action-btn"
+                            onClick={() =>
+                              exportUnitReportCsv({
+                                unitName: u.name,
+                                unitCity: u.city,
+                                unitStatus: u.status,
+                                org: state.org,
+                                questions: uQs,
+                                answers: uMerged
+                              })
+                            }
+                          >
+                            <Download size={15} /> .CSV
+                          </button>
+                          <button
+                            type="button"
+                            className="button secondary compact-action-btn"
+                            onClick={() => {
+                              setSelected(selected === u.id ? '' : u.id);
+                              setReason('');
+                            }}
+                          >
+                            {selected === u.id ? 'Fechar Relatório' : 'Ver Relatório'}
+                          </button>
+                        </div>
+
+                        {selected === u.id && (
+                          <div className="analysis-detail">
+                            <DiagnosticRadarSection
+                              blockStats={uBlockStats}
+                              onSelectBlock={idx => {
+                                changeUnit(u.id);
+                                jumpToBlockForm(idx);
+                              }}
+                              onExportCsv={() =>
+                                exportUnitReportCsv({
+                                  unitName: u.name,
+                                  unitCity: u.city,
+                                  unitStatus: u.status,
+                                  org: state.org,
+                                  questions: uQs,
+                                  answers: uMerged
+                                })
+                              }
+                            />
+
+                            <DetailedIconReport
+                              blockStats={uBlockStats}
+                              onEditBlock={idx => {
+                                changeUnit(u.id);
+                                jumpToBlockForm(idx);
+                              }}
+                              onExportCsv={() =>
+                                exportUnitReportCsv({
+                                  unitName: u.name,
+                                  unitCity: u.city,
+                                  unitStatus: u.status,
+                                  org: state.org,
+                                  questions: uQs,
+                                  answers: uMerged
+                                })
+                              }
+                            />
+
+                            {['Enviada', 'Em análise'].includes(u.status) && (
+                              <div className="panel" style={{ marginTop: 18 }}>
+                                <label htmlFor="reason">
+                                  Parecer / Devolutiva da Fundação para a Entidade
+                                  <textarea
+                                    id="reason"
+                                    rows={3}
+                                    maxLength={300}
+                                    value={reason}
+                                    onChange={e => setReason(e.target.value)}
+                                    placeholder="Explique a decisão e o próximo passo."
+                                  />
+                                </label>
+                                <div className="actions">
+                                  {u.status === 'Enviada' && (
+                                    <button className="button secondary" onClick={() => decision(u.id, 'Em análise')}>
+                                      Iniciar análise
+                                    </button>
+                                  )}
+                                  <button
+                                    className="button secondary"
+                                    onClick={() => decision(u.id, 'Ajustes solicitados')}
+                                  >
+                                    Solicitar ajustes
                                   </button>
-                                )}
-                                <button
-                                  className="button secondary"
-                                  onClick={() => decision(u.id, 'Ajustes solicitados')}
-                                >
-                                  Solicitar ajustes
-                                </button>
-                                <button className="button primary" onClick={() => decision(u.id, 'Aprovada')}>
-                                  Aprovar casa
-                                </button>
-                                <button className="text-button" onClick={() => decision(u.id, 'Não selecionada')}>
-                                  Não selecionar
-                                </button>
+                                  <button className="button primary" onClick={() => decision(u.id, 'Aprovada')}>
+                                    Aprovar casa
+                                  </button>
+                                  <button className="text-button" onClick={() => decision(u.id, 'Não selecionada')}>
+                                    Não selecionar
+                                  </button>
+                                </div>
                               </div>
-                            </>
-                          )}
-                          {u.feedback && <p>Última devolutiva: {u.feedback}</p>}
-                        </div>
-                      )}
-                    </article>
-                  ))}
+                            )}
+                            {u.feedback && <p style={{ marginTop: 12 }}>Última devolutiva: {u.feedback}</p>}
+                          </div>
+                        )}
+                      </article>
+                    );
+                  })}
               </div>
             </div>
           </section>

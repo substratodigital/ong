@@ -475,3 +475,171 @@ body[data-screen=form] #survey-menu-slot{flex:1;min-width:0;display:flex;align-i
   .celeb-actions{gap:8px}
   .celeb-secondary-btn,.celeb-primary-btn{min-height:40px;padding:8px 12px;font-size:12.5px}
 }
+
+/* ===== AJUSTES MVP-2 (rodada 4: Área do Participante, Onboarding, Gráfico de Radar, Relatório com Ícones e Exportação .CSV) ===== */
+
+/* Header unificado também nas telas de Minha Entidade / Relatório / Privacidade (sem quebrar no mobile) */
+.header{height:68px;padding:8px 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap!important}
+.portal-header-nav{display:flex;align-items:center;justify-content:center;flex:1;min-width:0;border:0!important;padding:0!important;width:auto!important}
+.portal-header-nav .context-view-pills{margin-inline:auto;max-width:100%;overflow-x:auto}
+.portal-header-nav .context-pill-btn{padding:6px 13px;border-radius:999px;font-size:12.5px}
+
+.portal-report-page{max-width:1280px;padding:34px 28px 64px}
+.portal-report-page .page-heading{margin-bottom:26px}
+.portal-report-page .page-heading .eyebrow{font-size:12px;margin-bottom:8px}
+.portal-report-page .page-heading h1{font-size:clamp(24px,3vw,36px);margin-bottom:8px}
+.portal-report-page .page-heading p{font-size:14.5px;margin:0}
+
+/* Passo a Passo de Onboarding do Participante */
+.onboarding-strip{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:22px 24px;margin-bottom:24px;box-shadow:0 4px 16px rgba(20,50,35,.04)}
+.onboarding-strip-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.onboarding-strip-head .eyebrow{font-size:11.5px;margin-bottom:4px}
+.onboarding-strip-head h2{font-size:19px;margin:0}
+.onboarding-steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.onboarding-step-card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;transition:border-color .18s,transform .18s}
+.onboarding-step-card:hover{border-color:var(--green);transform:translateY(-2px)}
+.onboarding-step-card.is-done{border-color:#84cca0;background:linear-gradient(180deg,var(--surface) 0%,var(--soft) 180%)}
+.onboarding-step-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.onboarding-step-num{font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--green);background:var(--soft);padding:3px 9px;border-radius:8px}
+.onboarding-status-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+.onboarding-status-pill.done{background:#d4efe0;color:#185c37}
+.onboarding-status-pill.pending{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+:root[data-theme=dark] .onboarding-status-pill.done{background:#1e4a31;color:#b8f2cf}
+.onboarding-step-card h3{font-size:15px;font-weight:800;margin:2px 0 0;color:var(--ink)}
+.onboarding-step-card p{font-size:12.5px;line-height:1.42;color:var(--muted);margin:0;flex:1}
+.onboarding-step-link{display:inline-flex;align-items:center;gap:6px;padding:6px 0 0;background:transparent;color:var(--green);font-size:12.5px;font-weight:800;text-align:left;width:fit-content}
+.onboarding-step-link:hover{text-decoration:underline}
+
+/* Card da Casa e Card do Gestor no Portal */
+.portal-hero-grid{align-items:stretch;margin-bottom:24px}
+.portal-unit-card,.portal-user-card{margin-bottom:0;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.portal-unit-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.portal-unit-top .avatar{width:58px;height:58px;border-radius:15px}
+.portal-unit-top .avatar svg{width:28px;height:28px}
+.portal-unit-top h2{font-size:20px;margin:4px 0}
+.portal-unit-top p{font-size:13.5px}
+.portal-unit-selector-wrap .unit-selector{margin:0;font-size:12.5px;min-width:210px}
+.portal-unit-selector-wrap .unit-selector select{min-height:42px;padding:8px 36px 8px 12px;margin-top:4px;font-size:13.5px}
+.portal-progress-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+.portal-status-desc{font-size:13.5px;line-height:1.45;margin:0 0 16px}
+.portal-action-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.portal-action-buttons .button{min-height:44px;padding:10px 14px;font-size:13px;border-radius:11px;width:100%}
+
+.user-contact-meta{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 14px}
+.user-contact-meta small{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--muted);letter-spacing:.03em}
+.user-contact-meta strong{display:block;font-size:13px;color:var(--ink);margin-top:2px;overflow-wrap:anywhere}
+.portal-user-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+/* Gráfico de Radar SVG + Coluna de Eixos */
+.radar-report-panel{padding:24px;margin-bottom:24px}
+.radar-head{align-items:center;margin-bottom:20px}
+.radar-head h2{font-size:20px;margin:4px 0 6px}
+.radar-head p{font-size:13.5px;margin:0;max-width:620px}
+.radar-head-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.compact-action-btn{min-height:40px!important;padding:8px 14px!important;font-size:13px!important;border-radius:10px!important;width:auto!important;gap:7px!important}
+
+.radar-layout-grid{display:grid;grid-template-columns:380px minmax(0,1fr);gap:24px;align-items:center}
+.radar-svg-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;align-items:center;justify-content:center}
+.radar-svg{width:100%;max-width:360px;height:auto;overflow:visible}
+.radar-grid-ring{fill:none;stroke:var(--line);stroke-width:1.2;stroke-dasharray:3 3}
+.radar-axis-line{stroke:var(--line);stroke-width:1.2}
+.radar-area-poly{fill:rgba(47,111,76,.22);stroke:var(--green);stroke-width:2.5;transition:all .35s ease}
+.radar-vertex-dot{fill:var(--green);stroke:var(--surface);stroke-width:2}
+.radar-axis-label{font-family:Manrope,sans-serif;font-size:10.5px;font-weight:800;fill:var(--ink)}
+
+.radar-axes-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.radar-axis-card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.radar-axis-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.radar-axis-card-top strong{font-size:13.5px;color:var(--ink)}
+.radar-axis-pct{font-size:13px;font-weight:800;color:var(--green)}
+.radar-axis-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.axis-stage-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:11.5px;font-weight:600;transition:all .15s}
+.axis-stage-chip:hover{border-color:var(--green);background:var(--soft);color:var(--green)}
+.axis-stage-chip.completed{border-color:#84cca0;background:var(--soft);color:var(--green)}
+.axis-stage-chip svg{width:13px;height:13px;color:var(--green)}
+
+/* Relatório Detalhado com Ícones */
+.icon-report-section{margin-bottom:28px}
+.report-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.report-toolbar .eyebrow{font-size:11.5px;margin-bottom:4px}
+.report-toolbar h2{font-size:20px;margin:0}
+.report-toolbar-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+.icon-report-cards-list{display:flex;flex-direction:column;gap:12px}
+.icon-report-block-card{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .18s}
+.icon-report-block-card.completed{border-color:#84cca0}
+.icon-report-block-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;cursor:pointer;user-select:none}
+.icon-report-block-head:hover{background:var(--paper)}
+.icon-report-block-left{display:flex;align-items:center;gap:14px;min-width:0;flex:1}
+.icon-report-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.icon-report-title-row h3{font-size:16px;font-weight:800;margin:0;color:var(--ink)}
+.icon-report-block-left p{font-size:12.5px;color:var(--muted);margin:3px 0 0;line-height:1.35}
+.icon-report-block-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.icon-report-progress-col{width:140px;display:flex;flex-direction:column;gap:5px}
+
+.icon-report-answers-grid{border-top:1px solid var(--line);padding:16px 20px;background:var(--paper);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.report-answer-item{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:11px 14px;display:flex;flex-direction:column;gap:4px}
+.report-answer-item.answered{border-left:3.5px solid var(--green)}
+.report-answer-item.unanswered{opacity:.75}
+.report-answer-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.report-subpage{font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--muted);letter-spacing:.03em}
+.report-ans-dot{font-size:10.5px;font-weight:800}
+.report-ans-dot.done{color:var(--green)}
+.report-ans-dot.pending{color:var(--subtle)}
+.report-question-label{font-size:12.5px;color:var(--muted);line-height:1.35}
+.report-answer-value{font-size:13.5px;color:var(--ink);line-height:1.35;overflow-wrap:anywhere}
+.empty-block-msg{grid-column:1/-1;font-size:13px;color:var(--muted);margin:0;padding:8px 0}
+
+/* Resumo no Topo do Relatório & Painel Restrito da Fundação */
+.review-summary{padding:20px 24px;border-radius:18px;border:1px solid var(--line);margin-bottom:24px}
+.review-summary-left{display:flex;align-items:center;gap:16px}
+.review-summary-left .avatar{width:54px;height:54px;border-radius:14px}
+.review-summary-left .avatar svg{width:26px;height:26px}
+.review-summary-left strong{display:block;font-size:19px;margin-top:4px}
+.review-summary-left p{font-size:13.5px;margin:4px 0 0}
+.review-summary-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+.unit-card-head{display:flex;align-items:center;justify-content:space-between;width:100%}
+.unit-card-head svg{width:28px;height:28px;color:var(--green)}
+
+.admin-restricted-banner{background:var(--surface);border:1.5px solid var(--green);border-radius:18px;padding:22px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.admin-restricted-banner h1{font-size:clamp(20px,2.4vw,28px);margin:6px 0}
+.admin-restricted-banner p{font-size:13.5px;margin:0}
+.admin-unit-row{grid-template-columns:1.5fr 200px auto auto;gap:16px}
+.admin-progress-cell{display:flex;flex-direction:column;gap:6px}
+.admin-row-actions{display:flex;align-items:center;gap:8px}
+
+@media(max-width:960px){
+  .header{height:56px;padding:6px 10px;gap:6px}
+  .portal-header-nav .context-view-pills{max-width:100%!important;overflow:visible}
+  .portal-header-nav .context-pill-btn{padding:4px 8px;font-size:11.5px;gap:4px}
+  .portal-header-nav .context-pill-btn svg{width:13px;height:13px}
+  .portal-report-page{padding:20px 14px 44px}
+  .onboarding-strip{padding:16px}
+  .onboarding-steps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .radar-layout-grid{grid-template-columns:1fr}
+  .radar-axes-list{grid-template-columns:1fr}
+  .icon-report-block-head{flex-direction:column;align-items:flex-start;padding:14px 16px}
+  .icon-report-block-right{width:100%;justify-content:space-between}
+  .icon-report-progress-col{flex:1;width:auto}
+  .icon-report-answers-grid{grid-template-columns:1fr;padding:12px 14px}
+  .admin-unit-row{grid-template-columns:1fr;display:flex;flex-direction:column;align-items:stretch}
+  .admin-row-actions{justify-content:flex-start;flex-wrap:wrap}
+}
+
+@media(max-width:600px){
+  .onboarding-steps-grid{grid-template-columns:1fr}
+  .portal-unit-card,.portal-user-card,.radar-report-panel{padding:16px}
+  .portal-unit-selector-wrap{width:100%}
+  .portal-unit-selector-wrap .unit-selector{min-width:0;width:100%}
+  .portal-action-buttons{grid-template-columns:1fr}
+  .review-summary-left{flex-direction:column;align-items:flex-start}
+  .review-summary-actions{width:100%}
+  .review-summary-actions .button{flex:1}
+}
+
+@media print{
+  .header,.portal-action-buttons,.report-toolbar-actions,.submit-confirm-panel,footer{display:none!important}
+  .portal-report-page{padding:0;max-width:none}
+  .icon-report-block-card{break-inside:avoid;margin-bottom:12px}
+}

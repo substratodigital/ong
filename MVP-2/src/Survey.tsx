@@ -455,26 +455,24 @@ export function Survey(p: Props) {
                         >
                           <Building2 size={16} />
                           <div>
-                            <strong>Área do Participante (Entidade)</strong>
-                            <small>Casas vinculadas, equipe e status</small>
+                            <strong>Minha Entidade (Onboarding & Casas)</strong>
+                            <small>Casas vinculadas, gráfico de radar e equipe</small>
                           </div>
                         </button>
-                        {p.onOpenAdmin && (
-                          <button
-                            type="button"
-                            className="gov-link-btn"
-                            onClick={() => {
-                              setUserMenu(false);
-                              p.onOpenAdmin?.();
-                            }}
-                          >
-                            <ShieldCheck size={16} />
-                            <div>
-                              <strong>Área Gestores · Fundação Net do Bem</strong>
-                              <small>Base de cadastros, análise e relatórios</small>
-                            </div>
-                          </button>
-                        )}
+                        <button
+                          type="button"
+                          className="gov-link-btn"
+                          onClick={() => {
+                            setUserMenu(false);
+                            p.onReview();
+                          }}
+                        >
+                          <FileSpreadsheet size={16} />
+                          <div>
+                            <strong>Relatório da Pesquisa & .CSV</strong>
+                            <small>Visualização com ícones, radar e exportação</small>
+                          </div>
+                        </button>
                       </div>
                     </div>
                   )}
