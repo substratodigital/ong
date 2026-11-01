@@ -180,6 +180,16 @@ function App() {
   const [ack, setAck] = useState(false);
   const [resetDialog, setResetDialog] = useState(false);
   const [introAccepted, setIntroAccepted] = useState(false);
+  const [authMode, setAuthMode] = useState<'register' | 'login'>('register');
+  const [authName, setAuthName] = useState(() => String(state.org.gestor || ''));
+  const [authHouse, setAuthHouse] = useState(() =>
+    state.units[0]?.name && state.units[0]?.name !== 'Minha primeira casa' ? state.units[0].name : ''
+  );
+  const [authEmail, setAuthEmail] = useState(() => String(state.org.email || ''));
+  const [authPass, setAuthPass] = useState('');
+  const [showPass, setShowPass] = useState(false);
+  const [authError, setAuthError] = useState('');
+  const [forceTour, setForceTour] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     try {
       const s = localStorage.getItem('netdobem-theme');
@@ -1195,9 +1205,9 @@ function App() {
                 <button
                   className="button intro-start"
                   disabled={!introAccepted}
-                  onClick={() => go(editable ? 'form' : 'portal', 'cards')}
+                  onClick={() => go('access')}
                 >
-                  {completed ? 'Entrar no Painel' : 'Começar Pesquisa'}
+                  {completed ? 'Entrar no Meu Acesso' : 'Começar Pesquisa'}
                   <ArrowRight aria-hidden="true" />
                 </button>
               </div>
@@ -1270,32 +1280,206 @@ function App() {
         )}
 
         {screen === 'access' && (
-          <section className="narrow">
-            {titleNode(
-              'SEU PRIMEIRO PASSO',
-              'Um acesso para toda a jornada.',
-              'O gestor representa a mantenedora e pode acompanhar várias casas vinculadas ao mesmo CNPJ.'
-            )}
-            <div className="panel">
-              <Mail className="feature-icon" />
-              <h2>Acesso da Instituição</h2>
-              <p>Suas respostas ficam salvas automaticamente para que você possa pausar e retomar com segurança.</p>
-              <button className="button primary full" onClick={() => go(editable ? 'form' : 'portal', 'cards')}>
-                Ir para o Painel de Etapas <ArrowRight />
-              </button>
-              <div className="future">
-                <Fingerprint />
-                <p>Login unificado por ID institucional e CNPJ para retomar em qualquer sessão.</p>
+          <section className="narrow auth-onboarding-screen" aria-labelledby="auth-title">
+            <div className="auth-card">
+              <div className="auth-header-block">
+                <span className="eyebrow">PASSO 1 DE 2 · IDENTIFICAÇÃO E LOGIN</span>
+                <h1 id="auth-title" ref={title} tabIndex={-1}>
+                  {authMode === 'register'
+                    ? 'Vamos criar o acesso da sua casa'
+                    : 'Bem-vinda de volta ao seu painel'}
+                </h1>
+                <p>
+                  {authMode === 'register'
+                    ? 'Preencha seus dados abaixo para criar seu login. Assim tudo o que você responder fica salvo automaticamente e seguro para continuar quando quiser.'
+                    : 'Digite seu e-mail e senha cadastrados para retomar o preenchimento exatamente de onde parou.'}
+                </p>
               </div>
-              <button
-                className="text-button"
-                onClick={() => {
-                  demo();
-                  go('form', 'cards');
+
+              <div className="auth-tabs" role="tablist" aria-label="Tipo de acesso">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={authMode === 'register'}
+                  className={'auth-tab-btn ' + (authMode === 'register' ? 'active' : '')}
+                  onClick={() => {
+                    setAuthMode('register');
+                    setAuthError('');
+                  }}
+                >
+                  Criar meu acesso (1ª vez)
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={authMode === 'login'}
+                  className={'auth-tab-btn ' + (authMode === 'login' ? 'active' : '')}
+                  onClick={() => {
+                    setAuthMode('login');
+                    setAuthError('');
+                  }}
+                >
+                  Já tenho cadastro · Entrar
+                </button>
+              </div>
+
+              <form
+                className="auth-form-grid"
+                onSubmit={e => {
+                  e.preventDefault();
+                  setAuthError('');
+                  if (authMode === 'register') {
+                    const cleanName = authName.trim() || 'Coordenadora da Casa';
+                    const cleanHouse = authHouse.trim() || unit.name || 'Casa de Acolhimento';
+                    const cleanEmail = authEmail.trim();
+                    if (!cleanEmail || !cleanEmail.includes('@')) {
+                      setAuthError('Por favor, digite um e-mail válido (exemplo: maria@casadeacolhimento.org.br).');
+                      return;
+                    }
+                    setState(s => ({
+                      ...s,
+                      org: {
+                        ...s.org,
+                        gestor: cleanName,
+                        email: cleanEmail,
+                        funcao: s.org.funcao || 'Coordenadora Institucional',
+                        entidade: s.org.entidade || cleanHouse
+                      },
+                      units: s.units.map(u =>
+                        u.id === s.active
+                          ? {
+                              ...u,
+                              name: cleanHouse,
+                              answers: { ...u.answers, casa: cleanHouse }
+                            }
+                          : u
+                      )
+                    }));
+                    try {
+                      localStorage.removeItem('netdobem-tour-v2-seen');
+                    } catch {}
+                    setForceTour(true);
+                    go(editable ? 'form' : 'portal', 'cards');
+                  } else {
+                    const cleanEmail = authEmail.trim();
+                    if (!cleanEmail || !cleanEmail.includes('@')) {
+                      setAuthError('Digite seu e-mail cadastrado para entrar.');
+                      return;
+                    }
+                    setState(s => ({
+                      ...s,
+                      org: {
+                        ...s.org,
+                        email: cleanEmail,
+                        gestor: s.org.gestor || authName.trim() || 'Participante da pesquisa'
+                      }
+                    }));
+                    go(editable ? 'form' : 'portal', 'cards');
+                  }
                 }}
               >
-                Carregar dados de exemplo para testar
-              </button>
+                {authMode === 'register' && (
+                  <>
+                    <label className="auth-field">
+                      <span className="auth-label">1. Qual é o seu nome?</span>
+                      <input
+                        type="text"
+                        placeholder="Ex.: Dona Maria Aparecida"
+                        value={authName}
+                        onChange={e => setAuthName(e.target.value)}
+                      />
+                    </label>
+
+                    <label className="auth-field">
+                      <span className="auth-label">2. Nome da Casa de Acolhimento ou Instituição</span>
+                      <input
+                        type="text"
+                        placeholder="Ex.: Lar da Criança Esperança"
+                        value={authHouse}
+                        onChange={e => setAuthHouse(e.target.value)}
+                      />
+                    </label>
+                  </>
+                )}
+
+                <label className="auth-field">
+                  <span className="auth-label">
+                    {authMode === 'register' ? '3. Seu e-mail de contato' : 'Seu e-mail cadastrado'}
+                  </span>
+                  <input
+                    type="email"
+                    placeholder="Ex.: contato@suacasa.org.br"
+                    value={authEmail}
+                    onChange={e => setAuthEmail(e.target.value)}
+                  />
+                </label>
+
+                <label className="auth-field">
+                  <span className="auth-label">
+                    {authMode === 'register'
+                      ? '4. Crie uma senha fácil de lembrar'
+                      : 'Sua senha de acesso'}
+                  </span>
+                  <div className="pass-input-wrap">
+                    <input
+                      type={showPass ? 'text' : 'password'}
+                      placeholder={authMode === 'register' ? 'Mínimo de 6 letras ou números' : 'Digite sua senha'}
+                      value={authPass}
+                      onChange={e => setAuthPass(e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      className="pass-toggle-btn"
+                      onClick={() => setShowPass(v => !v)}
+                    >
+                      {showPass ? 'Ocultar' : 'Mostrar senha'}
+                    </button>
+                  </div>
+                </label>
+
+                {authError && (
+                  <p className="auth-error-msg" role="alert">
+                    {authError}
+                  </p>
+                )}
+
+                <button type="submit" className="button primary full auth-submit-btn">
+                  {authMode === 'register' ? (
+                    <>
+                      Criar Acesso e Abrir Pesquisa <ArrowRight size={18} />
+                    </>
+                  ) : (
+                    <>
+                      Entrar no Painel da Pesquisa <ArrowRight size={18} />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              <div className="auth-reassurance">
+                <ShieldCheck size={18} />
+                <span>
+                  Fique tranquila: após entrar, mostraremos um <strong>passo a passo rápido em 4 balões</strong> para
+                  você conhecer o painel sem pressa.
+                </span>
+              </div>
+
+              <div className="auth-demo-footer">
+                <button
+                  type="button"
+                  className="text-button auth-demo-btn"
+                  onClick={() => {
+                    demo();
+                    try {
+                      localStorage.removeItem('netdobem-tour-v2-seen');
+                    } catch {}
+                    setForceTour(true);
+                    go('form', 'cards');
+                  }}
+                >
+                  Preencher com dados de exemplo + Ver Tutorial (4 Balões)
+                </button>
+              </div>
             </div>
           </section>
         )}
@@ -1341,6 +1525,8 @@ function App() {
             onOpenAdmin={() => go('admin')}
             last={pageIndex === pages.length - 1}
             first={pageIndex === 0}
+            forceTour={forceTour}
+            onTourComplete={() => setForceTour(false)}
           />
         )}
 

@@ -181,3 +181,70 @@ Agora conecte a tela restrita `screen === 'admin'` em `src/main.tsx` ao endpoint
    - O botão "Ver Relatório" que abre o `DiagnosticRadarSection` (Gráfico de Radar) e o `DetailedIconReport` (Relatório com Ícones) daquela casa;
    - Os botões de exportação `.CSV` individual e geral (`exportUnitReportCsv` e `exportAllUnitsNetworkCsv`).
 ```
+
+
+---
+
+## 4. Plano Passo a Passo: Repositório Privado no GitHub, Segurança e Nova URL no Replit
+
+Para manter o código, as credenciais do banco e os dados das instituições **100% seguros** durante e após a migração para o Replit, siga este roteiro passo a passo:
+
+### Etapa A — Tornar o Projeto Privado no GitHub (Segurança do Código)
+1. **Opção Recomendada (Repositório Dedicado Privado para a Aplicação):**
+   - Caso o repositório atual (`FUNDACAO-NETDOBEM`) também sirva o site institucional na Vercel, o ideal é criar um repositório novo **Privado** no seu GitHub chamado, por exemplo, `netdobem-pesquisa-app` contendo apenas o conteúdo da pasta `MVP-2/`, **ou** tornar o repositório atual privado em:
+   - **GitHub $\rightarrow$ Settings $\rightarrow$ General $\rightarrow$ Danger Zone $\rightarrow$ Change repository visibility $\rightarrow$ Change to private**.
+2. **Proteção de Credenciais (`.gitignore`):**
+   - Nunca salve senhas ou URLs de banco no código. Garanta que o arquivo `.gitignore` na raiz contenha:
+     ```gitignore
+     node_modules/
+     dist/
+     .env
+     .env.*
+     *.local
+     ```
+
+### Etapa B — Importar o Repositório Privado no Replit com Segurança
+1. Acesse sua conta no **Replit** e clique em **Create Repl $\rightarrow$ Import from GitHub**.
+2. Caso o repositório já esteja **Privado**, clique em **Connect GitHub account** e autorize o Replit a enxergar seus repositórios privados.
+3. **Importante (Privacidade do Repl):** Na tela de criação do Repl, marque a chave **Private Repl** (disponível no Replit Core/Teams). Assim, nem o código no GitHub nem o container do Replit ficam visíveis publicamente.
+4. **Configurar os Segredos (Replit Secrets — Cadeado Lateral):**
+   - Abra a aba **Secrets** (ícone de cadeado no painel esquerdo do Replit) e cadastre as variáveis de ambiente fora do código:
+     - `SESSION_SECRET`: uma chave longa aleatória (ex.: 64 caracteres) para assinar os cookies de login;
+     - `ADMIN_EMAIL`: o e-mail oficial do gestor da Fundação Net do Bem;
+     - `ADMIN_PASSWORD`: uma senha forte exclusiva da Fundação;
+     - `DATABASE_URL`: (gerada automaticamente quando você adiciona o banco PostgreSQL nativo do Replit na aba **Database**).
+
+### Etapa C — Executar os 4 Prompts Blindados e Testar
+1. Cole os **Passos 1, 2, 3 e 4** da Seção 3 deste documento no Replit Agent, um de cada vez.
+2. Teste os dois fluxos na janela de preview do Replit:
+   - **Fluxo Participante (Senhoras / Coordenadoras):** Capa $\rightarrow$ Tela de Criação de Login (`Criar meu acesso (1ª vez)`) $\rightarrow$ Tutorial em 4 Balões de Popup animando o Card 1 $\rightarrow$ Preenchimento e Relatório com Radar.
+   - **Fluxo Gestor da Fundação:** Login com o `ADMIN_EMAIL` $\rightarrow$ Acesso ao painel `#fundacao` $\rightarrow$ Visualização de todas as casas, `% preenchido` e exportação `.CSV`.
+
+### Etapa D — Publicar e Direcionar para a Nova URL Oficial
+Você tem **2 formas limpas** de apontar a nova URL oficial para a aplicação publicada no Replit:
+
+#### Opção 1: Subdomínio Dedicado (ex.: `pesquisa.netdobem.org.br` ou `cadastro.netdobem.org.br`) — *Mais Recomendado*
+1. No Replit, clique no botão **Deploy** (canto superior direito) e escolha **Autoscale Deployment** (ou **Reserved VM**).
+2. Configure:
+   - **Build command:** `npm run build`
+   - **Run command:** `npm run start`
+3. Assim que o Deploy concluir, abra a aba **Domains** dentro de Deployments no Replit e clique em **Link a domain**.
+4. Digite a nova URL desejada (ex.: `pesquisa.netdobem.org.br`).
+5. O Replit fornecerá **2 registros DNS** (um registro `A` ou `CNAME` e um registro `TXT` de verificação).
+6. No painel onde fica o DNS de `netdobem.org.br` (Registro.br, Cloudflare ou Vercel DNS), adicione esses 2 registros. Em poucos minutos o certificado SSL (`https://`) é emitido automaticamente pelo Replit.
+
+#### Opção 2: Manter em `https://www.netdobem.org.br/mvp-2` (ou `/pesquisa`) via Proxy Transparente na Vercel
+Se você quiser que o endereço continue dentro do domínio principal `www.netdobem.org.br/pesquisa` enquanto o backend + banco rodam no Replit:
+1. Publique o app no Replit Deployment (ele ganhará uma URL interna `https://seu-app.replit.app`).
+2. No arquivo `vercel.json` do site principal, adicione um `rewrite` apontando para a URL do Replit:
+   ```json
+   {
+     "rewrites": [
+       {
+         "source": "/pesquisa/:path*",
+         "destination": "https://seu-app.replit.app/:path*"
+       }
+     ]
+   }
+   ```
+3. Dessa forma, o visitante acessa `https://www.netdobem.org.br/pesquisa`, mas toda a aplicação, login e banco de dados PostgreSQL rodam diretamente no servidor seguro do Replit.

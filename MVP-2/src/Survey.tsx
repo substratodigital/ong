@@ -28,7 +28,8 @@ import {
   LayoutGrid,
   FileSpreadsheet,
   Sparkles,
-  AlertCircle
+  AlertCircle,
+  HelpCircle
 } from 'lucide-react';
 import data from './questionnaire.json';
 import { answered, validate } from './domain.mjs';
@@ -79,9 +80,44 @@ type Props = {
   onReview: () => void;
   onExit: () => void;
   onOpenAdmin?: () => void;
+  forceTour?: boolean;
+  onTourComplete?: () => void;
   last: boolean;
   first: boolean;
 };
+
+const TOUR_STORAGE_KEY = 'netdobem-tour-v2-seen';
+
+const TOUR_STEPS = [
+  {
+    step: 1,
+    tag: 'PASSO 1 DE 4 · BEM-VINDA AO PAINEL',
+    title: 'Tudo organizado em etapas curtas e tranquilas',
+    body: 'Dividimos a pesquisa em 14 cartões curtos para você responder sem pressa. Você pode pausar quando quiser e retomar depois: tudo o que você digita fica salvo sozinho.',
+    pointerText: '✨ Aqui você acompanha quantas etapas já concluiu'
+  },
+  {
+    step: 2,
+    tag: 'PASSO 2 DE 4 · PRIMEIRO CARTÃO',
+    title: 'Comece pelo cartão "1. Sua entidade"',
+    body: 'Veja o primeiro cartão pulsando suavemente na tela! Para responder, basta tocar em "Iniciar etapa" dentro dele. As perguntas aparecem uma por vez, com letras grandes e fáceis de ler.',
+    pointerText: '👆 Toque neste 1º cartão para iniciar'
+  },
+  {
+    step: 3,
+    tag: 'PASSO 3 DE 4 · CARTÕES QUE GANHAM VIDA',
+    title: 'As ilustrações ganham cor conforme você avança',
+    body: 'Repare que os cartões começam clarinhos. Conforme você preenche as respostas, a arte ganha cor e vida! Ao terminar cada bloco, a aba "Concluídos" mostra uma mensagem especial para a sua casa.',
+    pointerText: '🎨 Seu progresso colorido etapa por etapa'
+  },
+  {
+    step: 4,
+    tag: 'PASSO 4 DE 4 · TUDO PRONTO!',
+    title: 'Pronta para começar o diagnóstico da sua casa?',
+    body: 'Agora você já conhece todo o painel! Se quiser rever esta explicação em qualquer momento, basta tocar no botão "Como funciona" no topo da tela. Vamos iniciar pela Etapa 1?',
+    pointerText: '💚 Tudo pronto para iniciar a Etapa 1!'
+  }
+];
 
 export function spawnCompletionParticles(targetElement: HTMLElement | null) {
   if (!targetElement) return;
@@ -121,11 +157,94 @@ export function Survey(p: Props) {
   const [houses, setHouses] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
   const [cardFilter, setCardFilter] = useState<'all' | 'completed' | 'pending'>('all');
+  const [tourStep, setTourStep] = useState<number | null>(() => {
+    try {
+      if (p.forceTour || localStorage.getItem(TOUR_STORAGE_KEY) !== '1') return 1;
+    } catch {}
+    return null;
+  });
   const ref = useRef<HTMLDivElement>(null);
   const cardsGridRef = useRef<HTMLDivElement>(null);
   const celebBoxRef = useRef<HTMLDivElement>(null);
+  const tourBalloonRef = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const direction = useRef(1);
+
+  useEffect(() => {
+    if (p.forceTour) {
+      p.onChangeSubView('cards');
+      setCardFilter('all');
+      setTourStep(1);
+    }
+  }, [p.forceTour]);
+
+  const finishTour = (openFirstBlock = false) => {
+    try {
+      localStorage.setItem(TOUR_STORAGE_KEY, '1');
+    } catch {}
+    setTourStep(null);
+    p.onTourComplete?.();
+    if (openFirstBlock) {
+      p.onBlock(0);
+      p.onChangeSubView('form');
+    }
+  };
+
+  // GSAP animation for the 4-step Onboarding Balloon Tutorial & Card 1 gentle pulse
+  useLayoutEffect(() => {
+    if (tourStep === null || p.subView !== 'cards') return;
+    const card0 = document.getElementById('stage-card-0');
+    const card0Cta = card0?.querySelector('.card-cta');
+    const balloon = tourBalloonRef.current;
+
+    if (tourStep === 2 || tourStep === 4) {
+      const isMobile = window.innerWidth <= 640;
+      card0?.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+    } else if (tourStep === 1) {
+      document.querySelector('.cards-hub-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const mm = gsap.matchMedia();
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      if (balloon) {
+        gsap.fromTo(
+          balloon,
+          { opacity: 0, y: 18, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: 'back.out(1.5)' }
+        );
+      }
+
+      if (card0 && (tourStep === 2 || tourStep === 3 || tourStep === 4)) {
+        gsap.to(card0, {
+          y: -7,
+          scale: 1.024,
+          boxShadow: '0 0 0 4px #2f6f4c, 0 20px 42px rgba(33, 110, 67, 0.28)',
+          duration: 0.85,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+      }
+      if (card0Cta && (tourStep === 2 || tourStep === 4)) {
+        gsap.to(card0Cta, {
+          scale: 1.04,
+          backgroundColor: '#216e43',
+          color: '#ffffff',
+          borderColor: '#216e43',
+          duration: 0.65,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+      }
+    });
+
+    return () => {
+      mm.revert();
+      if (card0) gsap.set(card0, { clearProps: 'transform,boxShadow' });
+      if (card0Cta) gsap.set(card0Cta, { clearProps: 'transform,backgroundColor,color,borderColor' });
+    };
+  }, [tourStep, p.subView]);
 
   const currentBlockIdx = p.question.block;
   const block: BlockMeta = data.blocks[currentBlockIdx];
@@ -660,7 +779,7 @@ export function Survey(p: Props) {
         {p.subView === 'cards' && (
           <div className="question-viewport cards-hub-viewport">
             <div className="cards-hub-container">
-              <div className="hub-header">
+              <div className={'hub-header ' + (tourStep === 1 || tourStep === 3 ? 'tour-focus-target' : '')}>
                 <div className="hub-header-left">
                   <h2>Painel de Etapas da Pesquisa · {p.unitName}</h2>
                   <p>
@@ -669,6 +788,18 @@ export function Survey(p: Props) {
                   </p>
                 </div>
                 <div className="hub-stats">
+                  <button
+                    type="button"
+                    className="tour-help-btn"
+                    onClick={() => {
+                      setCardFilter('all');
+                      setTourStep(1);
+                    }}
+                    title="Abrir tutorial passo a passo em 4 balões"
+                  >
+                    <HelpCircle size={16} />
+                    <span>Como funciona</span>
+                  </button>
                   <div className="stat-pill done">
                     <CheckCircle2 size={16} />
                     <span>
@@ -707,7 +838,7 @@ export function Survey(p: Props) {
                   </button>
                 </div>
                 <button type="button" className="text-button" onClick={p.onReview}>
-                  Ver resumo completo das respostas →
+                  Ver relatório e exportar .CSV →
                 </button>
               </div>
 
@@ -723,17 +854,27 @@ export function Survey(p: Props) {
                       ? 'Continuar etapa'
                       : 'Iniciar etapa';
 
+                  const isTourTargetCard = realIdx === 0 && (tourStep === 2 || tourStep === 3 || tourStep === 4);
+
                   return (
                     <div
                       key={b.id}
                       id={`stage-card-${realIdx}`}
-                      className={`stage-card ${status}`}
+                      className={`stage-card ${status} ${isTourTargetCard ? 'tour-card-highlight' : ''}`}
                       data-anim={b.animType}
                       onMouseEnter={e => handleCardMouseEnter(e, b.animType)}
                       onMouseMove={handleCardMouseMove}
                       onMouseLeave={handleCardMouseLeave}
-                      onClick={e => openBlockFromCard(realIdx, e.currentTarget)}
+                      onClick={e => {
+                        if (tourStep !== null) finishTour(false);
+                        openBlockFromCard(realIdx, e.currentTarget);
+                      }}
                     >
+                      {isTourTargetCard && (
+                        <div className="tour-card-pointer-badge" aria-hidden="true">
+                          {TOUR_STEPS[(tourStep || 2) - 1]?.pointerText || '👆 Comece por esta 1ª Etapa'}
+                        </div>
+                      )}
                       <div className="card-glow" />
                       <div
                         className={`card-art ${status}`}
@@ -808,6 +949,89 @@ export function Survey(p: Props) {
                   );
                 })}
               </div>
+
+              {tourStep !== null && TOUR_STEPS[tourStep - 1] && (
+                <div
+                  className="tour-balloon-dock"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="tour-balloon-title"
+                >
+                  <div className="tour-popup-balloon" ref={tourBalloonRef}>
+                    <div className="tour-balloon-top">
+                      <span className="tour-step-pill">{TOUR_STEPS[tourStep - 1].tag}</span>
+                      <div className="tour-dots" aria-hidden="true">
+                        {[1, 2, 3, 4].map(n => (
+                          <span
+                            key={n}
+                            className={'tour-dot ' + (n === tourStep ? 'active' : n < tourStep ? 'done' : '')}
+                          />
+                        ))}
+                      </div>
+                      <button
+                        type="button"
+                        className="tour-close-x"
+                        onClick={() => finishTour(false)}
+                        aria-label="Fechar explicação"
+                        title="Fechar explicação"
+                      >
+                        <X size={18} />
+                      </button>
+                    </div>
+
+                    <h3 id="tour-balloon-title" className="tour-balloon-title">
+                      {TOUR_STEPS[tourStep - 1].title}
+                    </h3>
+                    <p className="tour-balloon-body">{TOUR_STEPS[tourStep - 1].body}</p>
+
+                    <div className="tour-balloon-actions">
+                      <button type="button" className="tour-skip-btn" onClick={() => finishTour(false)}>
+                        Pular explicação
+                      </button>
+                      <div className="tour-nav-btns">
+                        {tourStep > 1 && (
+                          <button
+                            type="button"
+                            className="button secondary tour-btn-prev"
+                            onClick={() => setTourStep(tourStep - 1)}
+                          >
+                            <ArrowLeft size={16} />
+                            <span>Anterior</span>
+                          </button>
+                        )}
+                        {tourStep < 4 ? (
+                          <button
+                            type="button"
+                            className="button primary tour-btn-next"
+                            onClick={() => setTourStep(tourStep + 1)}
+                          >
+                            <span>Próximo ({tourStep}/4)</span>
+                            <ArrowRight size={16} />
+                          </button>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              className="button secondary tour-btn-prev"
+                              onClick={() => finishTour(false)}
+                            >
+                              <span>Ficar no Painel</span>
+                            </button>
+                            <button
+                              type="button"
+                              className="button primary tour-btn-next"
+                              onClick={() => finishTour(true)}
+                            >
+                              <span>Começar Etapa 1 Agora</span>
+                              <ArrowRight size={16} />
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
