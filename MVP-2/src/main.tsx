@@ -1638,6 +1638,31 @@ function App() {
             onReview={() => go('review')}
             onExit={() => go('portal')}
             onOpenAdmin={() => go('admin')}
+            onResetSurvey={() => {
+              setState(s => ({
+                ...s,
+                org: {
+                  gestor: s.org.gestor,
+                  email: s.org.email,
+                  funcao: s.org.funcao
+                },
+                units: s.units.map(u =>
+                  u.id === s.active
+                    ? {
+                        ...u,
+                        answers: { uf: 'SP' },
+                        page: 0,
+                        status: 'Rascunho',
+                        snapshot: undefined,
+                        feedback: undefined
+                      }
+                    : u
+                )
+              }));
+              setErrors({});
+              setSubView('cards');
+              setToast('Pesquisa reiniciada do zero.');
+            }}
             last={pageIndex === pages.length - 1}
             first={pageIndex === 0}
             forceTour={forceTour}
@@ -2319,7 +2344,7 @@ function App() {
         )}
       </main>
 
-      {screen !== 'form' && screen !== 'intro' && (
+      {screen !== 'form' && screen !== 'intro' && screen !== 'access' && (
         <footer>
           <span>Fundação Net do Bem · Cuidado que se conecta.</span>
           <div>

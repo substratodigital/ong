@@ -29,7 +29,8 @@ import {
   FileSpreadsheet,
   Sparkles,
   AlertCircle,
-  HelpCircle
+  HelpCircle,
+  Trash2
 } from 'lucide-react';
 import data from './questionnaire.json';
 import { answered, validate } from './domain.mjs';
@@ -80,6 +81,7 @@ type Props = {
   onReview: () => void;
   onExit: () => void;
   onOpenAdmin?: () => void;
+  onResetSurvey?: () => void;
   forceTour?: boolean;
   onTourComplete?: () => void;
   last: boolean;
@@ -156,6 +158,8 @@ export function Survey(p: Props) {
   const [menu, setMenu] = useState(false);
   const [houses, setHouses] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
+  const [saveMenu, setSaveMenu] = useState(false);
+  const [clearAlert, setClearAlert] = useState(false);
   const [cardFilter, setCardFilter] = useState<'all' | 'completed' | 'pending'>('all');
   const [tourStep, setTourStep] = useState<number | null>(() => {
     try {
@@ -471,6 +475,52 @@ export function Survey(p: Props) {
   const NextBlockIcon = nextBlockMeta ? BLOCK_ICONS[currentBlockIdx + 1] || Building2 : CheckCircle2;
   const nextBlockQsCount = nextBlockMeta ? p.questions.filter(q => q.block === currentBlockIdx + 1).length : 0;
 
+  const renderSaveDropdown = () => (
+    <div className="save-dropdown-wrap">
+      <button
+        type="button"
+        className="survey-save survey-save-btn"
+        aria-expanded={saveMenu}
+        onClick={() => {
+          setSaveMenu(v => !v);
+          setHouses(false);
+          setUserMenu(false);
+        }}
+        title="Opções de salvamento"
+      >
+        {p.storageError ? (
+          'Falha ao salvar'
+        ) : p.saved ? (
+          <>
+            <Check size={14} /> <span>Salvo</span>
+          </>
+        ) : (
+          <>
+            <Check size={14} /> <span>Salvo</span>
+          </>
+        )}
+        <ChevronDown size={13} />
+      </button>
+
+      {saveMenu && (
+        <div className="save-dropdown-menu" role="menu">
+          <button
+            type="button"
+            role="menuitem"
+            className="save-clear-option"
+            onClick={() => {
+              setSaveMenu(false);
+              setClearAlert(true);
+            }}
+          >
+            <Trash2 size={15} />
+            <span>Apagar</span>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section className="survey-shell">
       {menuSlot &&
@@ -625,17 +675,7 @@ export function Survey(p: Props) {
                 </button>
               </div>
 
-              <span className="survey-save" role="status">
-                {p.storageError ? (
-                  'Falha ao salvar'
-                ) : p.saved ? (
-                  <>
-                    <Check /> Salvo
-                  </>
-                ) : (
-                  'Salvando…'
-                )}
-              </span>
+              {renderSaveDropdown()}
             </div>
           </>,
           menuSlot
@@ -716,12 +756,8 @@ export function Survey(p: Props) {
             }}
             title={`Usuário: ${p.userName}`}
           >
-            <Users size={17} strokeWidth={1.8} />
-            <span>
-              {p.userName && p.userName.split(' ')[0].length <= 8 && p.userName.split(' ')[0] !== 'Participante'
-                ? p.userName.split(' ')[0]
-                : 'Usuário'}
-            </span>
+            <Users size={16} strokeWidth={1.8} />
+            <span>Usuário</span>
           </button>
 
           <button
@@ -733,7 +769,7 @@ export function Survey(p: Props) {
             }}
             title={`Casa: ${p.unitName}`}
           >
-            <House size={17} strokeWidth={1.8} />
+            <House size={16} strokeWidth={1.8} />
             <span>Casa</span>
           </button>
 
@@ -746,7 +782,7 @@ export function Survey(p: Props) {
             }}
             title="Salvar e sair"
           >
-            <Save size={17} strokeWidth={1.8} />
+            <Save size={16} strokeWidth={1.8} />
             <span>Sair</span>
           </button>
         </div>
@@ -784,17 +820,7 @@ export function Survey(p: Props) {
             </button>
           </div>
 
-          <span className="survey-save" role="status">
-            {p.storageError ? (
-              'Falha ao salvar'
-            ) : p.saved ? (
-              <>
-                <Check /> Salvo
-              </>
-            ) : (
-              'Salvando…'
-            )}
-          </span>
+          {renderSaveDropdown()}
         </div>
 
         {/* VIEW 1: PAINEL GERAL DE ETAPAS EM CARDS (HUB PÓS-CAPA COM GSAP) */}
@@ -827,12 +853,6 @@ export function Survey(p: Props) {
                 </div>
 
                 <div className="hub-bar-right">
-                  {cardFilter === 'completed' && (
-                    <button type="button" className="tour-help-btn csv-inline-btn" onClick={p.onReview}>
-                      <FileSpreadsheet size={15} />
-                      <span>Relatório .CSV</span>
-                    </button>
-                  )}
                   <button
                     type="button"
                     className="tour-help-btn"
@@ -1240,6 +1260,49 @@ export function Survey(p: Props) {
           </div>
         )}
       </div>
+
+      {clearAlert && (
+        <div
+          className="clear-alert-backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="clear-alert-title"
+          onKeyDown={e => {
+            if (e.key === 'Escape') setClearAlert(false);
+          }}
+        >
+          <div className="clear-alert-balloon">
+            <div className="clear-alert-icon">
+              <AlertCircle size={26} />
+            </div>
+            <h3 id="clear-alert-title">Deseja apagar e recomeçar a pesquisa?</h3>
+            <p>
+              Você irá começar novamente toda a pesquisa do zero. Tem certeza que deseja apagar todas as respostas
+              preenchidas até agora?
+            </p>
+            <div className="clear-alert-actions">
+              <button
+                type="button"
+                className="button primary clear-return-btn"
+                autoFocus
+                onClick={() => setClearAlert(false)}
+              >
+                Retornar
+              </button>
+              <button
+                type="button"
+                className="button secondary clear-confirm-btn"
+                onClick={() => {
+                  setClearAlert(false);
+                  p.onResetSurvey?.();
+                }}
+              >
+                Sim, quero recomeçar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
