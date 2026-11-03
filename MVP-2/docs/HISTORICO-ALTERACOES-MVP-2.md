@@ -118,3 +118,35 @@ G:\00 - CLIENTES\ONG\FUNDACAO-NETDOBEM\
    - Rodapé mobile em linha única (`Voltar | Painel | Continuar`) com suporte a `safe-area-inset-bottom` e espaçamento compacto nas opções e campos.
 
 
+---
+
+## 5. Relatório com Gráfico de Radar, Exportação .CSV, Login Split-Screen e Tutorial em 4 Balões (Rodadas 4 a 7 — 01 a 03/11/2026)
+
+1. **Gráfico de Radar em SVG Nativo + Relatório com Ícones + Exportação `.CSV` (`ReportTools.tsx`):**
+   - Implementação do componente **`DiagnosticRadarSection`** em SVG puro (0 KB de dependências externas), permitindo alternar entre **6 Eixos Estratégicos** e **14 Etapas Completa**, com cards de índice por eixo.
+   - Implementação do **`DetailedIconReport`** listando todas as 14 etapas com seus respectivos ícones Lucide, filtro de busca textual, filtro por status (*Todas, Concluídas, Pendentes*) e acordeão de respostas.
+   - Exportador nativo **`.CSV` com UTF-8 BOM** (`exportUnitReportCsv` e `exportAllUnitsNetworkCsv`), compatível diretamente com Microsoft Excel e Google Planilhas.
+   - Ocultação total do menu da **Fundação** para participantes comuns (acessível exclusivamente via rota administrativa `/admin`, `#fundacao` ou `?admin=1`).
+
+2. **Tela Clássica de Login Dividida (Estilo Hotmart) + Inscrição Simplificada (`main.tsx` e `survey.css`):**
+   - Remoção do cabeçalho de navegação (`Painel | Entidade | Relatório`) nas telas de Login e Inscrição.
+   - **Tela Clássica de Login primeiro:** E-mail + Senha (com botão *Mostrar/Ocultar*), botão **`Entrar`**, divisor `ou`, botão **`Entrar com Google`** (pronto para integração OAuth no Replit) e botão secundário **`Fazer inscrição da instituição`**.
+   - **Tela de Inscrição Direta:** Apenas Nome, Nome da Casa de Acolhimento, E-mail e Senha, sem balões ou banners extras no rodapé.
+   - **Layout Split-Screen no Desktop:** Formulário à esquerda e arte 3D em destaque da pasta do Calendário otimizada em `.webp` (`public/brand/login-hero-casa.webp`, 78 KB) com o logo oficial da Fundação Net do Bem à direita.
+
+3. **Tutorial Interativo em 4 Balões de Popup no 1º Acesso (`Survey.tsx`):**
+   - Ao concluir a inscrição ou clicar em **`? Tutorial`** no topo do painel, abre uma sequência acolhedora de 4 balões de popup pensada para coordenadoras e senhoras de casas de acolhimento.
+   - Animação suave com **GSAP** destacando e pulsando o primeiro card (**`1. Sua entidade`**) com selo indicador verde.
+
+4. **Painel de Cards Enxuto e Menu Lateral Fixo em 1 Linha (`Survey.tsx` e `survey.css`):**
+   - Remoção do cabeçalho grande no topo do painel para que **os cards apareçam imediatamente na primeira dobra da tela** no celular e no computador.
+   - Barra superior compacta em linha única: **`Etapas (14)`** · **`Concluídas`** · **`Incompletas`** e botão **`? Tutorial`**.
+   - Atalho **`Ver relatório e exportar .CSV`** posicionado exclusivamente dentro da seção **`Concluídos`**, junto com o botão **`Avançar →`** em linha única.
+   - Rodapé do menu lateral fixo em **uma única linha horizontal** com 3 botões: **`[👤 Usuário]`**, **`[🏠 Casa]`** e **`[💾 Sair]`** (removendo o seletor redundante *"Casa em acompanhamento"*).
+
+5. **Botão `✓ Salvo ▾` com Dropdown `Apagar` e Balão de Confirmação:**
+   - Transformação do indicador **`✓ Salvo ▾`** em botão com menu dropdown contendo a opção **`🗑️ Apagar`**.
+   - Ao clicar em **`Apagar`**, exibe um balão modal de alerta perguntando se a participante deseja recomeçar toda a pesquisa do zero, destacando o botão verde **`Retornar`** como ação principal segura e **`Sim, quero recomeçar`** abaixo.
+
+6. **Plano Técnico e Passo a Passo para o Replit (`PLANO-TECNICO-REPLIT-MVP-2.md`):**
+   - Documentação completa da arquitetura PostgreSQL (`JSONB`) + Express + Drizzle ORM, sequência de 4 prompts blindados contra lentidão e guia passo a passo para repositório privado no GitHub, configuração de `Secrets` e apontamento de domínio/URL.
