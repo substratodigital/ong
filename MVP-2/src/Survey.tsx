@@ -114,7 +114,7 @@ const TOUR_STEPS = [
     step: 4,
     tag: 'PASSO 4 DE 4 · TUDO PRONTO!',
     title: 'Pronta para começar o diagnóstico da sua casa?',
-    body: 'Agora você já conhece todo o painel! Se quiser rever esta explicação em qualquer momento, basta tocar no botão "Como funciona" no topo da tela. Vamos iniciar pela Etapa 1?',
+    body: 'Agora você já conhece todo o painel! Se quiser rever esta explicação em qualquer momento, basta tocar no botão "Tutorial" no topo da tela. Vamos iniciar pela Etapa 1?',
     pointerText: '💚 Tudo pronto para iniciar a Etapa 1!'
   }
 ];
@@ -160,7 +160,7 @@ export function Survey(p: Props) {
   const [tourStep, setTourStep] = useState<number | null>(() => {
     try {
       if (p.forceTour || localStorage.getItem(TOUR_STORAGE_KEY) !== '1') return 1;
-    } catch {}
+    } catch { }
     return null;
   });
   const ref = useRef<HTMLDivElement>(null);
@@ -181,7 +181,7 @@ export function Survey(p: Props) {
   const finishTour = (openFirstBlock = false) => {
     try {
       localStorage.setItem(TOUR_STORAGE_KEY, '1');
-    } catch {}
+    } catch { }
     setTourStep(null);
     p.onTourComplete?.();
     if (openFirstBlock) {
@@ -198,8 +198,7 @@ export function Survey(p: Props) {
     const balloon = tourBalloonRef.current;
 
     if (tourStep === 2 || tourStep === 4) {
-      const isMobile = window.innerWidth <= 640;
-      card0?.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+      card0?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else if (tourStep === 1) {
       document.querySelector('.cards-hub-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -263,8 +262,8 @@ export function Survey(p: Props) {
       ansCount === total && total > 0
         ? 'completed'
         : ansCount > 0 || (p.subView === 'form' && i === currentBlockIdx)
-        ? 'in_progress'
-        : 'pending';
+          ? 'in_progress'
+          : 'pending';
     return { block: b, index: i, qs, ansCount, total, pct, status };
   });
 
@@ -707,26 +706,49 @@ export function Survey(p: Props) {
           })}
         </nav>
 
-        <button className="side-exit" onClick={p.onExit}>
-          <Save strokeWidth={1.6} /> Salvar e sair
-        </button>
+        <div className="sidebar-footer-bar" role="group" aria-label="Atalhos do usuário e saída">
+          <button
+            type="button"
+            className="sidebar-footer-item"
+            onClick={() => {
+              setMenu(false);
+              p.onExit();
+            }}
+            title={`Usuário: ${p.userName}`}
+          >
+            <Users size={17} strokeWidth={1.8} />
+            <span>
+              {p.userName && p.userName.split(' ')[0].length <= 8 && p.userName.split(' ')[0] !== 'Participante'
+                ? p.userName.split(' ')[0]
+                : 'Usuário'}
+            </span>
+          </button>
 
-        <div className="menu-profile">
-          <div className="menu-profile-row">
-            <House size={18} />
-            <div>
-              <small>Casa vinculada</small>
-              <strong>{p.unitName}</strong>
-            </div>
-          </div>
-          <div className="menu-profile-row">
-            <Users size={18} />
-            <div>
-              <small>{p.userRole || 'Usuário · Participante'}</small>
-              <strong>{p.userName}</strong>
-            </div>
-          </div>
-          {p.unitSelect}
+          <button
+            type="button"
+            className="sidebar-footer-item"
+            onClick={() => {
+              setMenu(false);
+              p.onExit();
+            }}
+            title={`Casa: ${p.unitName}`}
+          >
+            <House size={17} strokeWidth={1.8} />
+            <span>Casa</span>
+          </button>
+
+          <button
+            type="button"
+            className="sidebar-footer-item exit"
+            onClick={() => {
+              setMenu(false);
+              p.onExit();
+            }}
+            title="Salvar e sair"
+          >
+            <Save size={17} strokeWidth={1.8} />
+            <span>Sair</span>
+          </button>
         </div>
       </aside>
 
@@ -779,15 +801,38 @@ export function Survey(p: Props) {
         {p.subView === 'cards' && (
           <div className="question-viewport cards-hub-viewport">
             <div className="cards-hub-container">
-              <div className={'hub-header ' + (tourStep === 1 || tourStep === 3 ? 'tour-focus-target' : '')}>
-                <div className="hub-header-left">
-                  <h2>Painel de Etapas da Pesquisa · {p.unitName}</h2>
-                  <p>
-                    Escolha qualquer etapa para iniciar ou retomar de onde parou. Todas as respostas ficam salvas
-                    automaticamente neste navegador.
-                  </p>
+              <div className={'filter-tabs compact-hub-bar ' + (tourStep === 1 || tourStep === 3 ? 'tour-focus-target' : '')}>
+                <div className="filter-tabs-left">
+                  <button
+                    type="button"
+                    className={'filter-tab ' + (cardFilter === 'all' ? 'active' : '')}
+                    onClick={() => setCardFilter('all')}
+                  >
+                    Etapas ({blockStats.length})
+                  </button>
+                  <button
+                    type="button"
+                    className={'filter-tab ' + (cardFilter === 'completed' ? 'active' : '')}
+                    onClick={() => setCardFilter('completed')}
+                  >
+                    Concluídas
+                  </button>
+                  <button
+                    type="button"
+                    className={'filter-tab ' + (cardFilter === 'pending' ? 'active' : '')}
+                    onClick={() => setCardFilter('pending')}
+                  >
+                    Incompletas
+                  </button>
                 </div>
-                <div className="hub-stats">
+
+                <div className="hub-bar-right">
+                  {cardFilter === 'completed' && (
+                    <button type="button" className="tour-help-btn csv-inline-btn" onClick={p.onReview}>
+                      <FileSpreadsheet size={15} />
+                      <span>Relatório .CSV</span>
+                    </button>
+                  )}
                   <button
                     type="button"
                     className="tour-help-btn"
@@ -797,49 +842,10 @@ export function Survey(p: Props) {
                     }}
                     title="Abrir tutorial passo a passo em 4 balões"
                   >
-                    <HelpCircle size={16} />
-                    <span>Como funciona</span>
-                  </button>
-                  <div className="stat-pill done">
-                    <CheckCircle2 size={16} />
-                    <span>
-                      {doneBlocksCount} Concluídas ({blocksCompletionPct}%)
-                    </span>
-                  </div>
-                  <div className="stat-pill pending">
-                    <Clock size={16} />
-                    <span>{pendingBlocksCount} Não concluídas</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="filter-tabs">
-                <div className="filter-tabs-left">
-                  <button
-                    type="button"
-                    className={'filter-tab ' + (cardFilter === 'all' ? 'active' : '')}
-                    onClick={() => setCardFilter('all')}
-                  >
-                    Todas as etapas ({blockStats.length})
-                  </button>
-                  <button
-                    type="button"
-                    className={'filter-tab ' + (cardFilter === 'completed' ? 'active' : '')}
-                    onClick={() => setCardFilter('completed')}
-                  >
-                    ✓ Concluídas ({doneBlocksCount})
-                  </button>
-                  <button
-                    type="button"
-                    className={'filter-tab ' + (cardFilter === 'pending' ? 'active' : '')}
-                    onClick={() => setCardFilter('pending')}
-                  >
-                    Não concluídas ({pendingBlocksCount})
+                    <HelpCircle size={15} />
+                    <span>Tutorial</span>
                   </button>
                 </div>
-                <button type="button" className="text-button" onClick={p.onReview}>
-                  Ver relatório e exportar .CSV →
-                </button>
               </div>
 
               <div className="cards-grid" ref={cardsGridRef}>
@@ -851,8 +857,8 @@ export function Survey(p: Props) {
                     status === 'completed'
                       ? 'Revisar etapa'
                       : status === 'in_progress'
-                      ? 'Continuar etapa'
-                      : 'Iniciar etapa';
+                        ? 'Continuar etapa'
+                        : 'Iniciar etapa';
 
                   const isTourTargetCard = realIdx === 0 && (tourStep === 2 || tourStep === 3 || tourStep === 4);
 
@@ -1215,16 +1221,21 @@ export function Survey(p: Props) {
                       p.onChangeSubView('form');
                     }}
                   >
-                    <span>Avançar para: {nextBlockMeta.title}</span>
+                    <span>Avançar</span>
                     <ArrowRight size={17} />
                   </button>
                 ) : (
                   <button type="button" className="button primary celeb-primary-btn" onClick={p.onReview}>
-                    <span>Revisar e Concluir Pesquisa</span>
+                    <span>Avançar</span>
                     <ArrowRight size={17} />
                   </button>
                 )}
               </div>
+
+              <button type="button" className="celeb-csv-link" onClick={p.onReview}>
+                <FileSpreadsheet size={15} />
+                <span>Ver relatório e exportar .CSV</span>
+              </button>
             </div>
           </div>
         )}
