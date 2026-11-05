@@ -1,5 +1,6 @@
 # Histórico Oficial de Updates — Versão 5 (V5)
-**Data:** 28 a 29 de Outubro de 2026  
+**Data inicial:** 28 a 29 de Outubro de 2026  
+**Última atualização:** 05 de Novembro de 2026  
 **Projeto:** Fundação Net do Bem — Lançamento Oficial  
 **URL:** [https://www.netdobem.org.br/](https://www.netdobem.org.br/)  
 **Repositório:** [https://github.com/substratodigital/ong](https://github.com/substratodigital/ong) (Deploy automático via Vercel)
@@ -117,6 +118,17 @@ V5/
 - Ajuste das larguras e margens do container, inputs e card do QR Code no mobile.
 - Aplicação de `text-wrap: balance`, `text-wrap: pretty` e espaçamentos não-quebráveis (`&nbsp;`) para evitar palavras viúvas em títulos, abas e parágrafos institucionais.
 - Preservação total dos arquivos e rotas da pesquisa em `/mvp`.
+
+### 10. Atualização de Contato WhatsApp e Botão Flutuante (05/11/2026)
+- **Correção do número oficial de WhatsApp:**
+  - Atualizado para **`(015) 99100-3425`** / link internacional `https://wa.me/5515991003425`.
+  - Aplicado no rodapé institucional (`App.tsx`) e na seção de Atendimento Direto da página de contato (`ContactPage.tsx`).
+- **Botão Flutuante Responsivo de WhatsApp:**
+  - Implementado com ícone oficial SVG em verde `#25d366` e sombra com profundidade.
+  - Efeito de pulso suave contínuo (`@keyframes whatsapp-pulse`).
+  - **Posicionamento final:** canto inferior **direito** (`right: clamp(16px, 3vw, 28px)` e `bottom: clamp(18px, 3.5vw, 30px)` no desktop; `14px / 16px` no mobile).
+  - Tooltip animado surgindo à esquerda do botão (*"Fale conosco no WhatsApp"*), com desativação em telas touch para não poluir a interface mobile.
+  - Mensagem inicial pré-formatada: *"Olá! Gostaria de falar com a Fundação Net do Bem."*
 
 ---
 
