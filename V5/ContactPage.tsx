@@ -635,11 +635,11 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
               <div className="contact-direct-card">
                 <h3>Atendimento Direto</h3>
                 <div className="contact-direct-list">
-                  <a href="https://wa.me/5515991877880" target="_blank" rel="noreferrer" className="contact-direct-item">
+                  <a href="https://wa.me/5515991003425" target="_blank" rel="noreferrer" className="contact-direct-item">
                     <Phone size={18} />
                     <div>
                       <span>Telefone / WhatsApp</span>
-                      <strong>(15) 99187-7880</strong>
+                      <strong>(15) 99100-3425</strong>
                     </div>
                   </a>
                   <a href="mailto:site@netdobem.org.br" className="contact-direct-item">

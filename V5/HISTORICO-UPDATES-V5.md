@@ -66,7 +66,8 @@ V5/
 - **Endereço físico oficial adicionado:**
   `Av. Antônio Carlos Comitre, 1074 — Parque Campolim, Sorocaba — SP • CEP 18047-620` (com ícone de localização em `#ffffff`).
 - **Contato telefônico e WhatsApp oficial:**
-  `(15) 99187-7880` com link direto para WhatsApp e ícone em `#ffffff`.
+  `(15) 99100-3425` com link direto para WhatsApp e ícone em `#ffffff`.
+- **Botão Flutuante de WhatsApp:** Ícone oficial responsivo fixado no canto inferior esquerdo com animação de pulso e link direto `https://wa.me/5515991003425`.
 - Navegação simplificada alinhada ao menu superior: `Quem somos`, `Como atuamos`, `Impacto`, `Transparência`, `Contato` e botão de destaque `Quero ajudar`.
 
 ### 5. Nova Página de Contato e Captação via PIX (`/contato` e `/doar`)
@@ -130,3 +131,4 @@ Configuradas em **Project Settings → Environment Variables**:
 | `RESEND_FROM_EMAIL` | Config | `Fundação Net do Bem <site@netdobem.org.br>` |
 | `VITE_TURNSTILE_SITE_KEY` | Config | Site Key gerada no Cloudflare Turnstile |
 | `TURNSTILE_SECRET_KEY` | Secret | Secret Key gerada no Cloudflare Turnstile |
+
