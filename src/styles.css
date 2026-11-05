@@ -2171,12 +2171,12 @@ a.contact-direct-item:hover {
 
 
 /* ==========================================================================
-   BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR ESQUERDO RESPONSIVO)
+   BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO RESPONSIVO)
    ========================================================================== */
 .whatsapp-float {
   position: fixed;
   z-index: 999;
-  left: clamp(16px, 3vw, 28px);
+  right: clamp(16px, 3vw, 28px);
   bottom: clamp(18px, 3.5vw, 30px);
   pointer-events: none;
 }
@@ -2232,9 +2232,9 @@ a.contact-direct-item:hover {
 
 .whatsapp-float__tooltip {
   position: absolute;
-  left: calc(100% + 14px);
+  right: calc(100% + 14px);
   top: 50%;
-  transform: translateY(-50%) translateX(-6px);
+  transform: translateY(-50%) translateX(6px);
   padding: 8px 14px;
   border-radius: 10px;
   background: var(--ink);
@@ -2252,12 +2252,12 @@ a.contact-direct-item:hover {
 .whatsapp-float__tooltip::before {
   content: '';
   position: absolute;
-  right: 100%;
+  left: 100%;
   top: 50%;
   transform: translateY(-50%);
-  border-width: 5px 6px 5px 0;
+  border-width: 5px 0 5px 6px;
   border-style: solid;
-  border-color: transparent var(--ink) transparent transparent;
+  border-color: transparent transparent transparent var(--ink);
 }
 
 .whatsapp-float__link:hover .whatsapp-float__tooltip {
@@ -2282,7 +2282,7 @@ a.contact-direct-item:hover {
 
 @media (max-width: 640px) {
   .whatsapp-float {
-    left: 14px;
+    right: 14px;
     bottom: 16px;
   }
 

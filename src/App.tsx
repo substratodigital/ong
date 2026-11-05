@@ -1044,7 +1044,7 @@ function App() {
         <img className="footer__heart" src="/v3/images/super-footer.webp" alt="Coração em rede da Fundação Net do Bem" />
       </footer>
 
-      {/* BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR ESQUERDO) */}
+      {/* BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO) */}
       <aside className="whatsapp-float" aria-label="Atendimento via WhatsApp">
         <a
           href="https://wa.me/5515991003425?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20a%20Funda%C3%A7%C3%A3o%20Net%20do%20Bem."
