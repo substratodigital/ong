@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/convite",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/inauguracao",
+      "destination": "/index.html"
+    },
+    {
       "source": "/contato",
       "destination": "/index.html"
     },

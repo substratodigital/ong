@@ -24,6 +24,7 @@ import {
   X,
 } from 'lucide-react'
 import { ContactPage } from './components/ContactPage'
+import { InvitePage } from './components/InvitePage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -267,6 +268,16 @@ function isContactPath(pathname: string, hash: string) {
   return pathname.startsWith('/contato') || pathname.startsWith('/doar') || hash === '#contato-pagina'
 }
 
+function isInvitePath(pathname: string, hash: string) {
+  return pathname.startsWith('/convite') || pathname.startsWith('/inauguracao') || hash === '#convite'
+}
+
+function resolveView(pathname: string, hash: string): 'home' | 'contact' | 'invite' {
+  if (isInvitePath(pathname, hash)) return 'invite'
+  if (isContactPath(pathname, hash)) return 'contact'
+  return 'home'
+}
+
 function BrandLogo({
   inverse = false,
   onClickHome,
@@ -286,8 +297,8 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [loadVideo, setLoadVideo] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
-  const [currentView, setCurrentView] = useState<'home' | 'contact'>(() =>
-    isContactPath(window.location.pathname, window.location.hash) ? 'contact' : 'home',
+  const [currentView, setCurrentView] = useState<'home' | 'contact' | 'invite'>(() =>
+    resolveView(window.location.pathname, window.location.hash),
   )
 
   // Team Member Carousel & Modal State
@@ -300,7 +311,7 @@ function App() {
 
   useEffect(() => {
     const onPopState = () => {
-      setCurrentView(isContactPath(window.location.pathname, window.location.hash) ? 'contact' : 'home')
+      setCurrentView(resolveView(window.location.pathname, window.location.hash))
     }
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
@@ -555,7 +566,11 @@ function App() {
         </div>
       </header>
 
-      {currentView === 'contact' ? (
+      {currentView === 'invite' ? (
+        <main id="conteudo">
+          <InvitePage onBackHome={goBackHome} />
+        </main>
+      ) : currentView === 'contact' ? (
         <main id="conteudo">
           <ContactPage onBackHome={goBackHome} />
         </main>

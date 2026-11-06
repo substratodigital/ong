@@ -130,6 +130,17 @@ V5/
   - Tooltip animado surgindo à esquerda do botão (*"Fale conosco no WhatsApp"*), com desativação em telas touch para não poluir a interface mobile.
   - Mensagem inicial pré-formatada: *"Olá! Gostaria de falar com a Fundação Net do Bem."*
 
+### 11. Nova Página e Rota Oficial de Convite (`/convite`) (06/11/2026)
+- **Criação da rota `/convite` (e `/inauguracao`):**
+  - Integração no `vercel.json` e no roteador do React (`App.tsx`).
+  - Criação do componente isolado e responsivo `InvitePage.tsx`.
+- **Embed Seguro do Tally Forms (`Qo1jd8`):**
+  - **Sandboxing do iframe:** `sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"` protegendo o site hospedeiro contra acessos não autorizados a cookies ou scripts do domínio principal.
+  - **Isolamento de dados:** O formulário Tally processa dados e submissões nos servidores certificados e em conformidade GDPR do Tally via HTTPS/TLS, sem expor chaves ou credenciais sensíveis da aplicação.
+  - **Suporte a parâmetros dinâmicos de URL:** Preservação automática de query parameters (`?ref=...&email=...`) repassados para o iframe.
+  - **Carregamento dinâmico e responsivo:** integração com `embed.js` do Tally para cálculo automático de altura (`dynamicHeight=1`), eliminando barras de rolagem duplas.
+  - Tela de carregamento (*skeleton spinner*) suave até o formulário estar pronto.
+
 ---
 
 ## 🔒 Variáveis de Ambiente Necessárias na Vercel
