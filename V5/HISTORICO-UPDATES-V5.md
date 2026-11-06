@@ -141,6 +141,17 @@ V5/
   - **Carregamento dinâmico e responsivo:** integração com `embed.js` do Tally para cálculo automático de altura (`dynamicHeight=1`), eliminando barras de rolagem duplas.
   - Tela de carregamento (*skeleton spinner*) suave até o formulário estar pronto.
 
+### 12. Cabeçalhos de Segurança HTTP e Ícone Oficial do Instagram (06/11/2026)
+- **Implementação de Cabeçalhos HTTP de Segurança (`vercel.json`):**
+  - `X-Content-Type-Options: nosniff` (impede MIME-sniffing malicioso).
+  - `X-Frame-Options: SAMEORIGIN` (proteção contra clickjacking).
+  - `Referrer-Policy: strict-origin-when-cross-origin` (privacidade em navegações externas).
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=()` (restringe sensores desnecessários).
+- **Adição do Instagram Oficial no Footer e Contato:**
+  - Link configurado para `https://www.instagram.com/fundacao.netdobem/`.
+  - Botão estilizado com ícone Lucide `Instagram`, transição gradiente da marca e hover animado.
+  - Adicionado no rodapé (`App.tsx`) ao lado do WhatsApp e no card de Atendimento Direto da página de contato (`ContactPage.tsx`).
+
 ---
 
 ## 🔒 Variáveis de Ambiente Necessárias na Vercel

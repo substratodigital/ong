@@ -147,3 +147,4 @@ export function InvitePage({ onBackHome }: InvitePageProps) {
     </div>
   )
 }
+

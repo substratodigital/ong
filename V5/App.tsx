@@ -16,6 +16,7 @@ import {
   GraduationCap,
   HandHeart,
   HeartHandshake,
+  Instagram,
   MapPin,
   Menu,
   Phone,
@@ -1013,10 +1014,28 @@ function App() {
                   Sorocaba — SP • CEP 18047-620
                 </span>
               </p>
-              <a className="footer__phone-link" href="https://wa.me/5515991003425" target="_blank" rel="noreferrer">
-                <Phone size={18} />
-                <strong>(15) 99100-3425</strong>
-              </a>
+              <div className="footer__social-links">
+                <a
+                  className="footer__phone-link"
+                  href="https://wa.me/5515991003425"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Fale conosco no WhatsApp"
+                >
+                  <Phone size={18} />
+                  <strong>(15) 99100-3425</strong>
+                </a>
+                <a
+                  className="footer__instagram-link"
+                  href="https://www.instagram.com/fundacao.netdobem/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Siga a Fundação Net do Bem no Instagram"
+                >
+                  <Instagram size={18} />
+                  <span>@fundacao.netdobem</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

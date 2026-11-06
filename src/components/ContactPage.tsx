@@ -9,6 +9,7 @@ import {
   HandHeart,
   HeartHandshake,
   Home,
+  Instagram,
   Lock,
   Mail,
   MapPin,
@@ -647,6 +648,18 @@ export function ContactPage({ onBackHome, initialCategory = 'doacao' }: ContactP
                     <div>
                       <span>E-mail institucional</span>
                       <strong>site@netdobem.org.br</strong>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/fundacao.netdobem/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="contact-direct-item"
+                  >
+                    <Instagram size={18} />
+                    <div>
+                      <span>Instagram</span>
+                      <strong>@fundacao.netdobem</strong>
                     </div>
                   </a>
                   <div className="contact-direct-item">
