@@ -1,7 +1,6 @@
 # Histórico Oficial de Updates — Versão 5 (V5)
 **Data inicial:** 28 a 29 de Outubro de 2026  
-**Última atualização:** 05 de Novembro de 2026  
-**Última atualização:** 06 de Novembro de 2026  
+**Última atualização:** 09 de Novembro de 2026  
 **Projeto:** Fundação Net do Bem — Lançamento Oficial  
 **URL:** [https://www.netdobem.org.br/](https://www.netdobem.org.br/)  
 **Repositório:** [https://github.com/substratodigital/ong](https://github.com/substratodigital/ong) (Deploy automático via Vercel)
