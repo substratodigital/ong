@@ -180,6 +180,17 @@ V5/
   - **Sincronização de Eventos:** Ouvinte ativo para mensagens `window.addEventListener('message')` capturando `Tally.FormLoaded`, `Tally.FormSizeChanged` e eventos `[iFrameSizer]`, além de fallback com timeout de segurança.
   - **Responsividade Mobile:** Ajuste fino nas margens e padding interno do container para evitar quebras em telas pequenas (Android/iOS).
 
+### 15. Tarjamento e Omissão Permanente de Dados Sensíveis e Patrimônio na Ata de Constituição (09/11/2026)
+- **Adequação e Proteção (LGPD & Transparência Institucional):**
+  - **Omissão do Patrimônio Inicial:** O valor `R$ 1.000.000,00 (um milhão de reais)` na primeira página foi tarjado permanentemente através do mecanismo oficial de *Redaction* do PyMuPDF, purgando o texto subjacente dos fluxos de dados do PDF para que não seja copiável, selecionável ou pesquisável.
+  - **Proteção Integral de Dados Pessoais (LGPD):** Tarjamento contínuo e alinhado de todas as informações pessoais dos membros da Diretoria Executiva, Conselho Curador, Conselho Fiscal e Suplentes:
+    - Todos os números de CPF e RG (com órgãos emissores).
+    - Datas de nascimento de todos os integrantes.
+    - Endereços residenciais particulares de todas as pessoas físicas (preservando intacto apenas o endereço público oficial da sede da Fundação).
+    - E-mails particulares pessoais (`@netbr.com.br`, `@gmail.com`, `@hotmail.com`).
+    - Dados técnicos de auditoria do ZapSign (telefones móveis pessoais, IPs particulares e coordenadas geográficas de localização residencial/dispositivo).
+  - **Distribuição e Atualização:** O arquivo sanitizado foi salvo diretamente na Área de Trabalho (`Desktop\institucional-ata-constituicao.pdf`), nos diretórios oficiais do projeto (`public/v5/documentos/` e `V5/documentos/`) e sincronizado para o link de download direto da seção Transparência.
+
 ---
 
 ## 🔒 Variáveis de Ambiente Necessárias na Vercel
