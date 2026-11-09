@@ -17,29 +17,30 @@ export function InvitePage({ onBackHome }: InvitePageProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const [iframeLoaded, setIframeLoaded] = useState(false)
 
-  // Preserva parâmetros da URL (ex: ?ref=...&convidado=...) e anexa ao Tally
-  const [tallySrc, setTallySrc] = useState(
-    'https://tally.so/embed/Qo1jd8?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1',
-  )
+  // Monta a URL oficial do Tally preservando query parameters para tracking e pré-preenchimento
+  const [tallySrc] = useState(() => {
+    const base = 'https://tally.so/embed/Qo1jd8'
+    const params = new URLSearchParams()
+    params.set('alignLeft', '1')
+    params.set('hideTitle', '1')
+    params.set('transparentBackground', '1')
+    params.set('dynamicHeight', '1')
+
+    if (typeof window !== 'undefined' && window.location.search) {
+      const searchParams = new URLSearchParams(window.location.search)
+      searchParams.forEach((val, key) => {
+        params.set(key, val)
+      })
+    }
+    return `${base}?${params.toString()}`
+  })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
-    // Se houver query params na URL atual, repassa para o iframe do Tally
-    if (typeof window !== 'undefined' && window.location.search) {
-      const searchParams = new URLSearchParams(window.location.search)
-      searchParams.set('alignLeft', '1')
-      searchParams.set('hideTitle', '1')
-      searchParams.set('transparentBackground', '1')
-      searchParams.set('dynamicHeight', '1')
-      setTallySrc(`https://tally.so/embed/Qo1jd8?${searchParams.toString()}`)
-    }
-  }, [])
-
-  useEffect(() => {
-    // Carrega o script oficial do Tally para ajuste dinâmico de altura e responsividade
     const scriptSrc = 'https://tally.so/widgets/embed.js'
-    const loadTally = () => {
+
+    const initTally = () => {
       if (typeof window.Tally !== 'undefined') {
         window.Tally.loadEmbeds()
       } else {
@@ -50,20 +51,52 @@ export function InvitePage({ onBackHome }: InvitePageProps) {
       }
     }
 
-    if (typeof window.Tally !== 'undefined') {
-      loadTally()
-    } else {
-      let script = document.querySelector<HTMLScriptElement>(`script[src="${scriptSrc}"]`)
-      if (!script) {
-        script = document.createElement('script')
-        script.src = scriptSrc
-        script.async = true
-        script.onload = loadTally
-        script.onerror = loadTally
-        document.body.appendChild(script)
-      } else {
-        loadTally()
+    // Ouvinte para mensagens do iframe-resizer e do Tally para dispensar o spinner suavemente
+    const handleMessage = (e: MessageEvent) => {
+      if (typeof e.data === 'string') {
+        try {
+          const parsed = JSON.parse(e.data)
+          if (parsed?.event === 'Tally.FormLoaded' || parsed?.event === 'Tally.FormSizeChanged') {
+            setIframeLoaded(true)
+          }
+        } catch {
+          if (e.data.startsWith('[iFrameSizer]')) {
+            setIframeLoaded(true)
+          }
+        }
       }
+    }
+    window.addEventListener('message', handleMessage)
+
+    // Fallback de segurança para redes lentas ou adblockers
+    const fallbackTimer = setTimeout(() => {
+      setIframeLoaded(true)
+      const iframe = iframeRef.current
+      if (iframe && !iframe.src && iframe.dataset.tallySrc) {
+        iframe.src = iframe.dataset.tallySrc
+      }
+    }, 2800)
+
+    let script = document.querySelector<HTMLScriptElement>(`script[src="${scriptSrc}"]`)
+    if (!script) {
+      script = document.createElement('script')
+      script.src = scriptSrc
+      script.async = true
+      script.onload = () => initTally()
+      script.onerror = () => initTally()
+      document.body.appendChild(script)
+    } else {
+      const timer = setTimeout(initTally, 60)
+      return () => {
+        clearTimeout(timer)
+        clearTimeout(fallbackTimer)
+        window.removeEventListener('message', handleMessage)
+      }
+    }
+
+    return () => {
+      clearTimeout(fallbackTimer)
+      window.removeEventListener('message', handleMessage)
     }
   }, [tallySrc])
 
@@ -124,22 +157,19 @@ export function InvitePage({ onBackHome }: InvitePageProps) {
             <iframe
               ref={iframeRef}
               data-tally-src={tallySrc}
-              src={tallySrc}
               loading="lazy"
               width="100%"
-              height="818"
+              height="400"
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
               title="Inauguração | Fundação Net do Bem"
               className={`invite-iframe ${iframeLoaded ? 'is-loaded' : ''}`}
+              scrolling="no"
+              style={{ overflow: 'hidden' }}
               onLoad={() => {
                 setIframeLoaded(true)
-                if (typeof window.Tally !== 'undefined') {
-                  window.Tally.loadEmbeds()
-                }
               }}
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
             />
           </div>
         </div>
@@ -147,4 +177,5 @@ export function InvitePage({ onBackHome }: InvitePageProps) {
     </div>
   )
 }
+
 

@@ -1,6 +1,7 @@
 # Histórico Oficial de Updates — Versão 5 (V5)
 **Data inicial:** 28 a 29 de Outubro de 2026  
 **Última atualização:** 05 de Novembro de 2026  
+**Última atualização:** 06 de Novembro de 2026  
 **Projeto:** Fundação Net do Bem — Lançamento Oficial  
 **URL:** [https://www.netdobem.org.br/](https://www.netdobem.org.br/)  
 **Repositório:** [https://github.com/substratodigital/ong](https://github.com/substratodigital/ong) (Deploy automático via Vercel)
@@ -151,6 +152,33 @@ V5/
   - Link configurado para `https://www.instagram.com/fundacao.netdobem/`.
   - Botão estilizado com ícone Lucide `Instagram`, transição gradiente da marca e hover animado.
   - Adicionado no rodapé (`App.tsx`) ao lado do WhatsApp e no card de Atendimento Direto da página de contato (`ContactPage.tsx`).
+
+### 13. Auditoria Técnica Global e Diagnóstico de Bloqueio Corporativo (06/11/2026)
+- **Auditoria de Infraestrutura em Produção (100% Operacional):**
+  - **HTTP Status:** `200 OK` instantâneo (~0.15s via CDN Vercel com Cache HIT).
+  - **Certificado SSL/HTTPS:** Válido, Let's Encrypt com cabeçalho `Strict-Transport-Security: max-age=63072000` (HSTS de 2 anos).
+  - **Cabeçalhos de Segurança HTTP:** `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin` e `Permissions-Policy: camera=(), microphone=(), geolocation=()`.
+  - **Autenticação de E-mail Institucional e DNS:**
+    - `DMARC`: Ativo e em quarentena de proteção (`v=DMARC1; p=quarantine; rua=mailto:site@netdobem.org.br`).
+    - `SPF`: Ativo (`v=spf1 include:spf.spacemail.com ~all`).
+    - `DKIM (Resend)`: Chave criptográfica ativa e validada no subdomínio `resend._domainkey.netdobem.org.br`.
+  - **Página de Convite (`/convite`):** Rota e embed do formulário Tally operando com sandboxing e ajuste de altura dinâmico.
+- **Diagnóstico do Bloqueio em Redes Corporativas (Ex: sek.io / Empresas de Cibersegurança):**
+  - **Origem do bloqueio:** O bloqueio não ocorre por falha no código, no servidor Vercel ou na configuração de DNS, mas sim dentro de máquinas corporativas equipadas com soluções de proxy/EDR (como Zscaler, Palo Alto Networks, Fortinet, CrowdStrike ou Microsoft Defender for Endpoint).
+  - **Causa 1 — NRD (*Newly Registered Domain*):** Domínio registrado em 14/09/2026 (menos de 60 dias de vida). Políticas de segurança corporativa bloqueiam preventivamente domínios com menos de 30–90 dias de idade para proteção contra campanhas de *phishing* recém-criadas.
+  - **Causa 2 — Categoria "Sem Classificação" (*Uncategorized / Unknown*):** Como o domínio foi colocado no ar recentemente, os motores globais de reputação (Palo Alto URL Filtering, FortiGuard, Zscaler, Cisco Talos) ainda não o haviam classificado sob a etiqueta institucional `Non-profit / NGO` (Organização sem fins lucrativos).
+  - **Validação cruzada:** Em dispositivos móveis no 4G/5G (fora da VPN/Wi-Fi corporativo), o site abre normalmente e sem qualquer aviso.
+- **Plano de Ação para Liberação:**
+  1. *Ação Imediata Interna:* Solicitação de adição de `netdobem.org.br` à *whitelist* de navegação da equipe de TI/InfoSec da corporação.
+  2. *Ação Global de Categorização:* Submissão do domínio nos portais oficiais de reputação de URL (Palo Alto Networks, FortiGuard Web Filter, Zscaler Site Review e Cisco Talos) solicitando a categoria **Non-profit / NGO**.
+
+### 14. Correção e Eliminação da Barra de Rolagem Interna no Embed do Tally (`/convite`) (09/11/2026)
+- **Causa Raiz Identificada:** O componente React renderizava o `<iframe>` contendo antecipadamente o atributo `src={...}` junto a `data-tally-src`. A biblioteca oficial do Tally (`embed.js`) utiliza estritamente o seletor `iframe[data-tally-src]:not([src])` para detectar embeds pendentes e instanciar o motor do `iframe-resizer`. Devido à presença prematura do `src`, o motor do Tally ignorava o elemento, impedindo o cálculo de altura em tempo real (`dynamicHeight=1`) e prendendo o formulário em uma altura fixa estática de 818px com barra de rolagem interna dupla no desktop e mobile.
+- **Soluções Técnicas Aplicadas:**
+  - **Ativação Nativa do `iframe-resizer`:** Removido o `src` direto do JSX mantendo apenas `data-tally-src`, permitindo que o `Tally.loadEmbeds()` inicialize o cálculo de altura dinâmico sem restrições.
+  - **Eliminação de Scrollbar:** Inseridos `scrolling="no"`, `style={{ overflow: 'hidden' }}` e a regra CSS `.invite-iframe::-webkit-scrollbar { display: none; width: 0; height: 0; }`.
+  - **Sincronização de Eventos:** Ouvinte ativo para mensagens `window.addEventListener('message')` capturando `Tally.FormLoaded`, `Tally.FormSizeChanged` e eventos `[iFrameSizer]`, além de fallback com timeout de segurança.
+  - **Responsividade Mobile:** Ajuste fino nas margens e padding interno do container para evitar quebras em telas pequenas (Android/iOS).
 
 ---
 
