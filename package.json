@@ -1,12 +1,13 @@
 {
-  "name": "rede-netdobem-prototipo",
-  "version": "0.1.0",
+  "name": "netdobem-pesquisa-mvp3",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --configLoader runner --host 127.0.0.1 --port 5178",
+    "dev": "vite --configLoader runner --host 0.0.0.0 --port 5000",
     "build": "tsc --noEmit && vite build --configLoader runner",
-    "preview": "vite preview --configLoader runner --host 127.0.0.1 --port 5178",
+    "build:subpath": "tsc --noEmit && vite build --configLoader runner --base=/mvp-3/",
+    "preview": "vite preview --configLoader runner --host 0.0.0.0 --port 5000",
     "test": "node --test tests/domain.test.mjs"
   },
   "dependencies": {
