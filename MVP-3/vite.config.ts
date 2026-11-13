@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.REPL_ID || process.env.REPLIT_DOMAINS || process.env.VITE_BASE_ROOT === '1' ? '/' : '/mvp-3/',
+  base: '/',
   publicDir: 'public',
   cacheDir: '.vite-cache',
   build: {
@@ -11,8 +11,8 @@ export default defineConfig({
     emptyOutDir: true
   },
   server: {
-    host: '127.0.0.1',
-    port: 5179,
-    strictPort: true
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: true
   }
 });
