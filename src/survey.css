@@ -1366,19 +1366,21 @@ body[data-screen=form] #survey-menu-slot{flex:1;min-width:0;display:flex;align-i
 .field-meta-row{
   display:flex;
   justify-content:flex-end;
-  margin-top:12px;
+  margin-top:10px;
 }
 .question-content .field-meta{
   display:inline-flex;
   align-items:center;
-  gap:6px;
+  justify-content:center;
+  width:auto;
   margin:0;
-  padding:6px 14px;
+  padding:4px 12px;
   border-radius:999px;
-  font-size:13px;
+  font-size:12.5px;
   font-style:normal;
   font-weight:700;
   letter-spacing:.01em;
+  white-space:nowrap;
 }
 .question-content .field-meta.is-optional{
   background:var(--soft);

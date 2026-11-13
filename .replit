@@ -12,3 +12,4 @@ run = ["npm", "run", "preview"]
 [[ports]]
 localPort = 5000
 externalPort = 80
+

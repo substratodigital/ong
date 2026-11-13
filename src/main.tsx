@@ -1066,7 +1066,7 @@ function App() {
 
         <div className="field-meta-row">
           <span className={'field-meta ' + (q.required ? 'is-required' : 'is-optional')}>
-            {q.required ? '* Obrigatório' : 'Opcional — você pode avançar e preencher depois'}
+            {q.required ? '* Obrigatório' : 'Opcional'}
           </span>
         </div>
         {error && (
