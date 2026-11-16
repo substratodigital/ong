@@ -26,7 +26,6 @@ import {
 } from 'lucide-react'
 import { ContactPage } from './components/ContactPage'
 import { InvitePage } from './components/InvitePage'
-import { SurveyIntroPage } from './components/SurveyIntroPage'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -274,12 +273,7 @@ function isInvitePath(pathname: string, hash: string) {
   return pathname.startsWith('/convite') || pathname.startsWith('/inauguracao') || hash === '#convite'
 }
 
-function isSurveyPath(pathname: string, hash: string) {
-  return pathname.startsWith('/pesquisa') || hash === '#pesquisa'
-}
-
-function resolveView(pathname: string, hash: string): 'home' | 'contact' | 'invite' | 'survey' {
-  if (isSurveyPath(pathname, hash)) return 'survey'
+function resolveView(pathname: string, hash: string): 'home' | 'contact' | 'invite' {
   if (isInvitePath(pathname, hash)) return 'invite'
   if (isContactPath(pathname, hash)) return 'contact'
   return 'home'
@@ -304,7 +298,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [loadVideo, setLoadVideo] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
-  const [currentView, setCurrentView] = useState<'home' | 'contact' | 'invite' | 'survey'>(() =>
+  const [currentView, setCurrentView] = useState<'home' | 'contact' | 'invite'>(() =>
     resolveView(window.location.pathname, window.location.hash),
   )
 
@@ -532,16 +526,6 @@ function App() {
   }, [currentView])
 
   const currentMember = teamMembers[activeTeamIndex]
-
-  if (currentView === 'survey') {
-    return (
-      <div ref={app}>
-        <main id="conteudo">
-          <SurveyIntroPage onGoHome={goBackHome} />
-        </main>
-      </div>
-    )
-  }
 
   return (
     <div ref={app}>

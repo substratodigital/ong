@@ -24,45 +24,47 @@
   ],
   "redirects": [
     {
+      "source": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
+      "permanent": true
+    },
+    {
+      "source": "/pesquisa/:path*",
+      "destination": "https://portal.netdobem.org.br/",
+      "permanent": true
+    },
+    {
       "source": "/mvp",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     },
     {
       "source": "/mvp/:path*",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     },
     {
       "source": "/mvp-2",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     },
     {
       "source": "/mvp-2/:path*",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     },
     {
       "source": "/mvp-3",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     },
     {
       "source": "/mvp-3/:path*",
-      "destination": "/pesquisa",
+      "destination": "https://portal.netdobem.org.br/",
       "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/pesquisa",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/pesquisa/:path*",
-      "destination": "/index.html"
-    },
     {
       "source": "/convite",
       "destination": "/index.html"
