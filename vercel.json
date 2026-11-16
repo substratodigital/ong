@@ -22,7 +22,47 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/mvp",
+      "destination": "/pesquisa",
+      "permanent": true
+    },
+    {
+      "source": "/mvp/:path*",
+      "destination": "/pesquisa",
+      "permanent": true
+    },
+    {
+      "source": "/mvp-2",
+      "destination": "/pesquisa",
+      "permanent": true
+    },
+    {
+      "source": "/mvp-2/:path*",
+      "destination": "/pesquisa",
+      "permanent": true
+    },
+    {
+      "source": "/mvp-3",
+      "destination": "/pesquisa",
+      "permanent": true
+    },
+    {
+      "source": "/mvp-3/:path*",
+      "destination": "/pesquisa",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/pesquisa",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/pesquisa/:path*",
+      "destination": "/index.html"
+    },
     {
       "source": "/convite",
       "destination": "/index.html"
